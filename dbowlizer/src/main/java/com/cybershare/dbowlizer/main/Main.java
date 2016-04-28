@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.cybershare.dbowlizer.main;
 
@@ -13,8 +8,6 @@ import com.cybershare.dbowlizer.build.Builder;
 import com.cybershare.dbowlizer.build.Director;
 import com.cybershare.dbowlizer.build.ModelProduct;
 import com.cybershare.dbowlizer.dbmodel.DBAttribute;
-import com.cybershare.dbowlizer.dbmodel.DBAttributeDomain;
-import com.cybershare.dbowlizer.dbmodel.DBAttributeRestriction;
 import com.cybershare.dbowlizer.dbmodel.DBCandidateKey;
 import com.cybershare.dbowlizer.dbmodel.DBForeignKey;
 import com.cybershare.dbowlizer.dbmodel.DBPrimaryKey;
@@ -64,7 +57,7 @@ public class Main {
         OWLUtils bundle = new OWLUtils(settings);
         OWLVisitor visitor = new OWLVisitor(bundle);
         
-        //visit models and contruct axioms  
+        //visit models and construct axioms  
         for(DBAttribute attribute : product.getAttributes())
             visitor.visit(attribute);
         
@@ -86,15 +79,8 @@ public class Main {
         for(DBView view : product.getViews())
             visitor.visit(view);
         
-        /* 
-        for(DBAttributeDomain domain : product.getAttributeDomains())
-            visitor.visit(domain);
         
-        for(DBAttributeRestriction restriction : product.getAttributeRestrictions())
-            visitor.visit(restriction); */
-        
-        
-        //dump resulting ontology
+        //dump relational-model ontology
         bundle.saveOntology();
         
         OutputOntologyGenerator oPOG = new OutputOntologyGenerator(bundle, product, settings);

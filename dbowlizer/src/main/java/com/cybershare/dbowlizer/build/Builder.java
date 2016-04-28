@@ -7,9 +7,6 @@
 package com.cybershare.dbowlizer.build;
 
 
-import com.cybershare.dbowlizer.db2rdf.R2rmlMapping;
-import com.cybershare.dbowlizer.db2rdf.XSDs;//Remove Eric was testing
-
 import static com.cybershare.dbowlizer.utils.HelperUtils.remNoneAlphaNum;
 import com.cybershare.dbowlizer.dbmodel.DBAttribute;
 import com.cybershare.dbowlizer.dbmodel.DBAttributeDomain;
@@ -20,6 +17,8 @@ import com.cybershare.dbowlizer.dbmodel.DBPrimaryKey;
 import com.cybershare.dbowlizer.dbmodel.DBRelation;
 import com.cybershare.dbowlizer.dbmodel.DBSchema;
 import com.cybershare.dbowlizer.dbmodel.DBView;
+import com.cybershare.dbowlizer.utils.HelperUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import schemacrawler.schema.Column;
@@ -91,8 +90,7 @@ public class Builder {
                 attribute.addRestriction(product.getAttributeRestriction("dbowl:db_not_null"));
             
             //set attribute domain
-            
-            
+            attribute.setDomain(product.getAttributeDomain(HelperUtils.getAttributeDomain(attribute.getDatatype())));
             
             relation.addAttribute(attribute);
             if (column.isPartOfPrimaryKey()){

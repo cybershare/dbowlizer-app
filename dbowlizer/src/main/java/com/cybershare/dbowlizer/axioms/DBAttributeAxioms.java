@@ -28,6 +28,7 @@ public class DBAttributeAxioms extends Axioms {
         this.setNonKeyAttribute();
         this.setDefaultValue();
         this.setRestrictions();
+        this.setDomain();
     }
     
     public void setNonKeyAttribute(){
@@ -40,6 +41,15 @@ public class DBAttributeAxioms extends Axioms {
         if (attribute.getDefaultvalue() != null) {
             //defaultValueIndividual = bundle.getFactory().getOWLLiteral(attribute.getDefaultvalue());
             OWLAxiom axiom = bundle.getFactory().getOWLDataPropertyAssertionAxiom(vocabulary_RelationalToModel.getDataProperty_hasDefaultValue(), individual, attribute.getDefaultvalue());
+            add(axiom);
+        }
+    }
+    
+    public void setDomain(){
+        OWLIndividual domainIndividual = null;
+        if (attribute.getDomain() != null) {
+            domainIndividual = Individuals.getIndividual(attribute.getDomain(), bundle);
+            OWLAxiom axiom = bundle.getFactory().getOWLObjectPropertyAssertionAxiom(vocabulary_RelationalToModel.getObjectProperty_hasAttributeDomain(), individual, domainIndividual);
             add(axiom);
         }
     }
