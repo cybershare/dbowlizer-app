@@ -1,0 +1,1403 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.cybershare.utep.edu/resource/dbowl/"
+     xml:base="http://ontology.cybershare.utep.edu/resource/dbowl/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dbowl="http://ontology.cybershare.utep.edu/resource/dbowl:"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/">
+        <owl:imports rdf:resource="http://ontology.cybershare.utep.edu/dbowlizer/relational-model-complex.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:hasAttribute -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:hasAttribute"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:hasAttributeDomain -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:hasAttributeDomain"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:hasAttributeRestriction -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:hasAttributeRestriction"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:hasPart"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:references -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:references"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:hasDefaultValue -->
+
+    <owl:DatatypeProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:hasDefaultValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBBinaryDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBBinaryDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBCandidateKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBCandidateKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBMultipleDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBMultipleDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBNonPrimaryForeignKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonPrimaryForeignKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyBinaryDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyBinaryDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyMultipleDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyMultipleDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallySingleDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallySingleDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBSchema -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBSchema"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBSingleDependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBSingleDependentPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl:DBView -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_double -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_double"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBSchema"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:deparments_in_ontario"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_copy"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee_salary"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:managers_by_time"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsource_project_manager"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project_filtered"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor_dept2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.province"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.city_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.province -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:city.province">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.company"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.duration"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.company -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.company">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.duration -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.duration">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:deparments_in_ontario -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:deparments_in_ontario">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.location"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.location -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.location">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.fk_dependent.employee_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.employee_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.employee_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.fk_dependent.employee_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.fk_dependent.employee_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.employee_id"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallySingleDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:dependent.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Address"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Salary"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Address -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Address">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Nameindex.candidate_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Nameindex.candidate_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBCandidateKey"/>
+        <dbowl:hasAttribute rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Name"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Salary -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.Salary">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasDefaultValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1000</dbowl:hasDefaultValue>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_double"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_copy -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_copy">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee_name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee_salary -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:high_salary_employee_salary">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Description"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Description -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Description">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasDefaultValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ITJob</dbowl:hasDefaultValue>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.Name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Entry_date"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Project"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Time_assigned"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.Project.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Entry_date -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Entry_date">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Project -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Project">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Time_assigned -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Time_assigned">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.Project.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.Project.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonPrimaryForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.Project"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.fk_manager.id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBSingleDependentPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:manager.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:managers_by_time -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:managers_by_time">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsource_project_manager -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsource_project_manager">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.contract_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.contract_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.project_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.phase"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.contract_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.contract_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.contract_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.contract_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:contract.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.contract_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.project_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.fk_outsourceproject.project_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.project_id"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.phase -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.phase">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyBinaryDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.contract_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.phase"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.project_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceproject.project_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.employee_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.project_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.project_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.start_date"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.employee_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.employee_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.employee_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.employee_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.employee_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.project_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.fk_outsourceworkers.project_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.project_id"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBBinaryDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.project_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.project_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.start_date -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:outsourceworkers.start_date">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.cost"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.description"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.cost -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.cost">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_double"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.description -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.description">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.employee_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.job_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.project_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.job_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.employee_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.employee_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.employee_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.employee_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.employee_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.job_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.job_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:job.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.job_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.project_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.fk_projectjobemployee.project_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.job_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.job_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBMultipleDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.job_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.project_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:projectjobemployee.project_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.project.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.subproject.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.project"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.subproject"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.project.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.project.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.project"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.subproject.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.fk_subproject.subproject.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.subproject"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBSingleDependentPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.project"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.subproject"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.project -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.project">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.subproject -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:subproject.subproject">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project_filtered -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporal_outsource_project_filtered">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.department_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.department_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.employee_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.project_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.project_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.department_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.department_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.employee_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.employee_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.department_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.department_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.department_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.employee_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.employee_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.employee_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.project_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.fk_temporalassignment.project_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:project.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.project_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPartiallyMultipleDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.department_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.project_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.year"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.project_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.project_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.year -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:temporalassignment.year">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.authorized"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.creator"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.authorized.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.creator.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.name"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.pwd"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.authorized -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.authorized">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.creator -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.creator">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.authorized.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.authorized.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonPrimaryForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.authorized"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.creator.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.fk_users.creator.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonPrimaryForeignKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.creator"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.name -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.name">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBIndependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.pwd -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:users.pwd">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBNonKeyAttribute"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_string"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBRelation"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.department_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.employee_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.department_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.employee_id.foreign_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.primary_key"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.department_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.department_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.employee_id -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.employee_id">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBAttribute"/>
+        <dbowl:hasAttributeDomain rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_integer"/>
+        <dbowl:hasAttributeRestriction rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl:db_not_null"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.department_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.department_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:department.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.department_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.employee_id.foreign_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.fk_worksfor.employee_id.foreign_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBForeignKey"/>
+        <dbowl:references rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:employee.primary_key"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.employee_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.primary_key -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.primary_key">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBBinaryDependentPrimaryKey"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBPrimaryKey"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.department_id"/>
+        <dbowl:hasPart rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor.employee_id"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor_dept2 -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowlizer:worksfor_dept2">
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl:DBView"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.3-SNAPSHOT) http://owlapi.sourceforge.net -->
+

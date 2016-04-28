@@ -149,19 +149,23 @@ public class DataPropertyRestrictionMappingHandler
 					for (OWLNamedIndividual rangeObj : rangeIndividuals)
 					{
 						OWLDataPropertyRangeAxiom restrictionAxiom = null;
-						if (rangeObj.getIRI().equals(db_string_individual.getIRI()))
+						//TODO: Fix this
+						//if (rangeObj.getIRI().equals(db_string_individual.getIRI()))
+						if (rangeObj.getIRI().toString().contains("db_string"))
 						{
 							restrictionAxiom = factory.getOWLDataPropertyRangeAxiom(owlDataProperty,factory.getOWLDatatype(xsd_string_IRI));
 						}
 						else
 						{
-							if (rangeObj.getIRI().equals(db_integer_individual.getIRI()))
+							//if (rangeObj.getIRI().equals(db_integer_individual.getIRI()))
+							if (rangeObj.getIRI().toString().contains("db_integer"))
 							{
 								restrictionAxiom = factory.getOWLDataPropertyRangeAxiom(owlDataProperty,factory.getIntegerOWLDatatype());
 							}
 							else
 							{
-								if (rangeObj.getIRI().equals(db_float_individual.getIRI()))
+								//if (rangeObj.getIRI().equals(db_float_individual.getIRI()))
+								if (rangeObj.getIRI().toString().contains("db_double"))
 								{
 									restrictionAxiom = factory.getOWLDataPropertyRangeAxiom(owlDataProperty,factory.getDoubleOWLDatatype());
 
@@ -169,7 +173,8 @@ public class DataPropertyRestrictionMappingHandler
 								else
 								{
 
-									if (rangeObj.getIRI().equals(db_date_individual.getIRI()))
+									//if (rangeObj.getIRI().equals(db_date_individual.getIRI()))
+									if (rangeObj.getIRI().toString().contains("db_date"))
 									{
 										restrictionAxiom = factory.getOWLDataPropertyRangeAxiom(owlDataProperty,factory.getOWLDatatype(xsd_date_IRI));
 									}
