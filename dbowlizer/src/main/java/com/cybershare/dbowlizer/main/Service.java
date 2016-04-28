@@ -1,7 +1,15 @@
 
 package com.cybershare.dbowlizer.main;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.cybershare.dbowlizer.db2rdf.R2RMLfactory;
 import com.cybershare.dbowlizer.build.Builder;
@@ -30,6 +38,38 @@ public class Service {
     /**
      * @param args the command line arguments
      */
+	
+	public static void main(String[] args){
+		
+	    //Instantiate JSON Parser
+        JSONParser parser = new JSONParser();
+        Object obj = null;
+		String path = "C:/Users/Luis/Documents/Git Projects/dbowlizer-app/dbowlizer/src/main/java/com/cybershare/dbowlizer/json";
+		try {
+			obj = parser.parse(new FileReader(path +  "/test.json"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		JSONObject jsonInput =  (JSONObject)obj;
+		JSONObject dbsettings = (JSONObject)jsonInput.get("dbsettings");
+		if (dbsettings != null){
+			String driver = dbsettings.get("driver").toString();
+			String host = dbsettings.get("host").toString();
+			String port = dbsettings.get("port").toString();
+			String dbname = dbsettings.get("dbname").toString();
+			String user = dbsettings.get("user").toString();
+			String password = dbsettings.get("password").toString();
+		}
+
+	}
     
     public static void service(Settings settings) {
         
@@ -86,6 +126,19 @@ public class Service {
         
         R2RMLfactory r2rmlFactory= new R2RMLfactory(product,mappedEntitiesBundle, settings);
         r2rmlFactory.startProduction();
+       
+        /* 
+        //output json test
+        JSONObject jsonObject = new JSONObject();
+        for(String ontologyName: settings.getOntologyNames()){
+        	System.out.println("wtf" + ontologyName);
+        	jsonObject.put("Ontology-Link", ontologyName);
+        }
+        for(String mappingName: settings.getMappingNames())
+        	jsonObject.put("Ontology-Link", mappingName);
+        
+        System.out.println(jsonObject.toJSONString());
+        */
         
     }
     
