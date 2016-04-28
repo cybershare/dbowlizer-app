@@ -61,6 +61,8 @@ public class Settings {
       this.outputDir= resource.getStringValue("outputDir", null);
       this.outputDirFile= resource.getStringValue("outputDirFile", null);
       this.ontologyFile = resource.getStringValue("OntologyFile", null);
+      this.outputURL = resource.getStringValue("outputURL", null);
+      
     }
 
     public String getDriver() {
@@ -182,7 +184,7 @@ public class Settings {
     }
 
     public void addMappingName(String mappingName){
-        ontologies.add(mappingName);
+        mappings.add(mappingName);
     }
     
 }

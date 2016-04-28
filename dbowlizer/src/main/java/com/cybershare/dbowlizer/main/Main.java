@@ -3,6 +3,8 @@ package com.cybershare.dbowlizer.main;
 
 import java.sql.Connection;
 
+import org.json.simple.JSONObject;
+
 import com.cybershare.dbowlizer.db2rdf.R2RMLfactory;
 import com.cybershare.dbowlizer.build.Builder;
 import com.cybershare.dbowlizer.build.Director;
@@ -34,6 +36,7 @@ public class Main {
         
         /* Load configuration settings */
         Settings settings = new Settings("/schema2owl.config.properties");
+        settings.setUuid("312312-312312-312312");
         
         /* Database Connector */
         DriverSelector selector = new DriverSelector(settings.getDriver());
@@ -88,6 +91,22 @@ public class Main {
         
         R2RMLfactory r2rmlFactory= new R2RMLfactory(product,mappedEntitiesBundle, settings);
         r2rmlFactory.startProduction();
+        
+        //Output names on a json
+        JSONObject jsonObject = new JSONObject();
+    	int i=0;
+        for(String ontologyName: settings.getOntologyNames()){
+        	jsonObject.put("Ontology-Link-" +  i, settings.getOutputURL() + settings.getUuid() + "/" + ontologyName);
+        	i++;
+        }
+        i = 0;
+        for(String mappingName: settings.getMappingNames()){
+        	jsonObject.put("Mapping-Link-" + i, settings.getOutputURL() + settings.getUuid() + "/" + mappingName);
+        	i++;
+        }
+        
+        System.out.println(jsonObject.toJSONString());
+
     }
 
 }

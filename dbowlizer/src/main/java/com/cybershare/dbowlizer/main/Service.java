@@ -126,19 +126,6 @@ public class Service {
         
         R2RMLfactory r2rmlFactory= new R2RMLfactory(product,mappedEntitiesBundle, settings);
         r2rmlFactory.startProduction();
-       
-        /* 
-        //output json test
-        JSONObject jsonObject = new JSONObject();
-        for(String ontologyName: settings.getOntologyNames()){
-        	System.out.println("wtf" + ontologyName);
-        	jsonObject.put("Ontology-Link", ontologyName);
-        }
-        for(String mappingName: settings.getMappingNames())
-        	jsonObject.put("Ontology-Link", mappingName);
-        
-        System.out.println(jsonObject.toJSONString());
-        */
         
     }
     

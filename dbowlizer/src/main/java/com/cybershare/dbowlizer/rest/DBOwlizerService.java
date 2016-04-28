@@ -46,7 +46,9 @@ public class DBOwlizerService
         //Settings
         Settings settings = new Settings("/schema2owl.config.properties");
         settings.setOutputDir(settings.getOutputDir() + uuid.toString() + "/");
+        settings.setOutputDirFile(settings.getOutputDirFile() + uuid.toString() + "/");
         settings.setOntologyFile(settings.getOutputDir() + "relational-to-ontology-mapping-dbwolizer.owl");
+        settings.setUuid(uuid.toString());
         
       //Parse input Json settings
         JSONObject dbsettings = (JSONObject)inputJsonObj.get("dbsettings");
@@ -72,8 +74,24 @@ public class DBOwlizerService
 		}
         
         //Build output json
+        //Output names on a json
+        JSONObject jsonOutput = new JSONObject();
+    	int i=0;
+        for(String ontologyName: settings.getOntologyNames()){
+        	jsonOutput.put("Ontology-Link-" + i, settings.getOutputURL() + settings.getUuid() + "/" + ontologyName);
+        	i++;
+        }
+        i = 0;
+        for(String mappingName: settings.getMappingNames()){
+        	jsonOutput.put("Mapping-Link-" + i, settings.getOutputURL() + settings.getUuid() + "/" +  mappingName);
+        	i++;
+        }
         
-        String result = inputJsonObj.toString();
+        System.out.println(jsonOutput.toJSONString());
+        
+        
+        String result = jsonOutput.toString();
+        result = result.replaceAll("\\\\", "");
         return Response.status(200).entity(result).build();
 	}
 }
