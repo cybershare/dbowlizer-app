@@ -4,6 +4,8 @@ package com.cybershare.dbowlizer.dbmodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cybershare.dbowlizer.build.ModelProduct;
+
 /**
  * 
  * @author Luis Garnica <lagarnicachavira at utep.edu>
@@ -20,6 +22,8 @@ public class DBAttribute extends Element {
     private String referencedRelationName = null; //Only applies if the attribute is a foreign key
     private ArrayList<DBAttributeRestriction> restrictions;
     private String columnName;
+    private ModelProduct modelProduct;
+
     
    
     public DBAttribute(String identification) {
