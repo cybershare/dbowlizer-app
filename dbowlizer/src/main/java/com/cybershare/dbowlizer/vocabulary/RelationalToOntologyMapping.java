@@ -12,50 +12,50 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
  */
 public class RelationalToOntologyMapping extends Vocabulary {
 
-    private static final String NAMESPACE = "http://ontology.cybershare.utep.edu/resource/dbowl";
+    private static final String NAMESPACE = "http://ontology.cybershare.utep.edu/resource/dbowl/";
     
     //OWL Classes
-    private static final String OWLClass_EntityConceptMapping = NAMESPACE + ":EntityConceptMapping";
-    private static final String OWLClass_VirtualConceptMapping = NAMESPACE + ":VirtualConceptMapping";
-    private static final String OWLClass_VirtualPropertyMapping = NAMESPACE + ":VirtualPropertyMapping";
-    private static final String OWLClass_VirtualCollectionMapping = NAMESPACE + ":VirtualCollectionMapping";
-    private static final String OWLClass_RelationConceptMapping = NAMESPACE + ":RelationConceptMapping";
-    private static final String OWLClass_UnaryObjectPropertyMapping = NAMESPACE + ":UnaryObjectPropertyMapping";
-    private static final String OWLClass_BinaryObjectPropertyMapping = NAMESPACE + ":BinaryObjectPropertyMapping";
-    private static final String OWLClass_DatatypePropertyMapping = NAMESPACE + ":DatatypePropertyMapping";
-    private static final String OWLClass_TransitiveObjectPropertyMapping = NAMESPACE + ":TransitiveObjectPropertyMapping";
-    private static final String OWLClass_FunctionalObjectPropertyMapping = NAMESPACE + ":FunctionalObjectPropertyMapping";
-    private static final String OWLClass_EnnumerationPropertyRangeMapping = NAMESPACE + ":EnnumerationPropertyRangeMapping";
-    private static final String OWLClass_SymmetricObjectPropertyMapping = NAMESPACE + ":SymmetricObjectPropertyMapping";
-    private static final String OWLClass_AsymmetricObjectPropertyMapping = NAMESPACE + ":AsymmetricObjectPropertyMapping";
-    private static final String OWLClass_InverseFunctionalObjectPropertyMapping = NAMESPACE + ":InverseFunctionalObjectPropertyMapping";
-    private static final String OWLClass_ReflexiveObjectPropertyMapping = NAMESPACE + ":ReflexiveObjectPropertyMapping";
-    private static final String OWLClass_IrreflexiveObjectPropertyMapping = NAMESPACE + ":IrreflexiveObjectPropertyMapping";
-    private static final String OWLClass_FunctionalDatatypePropertyMapping = NAMESPACE + ":FunctionalDatatypePropertyMapping";
+    private static final String OWLClass_EntityConceptMapping = NAMESPACE + "EntityConceptMapping";
+    private static final String OWLClass_VirtualConceptMapping = NAMESPACE + "VirtualConceptMapping";
+    private static final String OWLClass_VirtualPropertyMapping = NAMESPACE + "VirtualPropertyMapping";
+    private static final String OWLClass_VirtualCollectionMapping = NAMESPACE + "VirtualCollectionMapping";
+    private static final String OWLClass_RelationConceptMapping = NAMESPACE + "RelationConceptMapping";
+    private static final String OWLClass_UnaryObjectPropertyMapping = NAMESPACE + "UnaryObjectPropertyMapping";
+    private static final String OWLClass_BinaryObjectPropertyMapping = NAMESPACE + "BinaryObjectPropertyMapping";
+    private static final String OWLClass_DatatypePropertyMapping = NAMESPACE + "DatatypePropertyMapping";
+    private static final String OWLClass_TransitiveObjectPropertyMapping = NAMESPACE + "TransitiveObjectPropertyMapping";
+    private static final String OWLClass_FunctionalObjectPropertyMapping = NAMESPACE + "FunctionalObjectPropertyMapping";
+    private static final String OWLClass_EnnumerationPropertyRangeMapping = NAMESPACE + "EnnumerationPropertyRangeMapping";
+    private static final String OWLClass_SymmetricObjectPropertyMapping = NAMESPACE + "SymmetricObjectPropertyMapping";
+    private static final String OWLClass_AsymmetricObjectPropertyMapping = NAMESPACE + "AsymmetricObjectPropertyMapping";
+    private static final String OWLClass_InverseFunctionalObjectPropertyMapping = NAMESPACE + "InverseFunctionalObjectPropertyMapping";
+    private static final String OWLClass_ReflexiveObjectPropertyMapping = NAMESPACE + "ReflexiveObjectPropertyMapping";
+    private static final String OWLClass_IrreflexiveObjectPropertyMapping = NAMESPACE + "IrreflexiveObjectPropertyMapping";
+    private static final String OWLClass_FunctionalDatatypePropertyMapping = NAMESPACE + "FunctionalDatatypePropertyMapping";
     
     
     //OWL Object Properties
-    private static final String ObjectProperty_isCollectionOfMapping = NAMESPACE + ":isCollectionOfMapping";
-    private static final String ObjectProperty_isGroupingAttributeMapping = NAMESPACE + ":isGroupingAttributeMapping";
-    private static final String ObjectProperty_exactly1CardinalityRestriction = NAMESPACE + ":exactly1CardinalityRestriction";
-    private static final String ObjectProperty_min1CardinalityRestriction = NAMESPACE + ":min1CardinalityRestriction";
-    private static final String ObjectProperty_max1CardinalityRestriction = NAMESPACE + ":max1CardinalityRestriction";
-    private static final String ObjectProperty_existsSomeObjectPropertyRestriction = NAMESPACE + ":existsSomeObjectPropertyRestriction";
-    private static final String ObjectProperty_onlyFromPropertyRestriction = NAMESPACE + ":onlyFromPropertyRestriction";
-    private static final String ObjectProperty_subClassOfMapping = NAMESPACE + ":subClassOfMapping";
-    private static final String ObjectProperty_superClassOfMapping = NAMESPACE + ":superClassOfMapping";
-    private static final String ObjectProperty_equivalentClassMapping = NAMESPACE + ":equivalentClassMapping";
-    private static final String ObjectProperty_hasPartMapping = NAMESPACE + ":hasPartMapping";
-    private static final String ObjectProperty_hasRangeMapping = NAMESPACE + ":hasRangeMapping";
-    private static final String ObjectProperty_hasDomainMapping = NAMESPACE + ":hasDomainMapping";
-    private static final String ObjectProperty_hasInversePropertyMapping = NAMESPACE + ":hasInversePropertMapping";
-    private static final String ObjectProperty_hasDefaultValueMapping = NAMESPACE + ":hasDefaultValueMapping";
-    private static final String ObjectProperty_hasObjectPropertyMapping = NAMESPACE + ":hasObjectPropertyMapping";
-    private static final String ObjectProperty_hasSubClassOfRangeMapping = NAMESPACE + ":hasSubClassOfRangeMapping";
-    private static final String ObjectProperty_hasSubClassOfDomainMapping = NAMESPACE + ":hasSubClassOfDomainMapping";
+    private static final String ObjectProperty_isCollectionOfMapping = NAMESPACE + "isCollectionOfMapping";
+    private static final String ObjectProperty_isGroupingAttributeMapping = NAMESPACE + "isGroupingAttributeMapping";
+    private static final String ObjectProperty_exactly1CardinalityRestriction = NAMESPACE + "exactly1CardinalityRestriction";
+    private static final String ObjectProperty_min1CardinalityRestriction = NAMESPACE + "min1CardinalityRestriction";
+    private static final String ObjectProperty_max1CardinalityRestriction = NAMESPACE + "max1CardinalityRestriction";
+    private static final String ObjectProperty_existsSomeObjectPropertyRestriction = NAMESPACE + "existsSomeObjectPropertyRestriction";
+    private static final String ObjectProperty_onlyFromPropertyRestriction = NAMESPACE + "onlyFromPropertyRestriction";
+    private static final String ObjectProperty_subClassOfMapping = NAMESPACE + "subClassOfMapping";
+    private static final String ObjectProperty_superClassOfMapping = NAMESPACE + "superClassOfMapping";
+    private static final String ObjectProperty_equivalentClassMapping = NAMESPACE + "equivalentClassMapping";
+    private static final String ObjectProperty_hasPartMapping = NAMESPACE + "hasPartMapping";
+    private static final String ObjectProperty_hasRangeMapping = NAMESPACE + "hasRangeMapping";
+    private static final String ObjectProperty_hasDomainMapping = NAMESPACE + "hasDomainMapping";
+    private static final String ObjectProperty_hasInversePropertyMapping = NAMESPACE + "hasInversePropertMapping";
+    private static final String ObjectProperty_hasDefaultValueMapping = NAMESPACE + "hasDefaultValueMapping";
+    private static final String ObjectProperty_hasObjectPropertyMapping = NAMESPACE + "hasObjectPropertyMapping";
+    private static final String ObjectProperty_hasSubClassOfRangeMapping = NAMESPACE + "hasSubClassOfRangeMapping";
+    private static final String ObjectProperty_hasSubClassOfDomainMapping = NAMESPACE + "hasSubClassOfDomainMapping";
     
     //OWL Data Properties
-    private static final String DataProperty_hasAggregateFunctionMapping = NAMESPACE + ":hasAggregateFunctionMapping";
+    private static final String DataProperty_hasAggregateFunctionMapping = NAMESPACE + "hasAggregateFunctionMapping";
     
     
     //IRI Getters

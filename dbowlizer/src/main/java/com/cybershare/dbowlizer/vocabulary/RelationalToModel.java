@@ -13,65 +13,65 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 public class RelationalToModel extends Vocabulary {
     
-    private static final String NAMESPACE = "http://ontology.cybershare.utep.edu/resource/dbowl";
+    private static final String NAMESPACE = "http://ontology.cybershare.utep.edu/resource/dbowl/";
     
-    //OWL Classes: OWLClass_ClassName
-    private static final String OWLClass_DBSchema = NAMESPACE + ":DBSchema";
-    private static final String OWLClass_DBRelation = NAMESPACE + ":DBRelation";
-    private static final String OWLClass_DBView = NAMESPACE + ":DBView";
-    private static final String OWLClass_DBJoinView = NAMESPACE + ":DBJoinView";
-    private static final String OWLClass_DBJoinSelectionView = NAMESPACE + ":DBJoinSelectionView";
-    private static final String OWLClass_DBJoinProjectionView = NAMESPACE + ":DBJoinProjectionView";
-    private static final String OWLClass_DBJoinProjectionSelectionView = NAMESPACE + ":DBJoinPojectionSelectionView";
-    private static final String OWLClass_DBQuery = NAMESPACE + ":DBQuery";
-    private static final String OWLClass_DBQueryCondition = NAMESPACE + ":DBQueryCondition";
-    private static final String OWLClass_DBQueryJoin = NAMESPACE + ":DBQueryJoin";
-    private static final String OWLClass_DBAttributeAlias = NAMESPACE + ":DBAttributeAlias";
-    private static final String OWLClass_DBAttribute = NAMESPACE + ":DBAttribute";
-    private static final String OWLClass_DBAttributeDomain = NAMESPACE + ":DBAttributeDomain";
-    private static final String OWLClass_DBAttributeRestriction = NAMESPACE + ":DBAttributeRestriction";
-    private static final String OWLClass_DBCandidateKey = NAMESPACE + ":DBCandidateKey";
-    private static final String OWLClass_DBPrimaryKey = NAMESPACE + ":DBPrimaryKey";
-    private static final String OWLClass_DBForeignKey = NAMESPACE + ":DBForeignKey";
-    private static final String OWLClass_DBPrimaryForeignKey = NAMESPACE + ":DBPrimaryForeignKey";
-    private static final String OWLClass_DBKey = NAMESPACE + ":DBKey";
-    private static final String OWLClass_DBCompositeAttribute = NAMESPACE + ":DBCompositeAttribute";
-    private static final String OWLClass_DBNonKeyAttribute = NAMESPACE + ":DBNonKeyAttribute";
-    private static final String OWLClass_DBCandidateKeyAttribute = NAMESPACE + ":DBCandidateKeyAttribute";
-    private static final String OWLClass_DBPrimaryKeyAttribute = NAMESPACE + ":DBPrimaryKeyAttribute";
-    private static final String OWLClass_DBForeignKeyAttribute = NAMESPACE + ":DBForeignKeyAttribute";
-    private static final String OWLClass_DBIndependentPrimaryKey = NAMESPACE + ":DBIndependentPrimaryKey";
-    private static final String OWLClass_DBNonPrimaryForeignKeyAttribute = NAMESPACE + ":DBNonPrimaryForeignKeyAttribute";
-    private static final String OWLClass_DBSingleDependentPrimaryKey = NAMESPACE + ":DBSingleDependentPrimaryKey";
-    private static final String OWLClass_DBMultipleDependentPrimaryKey = NAMESPACE + ":DBMultipleDependentPrimaryKey";
-    private static final String OWLClass_DBPartiallyMultipleDependentPrimaryKey = NAMESPACE + ":DBPartiallyMultipleDependentPrimaryKey";
-    private static final String OWLClass_DBBinaryDependentPrimaryKey = NAMESPACE + ":DBBinaryDependentPrimaryKey";
-    private static final String OWLClass_DBPartiallyBinaryDependentPrimaryKey = NAMESPACE + ":DBPartiallyBinaryDependentPrimaryKey";
-    private static final String OWLClass_DBPartiallySingleDependentPrimaryKey = NAMESPACE + ":DBPartiallySingleDependentPrimaryKey";
-    private static final String OWLClass_DBNonPrimaryForeignKey = NAMESPACE + ":DBNonPrimaryForeignKey";
+    //OWL Classes OWLClass_ClassName
+    private static final String OWLClass_DBSchema = NAMESPACE + "DBSchema";
+    private static final String OWLClass_DBRelation = NAMESPACE + "DBRelation";
+    private static final String OWLClass_DBView = NAMESPACE + "DBView";
+    private static final String OWLClass_DBJoinView = NAMESPACE + "DBJoinView";
+    private static final String OWLClass_DBJoinSelectionView = NAMESPACE + "DBJoinSelectionView";
+    private static final String OWLClass_DBJoinProjectionView = NAMESPACE + "DBJoinProjectionView";
+    private static final String OWLClass_DBJoinProjectionSelectionView = NAMESPACE + "DBJoinPojectionSelectionView";
+    private static final String OWLClass_DBQuery = NAMESPACE + "DBQuery";
+    private static final String OWLClass_DBQueryCondition = NAMESPACE + "DBQueryCondition";
+    private static final String OWLClass_DBQueryJoin = NAMESPACE + "DBQueryJoin";
+    private static final String OWLClass_DBAttributeAlias = NAMESPACE + "DBAttributeAlias";
+    private static final String OWLClass_DBAttribute = NAMESPACE + "DBAttribute";
+    private static final String OWLClass_DBAttributeDomain = NAMESPACE + "DBAttributeDomain";
+    private static final String OWLClass_DBAttributeRestriction = NAMESPACE + "DBAttributeRestriction";
+    private static final String OWLClass_DBCandidateKey = NAMESPACE + "DBCandidateKey";
+    private static final String OWLClass_DBPrimaryKey = NAMESPACE + "DBPrimaryKey";
+    private static final String OWLClass_DBForeignKey = NAMESPACE + "DBForeignKey";
+    private static final String OWLClass_DBPrimaryForeignKey = NAMESPACE + "DBPrimaryForeignKey";
+    private static final String OWLClass_DBKey = NAMESPACE + "DBKey";
+    private static final String OWLClass_DBCompositeAttribute = NAMESPACE + "DBCompositeAttribute";
+    private static final String OWLClass_DBNonKeyAttribute = NAMESPACE + "DBNonKeyAttribute";
+    private static final String OWLClass_DBCandidateKeyAttribute = NAMESPACE + "DBCandidateKeyAttribute";
+    private static final String OWLClass_DBPrimaryKeyAttribute = NAMESPACE + "DBPrimaryKeyAttribute";
+    private static final String OWLClass_DBForeignKeyAttribute = NAMESPACE + "DBForeignKeyAttribute";
+    private static final String OWLClass_DBIndependentPrimaryKey = NAMESPACE + "DBIndependentPrimaryKey";
+    private static final String OWLClass_DBNonPrimaryForeignKeyAttribute = NAMESPACE + "DBNonPrimaryForeignKeyAttribute";
+    private static final String OWLClass_DBSingleDependentPrimaryKey = NAMESPACE + "DBSingleDependentPrimaryKey";
+    private static final String OWLClass_DBMultipleDependentPrimaryKey = NAMESPACE + "DBMultipleDependentPrimaryKey";
+    private static final String OWLClass_DBPartiallyMultipleDependentPrimaryKey = NAMESPACE + "DBPartiallyMultipleDependentPrimaryKey";
+    private static final String OWLClass_DBBinaryDependentPrimaryKey = NAMESPACE + "DBBinaryDependentPrimaryKey";
+    private static final String OWLClass_DBPartiallyBinaryDependentPrimaryKey = NAMESPACE + "DBPartiallyBinaryDependentPrimaryKey";
+    private static final String OWLClass_DBPartiallySingleDependentPrimaryKey = NAMESPACE + "DBPartiallySingleDependentPrimaryKey";
+    private static final String OWLClass_DBNonPrimaryForeignKey = NAMESPACE + "DBNonPrimaryForeignKey";
     
-    //Object Properties: ObjectProperty_hasSomething
-    private static final String ObjectProperty_hasPart = NAMESPACE + ":hasPart";
-    private static final String ObjectProperty_isPartOf = NAMESPACE + ":isPartOf";
-    private static final String ObjectProperty_isRelatedTo = NAMESPACE + ":isRelatedTo";
-    private static final String ObjectProperty_hasUpdateAction = NAMESPACE + ":hasUpdateAction";
-    private static final String ObjectProperty_hasDeleteAction = NAMESPACE + ":hasDeleteAction";
-    private static final String ObjectProperty_hasAttribute = NAMESPACE + ":hasAttribute";
-    private static final String ObjectProperty_references = NAMESPACE + ":references";
-    private static final String ObjectProperty_hasAttributeRestriction = NAMESPACE + ":hasAttributeRestriction";
-    private static final String ObjectProperty_hasAttributeDomain = NAMESPACE + ":hasAttributeDomain";
-    private static final String ObjectProperty_hasGroupByAttribute = NAMESPACE + ":hasGroupByAttribute";
-    private static final String ObjectProperty_isEquivalentTo = NAMESPACE + ":isEquivalentTo";
-    private static final String ObjectProperty_hasMember = NAMESPACE + ":hasMember";
-    private static final String ObjectProperty_hasCount = NAMESPACE + ":hasCount";
+    //Object Properties ObjectProperty_hasSomething
+    private static final String ObjectProperty_hasPart = NAMESPACE + "hasPart";
+    private static final String ObjectProperty_isPartOf = NAMESPACE + "isPartOf";
+    private static final String ObjectProperty_isRelatedTo = NAMESPACE + "isRelatedTo";
+    private static final String ObjectProperty_hasUpdateAction = NAMESPACE + "hasUpdateAction";
+    private static final String ObjectProperty_hasDeleteAction = NAMESPACE + "hasDeleteAction";
+    private static final String ObjectProperty_hasAttribute = NAMESPACE + "hasAttribute";
+    private static final String ObjectProperty_references = NAMESPACE + "references";
+    private static final String ObjectProperty_hasAttributeRestriction = NAMESPACE + "hasAttributeRestriction";
+    private static final String ObjectProperty_hasAttributeDomain = NAMESPACE + "hasAttributeDomain";
+    private static final String ObjectProperty_hasGroupByAttribute = NAMESPACE + "hasGroupByAttribute";
+    private static final String ObjectProperty_isEquivalentTo = NAMESPACE + "isEquivalentTo";
+    private static final String ObjectProperty_hasMember = NAMESPACE + "hasMember";
+    private static final String ObjectProperty_hasCount = NAMESPACE + "hasCount";
     
-    //Data Properties: DataProperty_hasSomething
-    private static final String DataProperty_hasDefaultValue = NAMESPACE + ":hasDefaultValue"; 
-    private static final String DataProperty_hasAllowedValue = NAMESPACE + ":hasAllowedValue";
-    private static final String DataProperty_hasAliasName = NAMESPACE + ":hasAliasName";
-    private static final String DataProperty_hasAggregateFunction = NAMESPACE + ":hasAggregateFunction";
-    private static final String DataProperty_hasOperator = NAMESPACE + ":hasOperator";
-    private static final String DataProperty_hasValue = NAMESPACE + ":hasValue";
+    //Data Properties DataProperty_hasSomething
+    private static final String DataProperty_hasDefaultValue = NAMESPACE + "hasDefaultValue"; 
+    private static final String DataProperty_hasAllowedValue = NAMESPACE + "hasAllowedValue";
+    private static final String DataProperty_hasAliasName = NAMESPACE + "hasAliasName";
+    private static final String DataProperty_hasAggregateFunction = NAMESPACE + "hasAggregateFunction";
+    private static final String DataProperty_hasOperator = NAMESPACE + "hasOperator";
+    private static final String DataProperty_hasValue = NAMESPACE + "hasValue";
 
     public RelationalToModel(OWLUtils bundle) {
         super(bundle);

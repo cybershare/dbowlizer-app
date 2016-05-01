@@ -82,9 +82,9 @@ public class DriverSelector {
         Config resource = Config.loadResource(propertiesFile);
        
         //Set sql values from the Config object
-        informationSchemaViews.setRoutinesSql(resource.getStringValue("select.INFORMATION_SCHEMA.ROUTINES", null));
-        informationSchemaViews.setTableConstraintsSql(resource.getStringValue("select.INFORMATION_SCHEMA.TABLE_CONSTRAINTS", null));
-        informationSchemaViews.setTriggersSql(resource.getStringValue("select.INFORMATION_SCHEMA.TRIGGERS", null));
+        //informationSchemaViews.setRoutinesSql(resource.getStringValue("select.INFORMATION_SCHEMA.ROUTINES", null));
+        //informationSchemaViews.setTableConstraintsSql(resource.getStringValue("select.INFORMATION_SCHEMA.TABLE_CONSTRAINTS", null));
+        //informationSchemaViews.setTriggersSql(resource.getStringValue("select.INFORMATION_SCHEMA.TRIGGERS", null));
         informationSchemaViews.setViewsSql(resource.getStringValue("select.INFORMATION_SCHEMA.VIEWS", null));
  
         return informationSchemaViews;

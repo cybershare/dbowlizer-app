@@ -73,38 +73,38 @@ public class HelperUtils {
     	if(columnDataType.equals("CHARACTER")||columnDataType.equals("CHARACTER VARYING")||columnDataType.equals("CHARACTER LARGE OBJECT")||columnDataType.equals("CHARACTER LARGE OBJECT")||columnDataType.equals("ENUM")
     			||columnDataType.equals("CHAR")||columnDataType.equals("NCHAR")||columnDataType.equals("NTEXT")||columnDataType.equals("NVARCHAR")||columnDataType.equals("VARCHAR")||columnDataType.equals("SYSNAME")
     			||columnDataType.equals("TEXT")||columnDataType.equals("UNIQUEIDENTIFIER"))
-    		return "dbowl:db_string";
+    		return "dbowl_string";
     	else if(columnDataType.equals("BINARY")||columnDataType.equals("BINARY VARYING")||columnDataType.equals("BINARY LARGE OBJECT"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("NUMERIC")||columnDataType.equals("DECIMAL")||columnDataType.equals("MONEY")||columnDataType.equals("SMALLMONEY"))
-    		return "dbowl:db_float";
+    		return "dbowl_float";
     	else if(columnDataType.equals("TINYINT"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("SMALLINT"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("INTEGER"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("BIGINT"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("FLOAT")||columnDataType.equals("REAL"))
-    		return "dbowl:db_float";
+    		return "dbowl_float";
     	else if(columnDataType.equals("DOUBLE PRECISION")||columnDataType.equals("FLOAT UNSIGNED")||columnDataType.contains("FLOAT UNSIGNED"))
-    		return "dbowl:db_double";
+    		return "dbowl_double";
     	else if(columnDataType.equals("BOOLEAN")||columnDataType.equals("BIT"))
-    		return "dbowl:db_string";
+    		return "dbowl_string";
     	else if(columnDataType.equals("DATE"))
-    		return "dbowl:db_date";
+    		return "dbowl_date";
     	else if(columnDataType.equals("TIME"))
-    		return "dbowl:db_string";
+    		return "dbowl_string";
     	else if(columnDataType.equals("TIMESTAMP")||columnDataType.equals("DATETIME")||columnDataType.equals("SMALLDATETIME"))
-    		return "dbowl:db_string";
+    		return "dbowl_string";
     	else if(columnDataType.equals("INT"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("INT UNSIGNED"))
-    		return "dbowl:db_integer";
+    		return "dbowl_integer";
     	else if(columnDataType.equals("IMAGE")||columnDataType.equals("VARBINARY"))
-    		return "dbowl:db_string";
-    	else return "dbowl:db_string";
+    		return "dbowl_string";
+    	else return "dbowl_string";
     	}
     
 }

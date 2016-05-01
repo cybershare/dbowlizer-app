@@ -103,11 +103,15 @@ public class OWLEntitiesBundle
 			ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
 			//ExternalPropertiesManager databasePropertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.database.properties");
 	
-			baseURI = propertiesManager.getString("baseURI") + ":";
+			baseURI = propertiesManager.getString("baseURI") + "/";
+			
 			basePrefix = new DefaultPrefixManager(baseURI);
-                        //TODO: get 0 is ugly
+			System.out.println(baseURI);
+            //TODO: get 0 is ugly
 			String dbSchemaName = product.getSchemas().get(0).getSchemaName();
-			individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",")+":";
+			individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",") + ":";
+			System.out.println(individualURI);
+			//individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",")+":";
 			IRI db2OWLMappingPrimitiveLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 	                
                         

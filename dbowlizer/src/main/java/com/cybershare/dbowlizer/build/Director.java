@@ -57,7 +57,7 @@ public class Director {
         options.setRoutineInclusionRule(new ExcludeAll());
 
         // for postgres and mysql use lower case
-        options.setSchemaInclusionRule(new RegularExpressionInclusionRule("dbowlizer"));
+        options.setSchemaInclusionRule(new RegularExpressionInclusionRule(selector.getSchema()));
 
         //Bundled Options
         InformationSchemaViews schemaViews = selector.mapSchemaInformation();

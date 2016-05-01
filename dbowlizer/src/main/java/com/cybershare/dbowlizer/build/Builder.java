@@ -43,11 +43,11 @@ public class Builder {
     
     public void buildAttributeDomains(){
         List<String> adomains = new ArrayList<String>();
-        adomains.add("dbowl:db_date");
-        adomains.add("dbowl:db_double");
-        adomains.add("dbowl:db_float");
-        adomains.add("dbowl:db_integer");
-        adomains.add("dbowl:db_string");
+        adomains.add("dbowl_date");
+        adomains.add("dbowl_double");
+        adomains.add("dbowl_float");
+        adomains.add("dbowl_integer");
+        adomains.add("dbowl_string");
         for(String domain : adomains){
             DBAttributeDomain dbattributedomain = product.getAttributeDomain(domain); 
             dbattributedomain.setAttributeDomainName(domain);
@@ -56,8 +56,8 @@ public class Builder {
     
     public void buildAttributeRestrictions(){
         List<String> arestrictions = new ArrayList<String>();
-        arestrictions.add("dbowl:db_not_null");
-        arestrictions.add("dbowl:db_unique");
+        arestrictions.add("dbowl_not_null");
+        arestrictions.add("dbowl_unique");
         for(String restriction : arestrictions){
             DBAttributeRestriction dbattributerestriction = product.getAttributeRestriction(restriction); 
             dbattributerestriction.setAttributeRestrictionName(restriction);
@@ -87,7 +87,7 @@ public class Builder {
             attribute.setNN(!column.isNullable()); //is not null?
             //set attribute restrictions
             if(attribute.isNN())
-                attribute.addRestriction(product.getAttributeRestriction("dbowl:db_not_null"));
+                attribute.addRestriction(product.getAttributeRestriction("dbowl_not_null"));
             
             //set attribute domain
             attribute.setDomain(product.getAttributeDomain(HelperUtils.getAttributeDomain(attribute.getDatatype())));

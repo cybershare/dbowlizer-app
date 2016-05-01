@@ -37,6 +37,7 @@ public class EntityConceptMappingHandler
 		//Querying the reasoner to retrieve all instances of the class, direct and indirect
 
 		NodeSet<OWLNamedIndividual> conceptIndividualsNodeSet = mappingReasoner.getInstances(conceptMappingClass,false);
+		System.out.println("concept mapping class: "+conceptMappingClass.toString());
 
 		//Create the OWL classes corresponding to these individuals and add them into the output ontology
 		if (conceptIndividualsNodeSet != null)
@@ -50,10 +51,10 @@ public class EntityConceptMappingHandler
 
 				String dbRelationName = iriStr.replace(individualURI, "");
 				
-                                //System.out.println(iriStr);
-                                //System.out.println(individualURI);     
-				//System.out.println(dbRelationName);
-				//System.out.println(basePrefix);
+                System.out.println(iriStr);
+                System.out.println(individualURI);     
+				System.out.println(dbRelationName);
+				System.out.println(basePrefix);
 				
 				OWLClass currentOWLCls = factory.getOWLClass(dbRelationName,basePrefix);
 				
