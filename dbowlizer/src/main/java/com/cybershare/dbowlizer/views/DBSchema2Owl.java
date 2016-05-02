@@ -177,29 +177,7 @@ public class DBSchema2Owl {
       //The WHERE restrictions/conditions that are part of the query are added
       if (dbView.getRestrictions().size() > 0);
   }
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
+}
   
 }
