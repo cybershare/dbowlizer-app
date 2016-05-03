@@ -111,11 +111,11 @@ public class DBSchema2Owl {
 
 	// TODO: check the .capitalize methods or whatever that is
 	public void createDBView(DbView dbView) {
-		System.out.println(hasPartObjectProperty.getIRI().toString());
+		
 		
 		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
 		String individualURI = propertiesManager.getString("sourceURI") + modelProduct.getSchemas().get(0).getSchemaName().trim().replace(" ",",")+":";
-		System.out.println(individualURI);
+		
 		// Creating the instances of the DB table
 		OWLNamedIndividual view = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase()));
 		OWLNamedIndividual query = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_query"));

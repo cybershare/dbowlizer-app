@@ -1,8 +1,8 @@
 package com.cybershare.dbowlizer.generate;
 
-import com.cybershare.dbowlizer.build.ModelProduct;
 import java.io.File;
 import java.util.HashSet;
+import java.util.List;
 
 import org.semanticweb.HermiT.Configuration;
 import org.semanticweb.HermiT.Reasoner;
@@ -12,6 +12,7 @@ import org.semanticweb.owlapi.model.AddImport;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
@@ -20,11 +21,13 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
+import com.cybershare.dbowlizer.build.ModelProduct;
 import com.cybershare.dbowlizer.reasoner.ReasonerManager;
 import com.cybershare.dbowlizer.utils.Settings;
 
@@ -77,13 +80,13 @@ public class OWLEntitiesBundle
 	private IRI xsd_minInclusive_IRI;
 	private IRI xsd_maxInclusive_IRI;
 	private IRI xsd_pattern_IRI;
-	private OWLOntology baseOntology;
+	private OWLOntology relationalModelOntology;
 	private ModelProduct product;
 	private Settings settings;
         
-	public OWLEntitiesBundle(OWLOntology baseOntology, ModelProduct product, Settings settings)
+	public OWLEntitiesBundle(OWLOntology relationalModelOntology, ModelProduct product, Settings settings)
 	{
-		this.baseOntology = baseOntology;
+		this.relationalModelOntology = relationalModelOntology;
         this.product = product;
         this.settings = settings;
 		//#In this one we will first process the inferences of the methodology mapping file and then realize the ontology and leave it in memory. It will not call the following line.
@@ -135,6 +138,14 @@ public class OWLEntitiesBundle
 			//#Ontology is created based on the IRI, throws an OWLOntologyCreationException
 			db2OWLPrimitiveOntology = ontologyManager.createOntology(db2OWLMappingPrimitiveLogicalURI);
 			db2OWLComplexOntology = ontologyManager.createOntology(db2OWLMappingComplexLogicalURI);
+			
+			//Adding the PROV-O base stuff
+			String filePath = propertiesManager.getString("baseMappingOntology");
+			File baseOntologyFile = new File(filePath);
+			OWLOntology baseOntology = ontologyManager.loadOntologyFromOntologyDocument(baseOntologyFile);
+			List<OWLOntologyChange> changes = ontologyManager.addAxioms(db2OWLPrimitiveOntology, baseOntology.getAxioms());
+			ontologyManager.applyChanges(changes);
+			
 			//#Saving ontology in physical location
 			ontologyManager.saveOntology(db2OWLPrimitiveOntology);
 			//#Complex ontology will import primitive ontology.
@@ -177,10 +188,9 @@ public class OWLEntitiesBundle
 		IRI mapInferLogicalIRI = mappingOntologyWebURI;
  
 		OWLOntology dbInferencesOntology = ontologyManager.loadOntology(mapInferLogicalIRI);		
-
-	    
-	    ontologyManager.addAxioms(dbInferencesOntology, baseOntology.getAxioms());
-	    
+		ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
+		
+		
 		Configuration conf = new Configuration();
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
 		mappingReasoner = new Reasoner(conf, dbInferencesOntology);
