@@ -138,6 +138,9 @@ public class VirtualCollectionMappingHandler
                     OWLSubClassOfAxiom subClsAxiom = factory.getOWLSubClassOfAxiom(collectionClass,collectionCls);
                     ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology,subClsAxiom));
 
+                    //PROV-O
+    				PROVOHandler.owlClassCreated(owlEntitiesBundle, collectionClass, relation.getIRI().toString().replace(individualURI,"")+"Collection", db2OWLPrimitiveOntology);
+
                     //#existentialRestriction
                     OWLObjectSomeValuesFrom someCardinality = factory.getOWLObjectSomeValuesFrom(hasMemberProperty,relationClass);
                     subClsAxiom = factory.getOWLSubClassOfAxiom(collectionClass,someCardinality);
@@ -147,6 +150,9 @@ public class VirtualCollectionMappingHandler
                     subClsAxiom = factory.getOWLSubClassOfAxiom(groupClass,collectionClass);
                     ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology,subClsAxiom));
 
+                    //PROV-O
+    				PROVOHandler.owlClassCreated(owlEntitiesBundle, groupClass, relation.getIRI().toString().replace(individualURI,"")+"Group", db2OWLPrimitiveOntology);
+                    
                     String propertyName = (groupByAttribute.getIRI().toString()).replace(individualURI,"");
                     OWLDataProperty possibleDataProperty = factory.getOWLDataProperty(getPropertyName(propertyName),basePrefix);
                     

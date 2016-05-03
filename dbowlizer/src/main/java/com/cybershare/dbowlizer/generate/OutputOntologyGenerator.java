@@ -26,7 +26,6 @@ public class OutputOntologyGenerator
 		MappedEntitiesBundle mappedEntitiesBundle = new MappedEntitiesBundle();
 		System.out.println("1. [Done] Creating initial OWL Entities and inferences...\n");
 		
-		
 		System.out.println("2. [Start] Processing Entity Concept Mappings...");
 		EntityConceptMappingHandler.processEntityConceptMappings(owlEntitiesBundle, mappedEntitiesBundle);
 		System.out.println("2. [Done] Processing Entity Concept Mappings...\n");
@@ -78,6 +77,10 @@ public class OutputOntologyGenerator
 		System.out.println("14. [Start] Processing Virtual Collection Mappings...");
 		VirtualCollectionMappingHandler.processVirtualCollectionMappings(owlEntitiesBundle);
 		System.out.println("14. [Done] Processing Virtual Collection Mappings...\n");
+
+		System.out.println("15. [Start] 'Fixing' the final output ontology...");
+		OutputOntologyFixer.fixFinalOntology(owlEntitiesBundle);
+		System.out.println("15. [Done] 'Fixing' the final output ontology\n");
 		
 		System.out.println("----Output ontology generated!----");
 		
