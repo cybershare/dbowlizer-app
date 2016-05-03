@@ -79,11 +79,12 @@ public class Main {
         for(DBCandidateKey candidatekey: product.getCandidateKeys())
             visitor.visit(candidatekey);
         
-//        for(DBView view : product.getViews())
-//            visitor.visit(view);
+        //for(DBView view : product.getViews())
+        //visitor.visit(view);
         
         DBSchema2Owl dbSchema2Owl = new DBSchema2Owl(product, bundle);
         dbSchema2Owl.parseViewsAndCreateAxioms();
+        
         //dump relational-model ontology
         bundle.saveOntology();
         
