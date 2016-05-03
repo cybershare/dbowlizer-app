@@ -72,6 +72,9 @@ public class ModelProduct {
     public List<DBAttributeDomain> getAttributeDomains(){return new ArrayList<DBAttributeDomain>(attributedomains.values());}
     public List<DBAttributeRestriction> getAttributeRestrictions(){return new ArrayList<DBAttributeRestriction>(attributerestrictions.values());}
     
+    //Get HashMaps
+    public HashMap<String, DBRelation> getRelationsMap(){return new HashMap<String, DBRelation>(relations);}
+    public HashMap<String, DBAttribute> getAttributesMap(){return new HashMap<String, DBAttribute>(attributes);}
     //Get each or insert if object does not exist
     public DBSchema getSchema(String key){
         DBSchema object = this.schemas.get(key);
@@ -139,7 +142,7 @@ public class ModelProduct {
     public DBAttributeAlias getAttributeAlias(String key){
         DBAttributeAlias object = this.aliases.get(key);
         if(object == null){
-            object = new DBAttributeAlias(key);
+            object = new DBAttributeAlias(key, null, this);
             this.aliases.put(key,object);
         }
         return object;   

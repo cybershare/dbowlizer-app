@@ -3,10 +3,11 @@ package com.cybershare.dbowlizer.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cybershare.dbowlizer.build.ModelProduct;
 import com.cybershare.dbowlizer.dbmodel.DBAttribute;
 import com.cybershare.dbowlizer.dbmodel.DBAttributeAlias;
 import com.cybershare.dbowlizer.dbmodel.DBRelation;
-import com.cybershare.dbowlizer.dbmodel.DBSchema;
+
 import com.cybershare.dbowlizer.dbmodel.Element;
 
 public class DbView {
@@ -18,18 +19,18 @@ public class DbView {
 	//	  joins
 	//	  copy
 	//	  group_by_columns
-	private ArrayList<Element> column_alias;
+	private ArrayList<DBAttributeAlias> column_alias;
 	private ArrayList<DBRelation> tables;
 	private ArrayList<DbViewRestriction> restrictions;
 	private ArrayList<DbViewJoin> joins;
 	private ArrayList<DBAttribute> group_by_columns;
 	private boolean copy;
-	private DBSchema dbSchema;
+	private ModelProduct dbSchema;
 	private String name;
 
 	public DbView()
 	{
-		column_alias = new ArrayList<Element>();
+		column_alias = new ArrayList<DBAttributeAlias>();
 		tables = new ArrayList<DBRelation>();
 		restrictions = new ArrayList<DbViewRestriction>();
 		joins = new ArrayList<DbViewJoin>();
@@ -85,24 +86,28 @@ public class DbView {
 		ArrayList<DBRelation> tables_included = new ArrayList<DBRelation>();
 		ArrayList<DBAttribute> tables_columns = new ArrayList<DBAttribute>();
 		//#For each alias, we extract the column it contains and the table it comes from.
-		for (Element colAlias : column_alias)
+		for (DBAttributeAlias colAlias : column_alias)
 		{
 			if (colAlias instanceof DBAttributeAlias)
 			{
 				//TODO: ASK VN
-				if (!((DBAttributeAlias)colAlias).getAttribute().getColumnName().equals("all"))
+				if (colAlias != null &&  ((DBAttributeAlias)colAlias).getAttribute() != null && !((DBAttributeAlias)colAlias).getAttribute().getIdentification().equals("all"))
 				{
 					view_columns.add(((DBAttributeAlias) colAlias).getAttribute());
 					DBRelation table = null;
 					for (DBRelation r : dbSchema.getRelations())
-						if (r.getRelationName().equals(((DBAttributeAlias)colAlias).getAttribute().getReferencedRelationName()))
+					{
+						
+						if (r.getAttributes().contains(colAlias.getAttribute()))
+						{
 							table = r;
-
+						}
+					}
 					if (tables.contains(table))
 					{
 						//						//#puts "table already included: " + table.name.to_s
 
-					}else{
+					}else /*if (table != null)*/{
 						//					    //#puts "adding table: " + table.name.to_s
 						tables.add(table);
 					}
@@ -113,6 +118,7 @@ public class DbView {
 
 		for (DBRelation currentTable : tables)
 		{
+			
 			for (DBAttribute column : currentTable.getAttributes())
 			{
 				tables_columns.add(column);
@@ -181,12 +187,12 @@ public class DbView {
 	}
 
 
-	public ArrayList<Element> getColumn_alias() {
+	public ArrayList<DBAttributeAlias> getColumn_alias() {
 		return column_alias;
 	}
 
 
-	public void setColumn_alias(ArrayList<Element> column_alias) {
+	public void setColumn_alias(ArrayList<DBAttributeAlias> column_alias) {
 		this.column_alias = column_alias;
 	}
 
@@ -241,12 +247,12 @@ public class DbView {
 	}
 
 
-	public DBSchema getDbSchema() {
+	public ModelProduct getDbSchema() {
 		return dbSchema;
 	}
 
 
-	public void setDbSchema(DBSchema dbSchema) {
+	public void setDbSchema(ModelProduct dbSchema) {
 		this.dbSchema = dbSchema;
 	}
 
