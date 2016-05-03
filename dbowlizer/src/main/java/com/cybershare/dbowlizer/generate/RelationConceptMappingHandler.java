@@ -23,6 +23,7 @@ public class RelationConceptMappingHandler
 {
 	public static void processRelationConceptMappings(OWLEntitiesBundle owlEntitiesBundle, MappedEntitiesBundle mappedEntitiesBundle)
 	{
+		
 		OWLOntologyManager ontologyManager = owlEntitiesBundle.getOntologyManager();
 		OWLDataFactory factory = ontologyManager.getOWLDataFactory();
 		Reasoner mappingReasoner = owlEntitiesBundle.getMappingReasoner();
@@ -62,6 +63,9 @@ public class RelationConceptMappingHandler
 				//#OWL Annotation
 				commentAnnotation = factory.getOWLAnnotation(commentIRI,commentValue);
 				
+				//PROV-O
+				PROVOHandler.owlClassCreated(owlEntitiesBundle, currentOWLCls, dbRelationName, db2OWLPrimitiveOntology);
+
 				annotationAxiom = factory.getOWLAnnotationAssertionAxiom(currentOWLCls.getIRI(),commentAnnotation);
 				ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology,annotationAxiom));	
 				

@@ -148,6 +148,9 @@ public class VirtualConceptMappingHandler
 							OWLClass objectClass = factory.getOWLClass(objectName,basePrefix);
 							OWLSubClassOfAxiom restrictionAxiom = factory.getOWLSubClassOfAxiom(currentOWLCls,objectClass);
 							ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology,restrictionAxiom));
+							
+		                    //PROV-O
+		    				PROVOHandler.owlClassCreated(owlEntitiesBundle, objectClass, objectName, db2OWLPrimitiveOntology);
 							try {
 								ontologyManager.saveOntology(db2OWLPrimitiveOntology);
 							} catch (OWLOntologyStorageException e) {
@@ -237,6 +240,9 @@ public class VirtualConceptMappingHandler
 
 				OWLSubClassOfAxiom subClsAxiom = factory.getOWLSubClassOfAxiom(currentOWLCls,continuantCls);
 				ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology,subClsAxiom));
+				
+				//PROV-O
+				PROVOHandler.owlClassCreated(owlEntitiesBundle, currentOWLCls, virtualClsName, db2OWLPrimitiveOntology);
 				try {
 					ontologyManager.saveOntology(db2OWLPrimitiveOntology);
 				} catch (OWLOntologyStorageException e) {

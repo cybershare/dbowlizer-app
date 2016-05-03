@@ -24,6 +24,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
@@ -42,6 +43,8 @@ public class OWLEntitiesBundle
 	
 	private String baseURI;
 	private String individualURI;
+	private String databaseName;
+	private String dbOWLizerActivityURI;
 	
 	private DefaultPrefixManager basePrefix;
 	
@@ -58,6 +61,12 @@ public class OWLEntitiesBundle
 	private OWLObjectProperty hasDomainMapping;
 	private OWLObjectProperty hasRangeMapping;
 	
+	//PROV-O Object properties
+	private OWLObjectProperty wasAssociatedWith;
+	private OWLObjectProperty wasDerivedFrom;
+	private OWLObjectProperty wasGeneratedBy;
+	
+	
 	private OWLClass unaryObjectPropertyMapping;
 	private OWLClass virtualPropertyMappingClass; 
 	private OWLClass dbQueryClass; 
@@ -73,7 +82,7 @@ public class OWLEntitiesBundle
 	private OWLNamedIndividual db_date_individual; 
 	private OWLNamedIndividual db_float_individual; 
 	private OWLNamedIndividual db_double_individual;
-	
+	private OWLNamedIndividual activityIndividual;
 
 	private IRI xsd_string_IRI; 
 	private IRI xsd_date_IRI;
@@ -83,12 +92,19 @@ public class OWLEntitiesBundle
 	private OWLOntology relationalModelOntology;
 	private ModelProduct product;
 	private Settings settings;
+
+	private IRI db2OWLMappingPrimitivePhysicalURI;
+
+	private IRI db2OWLMappingComplexPhysicalURI;
+
+	
         
 	public OWLEntitiesBundle(OWLOntology relationalModelOntology, ModelProduct product, Settings settings)
 	{
 		this.relationalModelOntology = relationalModelOntology;
         this.product = product;
         this.settings = settings;
+        this.databaseName = product.getSchemas().get(0).getSchemaName();
 		//#In this one we will first process the inferences of the methodology mapping file and then realize the ontology and leave it in memory. It will not call the following line.
 		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
 
@@ -118,13 +134,13 @@ public class OWLEntitiesBundle
 			IRI db2OWLMappingPrimitiveLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 	                
                         
-			IRI db2OWLMappingPrimitivePhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
+			db2OWLMappingPrimitivePhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 	                settings.addOntologyName(dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 			SimpleIRIMapper outputPrimitiveMapper = new SimpleIRIMapper(db2OWLMappingPrimitiveLogicalURI,db2OWLMappingPrimitivePhysicalURI);
 	
 			ontologyManager.addIRIMapper(outputPrimitiveMapper);	
 			IRI db2OWLMappingComplexLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
-			IRI db2OWLMappingComplexPhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
+			db2OWLMappingComplexPhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
 			settings.addOntologyName(dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
                         SimpleIRIMapper outputComplexMapper = new SimpleIRIMapper(db2OWLMappingComplexLogicalURI,db2OWLMappingComplexPhysicalURI);
 			ontologyManager.addIRIMapper(outputComplexMapper);
@@ -145,6 +161,23 @@ public class OWLEntitiesBundle
 			OWLOntology baseOntology = ontologyManager.loadOntologyFromOntologyDocument(baseOntologyFile);
 			List<OWLOntologyChange> changes = ontologyManager.addAxioms(db2OWLPrimitiveOntology, baseOntology.getAxioms());
 			ontologyManager.applyChanges(changes);
+			
+			Configuration conf = new Configuration();
+			conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
+			Reasoner reasoner = new Reasoner(conf, db2OWLPrimitiveOntology);
+			
+			NodeSet<OWLNamedIndividual> instances = reasoner.getInstances(factory.getOWLThing(), false);
+			activityIndividual = null;
+			for (OWLNamedIndividual individual : instances.getFlattened())
+			{
+				if (individual.getIRI().toString().contains("from_databasename"))
+				{
+					activityIndividual = individual;
+					break;
+				}
+			}
+			
+			
 			
 			//#Saving ontology in physical location
 			ontologyManager.saveOntology(db2OWLPrimitiveOntology);
@@ -201,6 +234,7 @@ public class OWLEntitiesBundle
 	private void createClassesAndPropertiesURIs() {
 		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
 		//#Start of the creation of properties and classes necessaries for the ontology.
+		dbOWLizerActivityURI = propertiesManager.getString("DBOWLizerActivityURI");
 		hasValue = factory.getOWLDataProperty(IRI.create(baseURI+propertiesManager.getString("hasValueProperty")));
 		hasOperator = factory.getOWLDataProperty(IRI.create(baseURI+propertiesManager.getString("hasOperatorProperty")));
 		hasAttributeDomainObjectProperty = factory.getOWLObjectProperty(IRI.create(baseURI+propertiesManager.getString("hasAttributeDomainProperty")));
@@ -215,6 +249,12 @@ public class OWLEntitiesBundle
 		hasPartProperty = factory.getOWLObjectProperty(IRI.create(baseURI+propertiesManager.getString("hasPartProperty")));
 		hasDomainMapping = factory.getOWLObjectProperty(IRI.create(baseURI+propertiesManager.getString("hasDomainMapping")));
 		hasRangeMapping = factory.getOWLObjectProperty(IRI.create(baseURI+propertiesManager.getString("hasRangeMapping")));
+		
+		wasAssociatedWith = factory.getOWLObjectProperty(IRI.create("http://www.w3.org/ns/prov#wasAssociatedWith"));
+		wasDerivedFrom = factory.getOWLObjectProperty(IRI.create("http://www.w3.org/ns/prov#wasDerivedFrom"));
+		wasGeneratedBy = factory.getOWLObjectProperty(IRI.create("http://www.w3.org/ns/prov#wasGeneratedBy"));
+		
+		
 
 		hasDefaultValueMapping = factory.getOWLDataProperty(IRI.create(baseURI+propertiesManager.getString("hasDefaultValueMapping")));
 
@@ -265,6 +305,14 @@ public class OWLEntitiesBundle
 		return individualURI;
 	}
 
+	public String getDatabaseName() {
+		return databaseName;
+	}
+
+	public String getDbOWLizerActivityURI() {
+		return dbOWLizerActivityURI;
+	}
+
 	public DefaultPrefixManager getBasePrefix() {
 		return basePrefix;
 	}
@@ -307,6 +355,18 @@ public class OWLEntitiesBundle
 
 	public OWLObjectProperty getHasRangeMapping() {
 		return hasRangeMapping;
+	}
+
+	public OWLObjectProperty getWasAssociatedWith() {
+		return wasAssociatedWith;
+	}
+
+	public OWLObjectProperty getWasDerivedFrom() {
+		return wasDerivedFrom;
+	}
+
+	public OWLObjectProperty getWasGeneratedBy() {
+		return wasGeneratedBy;
 	}
 
 	public OWLClass getUnaryObjectPropertyMapping() {
@@ -361,6 +421,10 @@ public class OWLEntitiesBundle
 		return db_double_individual;
 	}
 
+	public OWLNamedIndividual getActivityIndividual() {
+		return activityIndividual;
+	}
+
 	public IRI getXsd_string_IRI() {
 		return xsd_string_IRI;
 	}
@@ -380,5 +444,27 @@ public class OWLEntitiesBundle
 	public IRI getXsd_pattern_IRI() {
 		return xsd_pattern_IRI;
 	}
+
+	public OWLOntology getRelationalModelOntology() {
+		return relationalModelOntology;
+	}
+
+	public ModelProduct getProduct() {
+		return product;
+	}
+
+	public Settings getSettings() {
+		return settings;
+	}
+
+	public IRI getDb2OWLMappingPrimitivePhysicalURI() {
+		return db2OWLMappingPrimitivePhysicalURI;
+	}
+
+	public IRI getDb2OWLMappingComplexPhysicalURI() {
+		return db2OWLMappingComplexPhysicalURI;
+	}
+
+	
 
 }
