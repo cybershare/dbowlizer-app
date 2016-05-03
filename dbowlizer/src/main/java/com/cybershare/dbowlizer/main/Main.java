@@ -5,23 +5,23 @@ import java.sql.Connection;
 
 import org.json.simple.JSONObject;
 
-import com.cybershare.dbowlizer.db2rdf.R2RMLfactory;
 import com.cybershare.dbowlizer.build.Builder;
 import com.cybershare.dbowlizer.build.Director;
 import com.cybershare.dbowlizer.build.ModelProduct;
+import com.cybershare.dbowlizer.db2rdf.R2RMLfactory;
 import com.cybershare.dbowlizer.dbmodel.DBAttribute;
 import com.cybershare.dbowlizer.dbmodel.DBCandidateKey;
 import com.cybershare.dbowlizer.dbmodel.DBForeignKey;
 import com.cybershare.dbowlizer.dbmodel.DBPrimaryKey;
 import com.cybershare.dbowlizer.dbmodel.DBRelation;
 import com.cybershare.dbowlizer.dbmodel.DBSchema;
-import com.cybershare.dbowlizer.dbmodel.DBView;
 import com.cybershare.dbowlizer.generate.MappedEntitiesBundle;
 import com.cybershare.dbowlizer.generate.OutputOntologyGenerator;
 import com.cybershare.dbowlizer.ontology.OWLUtils;
 import com.cybershare.dbowlizer.ontology.OWLVisitor;
 import com.cybershare.dbowlizer.utils.DriverSelector;
 import com.cybershare.dbowlizer.utils.Settings;
+import com.cybershare.dbowlizer.views.DBSchema2Owl;
 
 /**
  *
@@ -79,10 +79,11 @@ public class Main {
         for(DBCandidateKey candidatekey: product.getCandidateKeys())
             visitor.visit(candidatekey);
         
-        for(DBView view : product.getViews())
-            visitor.visit(view);
+//        for(DBView view : product.getViews())
+//            visitor.visit(view);
         
-        
+        DBSchema2Owl dbSchema2Owl = new DBSchema2Owl(product, bundle);
+        dbSchema2Owl.parseViewsAndCreateAxioms();
         //dump relational-model ontology
         bundle.saveOntology();
         

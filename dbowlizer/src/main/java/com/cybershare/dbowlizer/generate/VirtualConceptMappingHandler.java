@@ -116,6 +116,9 @@ public class VirtualConceptMappingHandler
 			for (OWLNamedIndividual virtualCls : entityConceptIndividuals)
 			{
 				String virtualClsName = virtualCls.getIRI().toString().replace(individualURI,"");
+				if (virtualClsName.contains(":"))
+					virtualClsName = virtualClsName.substring(virtualClsName.indexOf(":")+1);
+				
 				OWLClass currentOWLCls = factory.getOWLClass(virtualClsName,basePrefix);
 				//#checking whether it is a subclass, equivalent class, super class||just an independent class.
 				OWLObjectIntersectionOf restrictedSuperClass = null;

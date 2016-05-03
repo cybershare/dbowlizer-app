@@ -10,11 +10,9 @@ public class DbViewJoin {
 	private DBAttribute column2;
 	private DbView view;
 
-	public DbViewJoin(DBRelation table, DBAttribute column1, DBAttribute column2, DbView view) {
+	public DbViewJoin(DbView view) {
 		super();
-		this.table = table;
-		this.column1 = column1;
-		this.column2 = column2;
+
 		this.view = view;
 	}
 	
