@@ -104,7 +104,9 @@ public class VirtualConceptMappingHandler
 		dbAttributeAliasClass = owlEntitiesBundle.getDbAttributeAliasClass();
 				
 		OWLClass virtualConceptMappingClass = factory.getOWLClass(propertiesManager.getString("virtualConceptMapping"),basePrefix);
-
+        System.out.println("virtual concept mapping class: "+ virtualConceptMappingClass.getIRI());
+		
+		
 		//#Querying the reasoner to retrieve all instances of the class, direct.
 		NodeSet<OWLNamedIndividual> conceptIndividualsNodeSet = mappingReasoner.getInstances(virtualConceptMappingClass,false);
 		//#Create the OWL classes corresponding to these individuals and add them into the output ontology.
@@ -116,8 +118,11 @@ public class VirtualConceptMappingHandler
 			for (OWLNamedIndividual virtualCls : entityConceptIndividuals)
 			{
 				String virtualClsName = virtualCls.getIRI().toString().replace(individualURI,"");
-				if (virtualClsName.contains(":"))
+				
+				if (virtualClsName.contains(":")){
 					virtualClsName = virtualClsName.substring(virtualClsName.indexOf(":")+1);
+				    System.out.println("views class: "+ virtualClsName);
+				}
 				
 				OWLClass currentOWLCls = factory.getOWLClass(virtualClsName,basePrefix);
 				//#checking whether it is a subclass, equivalent class, super class||just an independent class.
@@ -209,6 +214,7 @@ public class VirtualConceptMappingHandler
 				if (eqClassNodeSet != null)
 				{
 					Set<OWLNamedIndividual> eqClassIndividuals = eqClassNodeSet.getFlattened();
+					System.out.println("set size: "+eqClassIndividuals.size());
 					if (eqClassIndividuals.size()>0)
 					{
 						for (OWLNamedIndividual eqClassObj : eqClassIndividuals)
@@ -494,25 +500,29 @@ public class VirtualConceptMappingHandler
 												OWLNamedIndividual datatype = datatypeSet[0];
 												OWLDatatype datatypeIRI = null;
 
-												if (datatype.getIRI().equals(db_string_individual.getIRI()))
+												if (datatype.getIRI().toString().contains("string"))
+												//if (datatype.getIRI().equals(db_string_individual.getIRI()))
 												{
 													datatypeIRI = factory.getOWLDatatype(xsd_string_IRI);
 												}
 												else
 												{
-													if (datatype.getIRI().equals(db_integer_individual.getIRI()))
+													if (datatype.getIRI().toString().contains("integer"))
+													//if (datatype.getIRI().equals(db_integer_individual.getIRI()))
 													{
 														datatypeIRI=factory.getIntegerOWLDatatype();
 													}
 													else
 													{
-														if (datatype.getIRI().equals(db_float_individual.getIRI()))
+														if (datatype.getIRI().toString().contains("double"))
+														//if (datatype.getIRI().equals(db_float_individual.getIRI()))
 														{
 															datatypeIRI=factory.getDoubleOWLDatatype();
 														}
 														else
 														{
-															if (datatype.getIRI().equals(db_date_individual.getIRI()))
+															if (datatype.getIRI().toString().contains("date"))
+															//if (datatype.getIRI().equals(db_date_individual.getIRI()))
 															{
 																datatypeIRI=factory.getOWLDatatype(xsd_date_IRI);
 															}
@@ -577,19 +587,20 @@ public class VirtualConceptMappingHandler
 		OWLObjectIntersectionOf equivalentClass = null;
 		OWLDatatype datatype = null;
 
-		if (datatypeIndividual.equals(db_integer_individual))
+		if (datatypeIndividual.getIRI().toString().contains("integer"))
+		//if (datatypeIndividual.equals(db_integer_individual))
 		{
 			datatype = factory.getIntegerOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_float_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("float"))//if (datatypeIndividual.equals(db_float_individual))
 		{
 			datatype = factory.getDoubleOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_double_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("double"))//if (datatypeIndividual.equals(db_double_individual))
 		{
 			datatype = factory.getDoubleOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_string_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("string"))//if (datatypeIndividual.equals(db_string_individual))
 		{
 			datatype = factory.getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#string"));
 		}
