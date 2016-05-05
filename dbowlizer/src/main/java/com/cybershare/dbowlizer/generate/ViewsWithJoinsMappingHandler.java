@@ -776,26 +776,29 @@ public class ViewsWithJoinsMappingHandler
                                     	OWLNamedIndividual datatype = datatypeSet[0];
                                     
                                     	OWLDatatype datatypeIRI = null;
-                                        if (datatype.getIRI()==db_string_individual.getIRI())
+                                    	if (datatype.getIRI().toString().contains("string"))
+                                        //if (datatype.getIRI()==db_string_individual.getIRI())
                                         {
                                             datatypeIRI = factory.getOWLDatatype(xsd_string_IRI);
                                         }
                                         else
                                         {
-
-                                            if (datatype.getIRI().equals(db_integer_individual.getIRI()))
+                                        	if (datatype.getIRI().toString().contains("integer"))
+                                            //if (datatype.getIRI().equals(db_integer_individual.getIRI()))
                                             {
                                                 datatypeIRI=factory.getIntegerOWLDatatype();
                                             }
                                             else
                                             {
-                                                if (datatype.getIRI().equals(db_float_individual.getIRI()))
+                                            	if (datatype.getIRI().toString().contains("double"))
+                                                //if (datatype.getIRI().equals(db_float_individual.getIRI()))
                                                 {
                                                     datatypeIRI=factory.getDoubleOWLDatatype();
                                                 }
                                                 else
                                                 {
-                                                    if (datatype.getIRI()==db_date_individual.getIRI())
+                                                	if (datatype.getIRI().toString().contains("date"))
+                                                    //if (datatype.getIRI()==db_date_individual.getIRI())
                                                     {
                                                         datatypeIRI=factory.getOWLDatatype(xsd_date_IRI);
                                                     }
@@ -862,19 +865,21 @@ public class ViewsWithJoinsMappingHandler
 		//TODO: there is a very similar method somewhere else
 		OWLDatatype datatype = null;
 		OWLClass facet = null;
-		if (datatypeIndividual.equals(db_integer_individual))
+		
+		if (datatypeIndividual.getIRI().toString().contains("integer"))//equals(db_integer_individual))
+		//if (datatypeIndividual.equals(db_integer_individual))
 		{
 			datatype = factory.getIntegerOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_float_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("float"))//if (datatypeIndividual.equals(db_float_individual))
 		{
 			datatype = factory.getDoubleOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_double_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("double"))//if (datatypeIndividual.equals(db_double_individual))
 		{
 			datatype = factory.getDoubleOWLDatatype();
 		}
-		else if (datatypeIndividual.equals(db_string_individual))
+		else if (datatypeIndividual.getIRI().toString().contains("string"))//if (datatypeIndividual.equals(db_string_individual))
 		{
 			datatype = factory.getOWLDatatype(IRI.create("http://www.w3.org/2001/XMLSchema#string"));
 		}

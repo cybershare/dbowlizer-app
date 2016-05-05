@@ -1,7 +1,5 @@
 package com.cybershare.dbowlizer.db2rdf;
 
-import schemacrawler.schema.ColumnDataType;
-
 
 /**
  * 
@@ -47,7 +45,7 @@ public String getXSDStrings(String columnDataType){
 	else if(columnDataType.equals("INT"))
 		return xsd+"int";
 	else if(columnDataType.equals("INT UNSIGNED"))
-		return xsd+"positiveInteger";
+		return xsd+"integer";
 	else if(columnDataType.equals("IMAGE")||columnDataType.equals("VARBINARY"))
 		return xsd+"base64Bianry";
 	else return xsd;

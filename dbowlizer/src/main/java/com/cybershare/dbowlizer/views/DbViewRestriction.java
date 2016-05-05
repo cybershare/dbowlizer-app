@@ -10,12 +10,10 @@ public class DbViewRestriction {
 	
 	
 	
-	public DbViewRestriction(DbView view, DBAttribute column, String operator, String value) {
+	public DbViewRestriction(DbView view) {
 		super();
 		this.view = view;
-		this.column = column;
-		this.operator = operator;
-		this.value = value;
+		
 	}
 
 	public String toString()

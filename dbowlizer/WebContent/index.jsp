@@ -13,9 +13,9 @@
     "driver": "mysql",
     "host": "ilinkbeta.cybershare.utep.edu",
     "port": "3306",
-    "dbname": "dbowlizer",
-    "user": "ilinkbetaadmin",
-    "password": "ilinkb3t@@dm1n"
+    "dbname": "employees",
+    "user": "employees",
+    "password": "emp@@ilink"
   }
 }
 		</textarea>

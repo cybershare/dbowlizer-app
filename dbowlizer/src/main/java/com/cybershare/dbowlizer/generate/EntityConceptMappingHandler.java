@@ -4,13 +4,16 @@ import java.util.Set;
 
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.model.AddAxiom;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
@@ -37,7 +40,6 @@ public class EntityConceptMappingHandler
 		//Querying the reasoner to retrieve all instances of the class, direct and indirect
 
 		NodeSet<OWLNamedIndividual> conceptIndividualsNodeSet = mappingReasoner.getInstances(conceptMappingClass,false);
-		System.out.println("concept mapping class: "+conceptMappingClass.toString());
 
 		//Create the OWL classes corresponding to these individuals and add them into the output ontology
 		if (conceptIndividualsNodeSet != null)
@@ -51,16 +53,15 @@ public class EntityConceptMappingHandler
 
 				String dbRelationName = iriStr.replace(individualURI, "");
 				
-                System.out.println(iriStr);
-                System.out.println(individualURI);     
-				System.out.println(dbRelationName);
-				System.out.println(basePrefix);
-				
+
 				OWLClass currentOWLCls = factory.getOWLClass(dbRelationName,basePrefix);
 				
 				OWLSubClassOfAxiom subClsAxiom = factory.getOWLSubClassOfAxiom(currentOWLCls,continuantCls);
 				
 				ontologyManager.applyChange(new AddAxiom(db2OWLPrimitiveOntology, subClsAxiom));
+				
+				//PROV-O
+				PROVOHandler.owlClassCreated(owlEntitiesBundle, currentOWLCls, dbRelationName, db2OWLPrimitiveOntology);
 				
 				//Annotation property
 				OWLAnnotationProperty commentProperty = factory.getRDFSComment();
