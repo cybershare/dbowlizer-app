@@ -11,6 +11,9 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.InferredAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
+import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
+import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
+
 /**
  * 
  * @author Diego Aguirre <daguirre6 at miners.utep.edu>
@@ -36,8 +39,8 @@ public class ReasonerManager {
 
 		Configuration conf = new Configuration();
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
-		Reasoner hermitReasoner = new Reasoner(conf, ontology);
-		
+//		Reasoner hermitReasoner = new Reasoner(conf, ontology);
+		PelletReasoner pelletReasoner = PelletReasonerFactory.getInstance().createReasoner(ontology, conf);
 //		hermitReasoner.precomputeInferences(InferenceType.CLASS_ASSERTIONS);
 //		hermitReasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
 //		hermitReasoner.precomputeInferences(InferenceType.DATA_PROPERTY_ASSERTIONS);
@@ -68,7 +71,7 @@ public class ReasonerManager {
 //		axiomGenerators.add(new InferredSubObjectPropertyAxiomGenerator());
 //
 
-		InferredOntologyGenerator iog = new InferredOntologyGenerator(hermitReasoner);
+		InferredOntologyGenerator iog = new InferredOntologyGenerator(pelletReasoner);
 		
 
 		System.out.println("Axioms before running Hermit: " +ontology.getAxiomCount());
