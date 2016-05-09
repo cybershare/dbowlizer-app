@@ -41,6 +41,7 @@ public class ReasonerManager {
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
 //		Reasoner hermitReasoner = new Reasoner(conf, ontology);
 		PelletReasoner pelletReasoner = PelletReasonerFactory.getInstance().createReasoner(ontology, conf);
+		pelletReasoner.getKB().realize();
 //		hermitReasoner.precomputeInferences(InferenceType.CLASS_ASSERTIONS);
 //		hermitReasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
 //		hermitReasoner.precomputeInferences(InferenceType.DATA_PROPERTY_ASSERTIONS);
