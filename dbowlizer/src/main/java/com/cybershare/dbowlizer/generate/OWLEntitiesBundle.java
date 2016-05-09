@@ -223,14 +223,15 @@ public class OWLEntitiesBundle
 		OWLOntology dbInferencesOntology = ontologyManager.loadOntology(mapInferLogicalIRI);	
 		
 		//Aqui esta el truco
-		//ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
+		ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
 		
 		
 		Configuration conf = new Configuration();
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
 		mappingReasoner = new Reasoner(conf, dbInferencesOntology);
 		
-		//ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
+		//Aqui tambien
+		ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
 	}
 	
 	private void createClassesAndPropertiesURIs() {
