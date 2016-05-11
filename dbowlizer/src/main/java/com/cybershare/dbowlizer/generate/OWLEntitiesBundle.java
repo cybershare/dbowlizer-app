@@ -24,6 +24,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
@@ -232,6 +233,15 @@ public class OWLEntitiesBundle
 		
 		//Aqui tambien
 		ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
+
+		File processedOntologyFile = new File(settings.getOutputDirFile().substring(settings.getOutputDirFile().indexOf('/')) + "/AfterReasonerPopulatedOntology.owl");
+		try {
+			OWLOntology processedOntology = ontologyManager.createOntology();
+			ontologyManager.addAxioms(processedOntology, dbInferencesOntology.getAxioms());
+			ontologyManager.saveOntology(processedOntology, IRI.create(processedOntologyFile.toURI()));
+		} catch (OWLOntologyStorageException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void createClassesAndPropertiesURIs() {
