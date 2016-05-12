@@ -23,7 +23,7 @@ public class DbViewParser {
 	public void parseViewName(String tableNameString)
 	{
 		new_view.setName(tableNameString.trim().replace( "`", "").replace( "'", "").replace( "\"", ""));
-		System.out.println("View name: " + new_view.getName());
+		
 		
 		//#puts "\n=== VIEW " + new_view.name+" ==="
 	}
@@ -241,8 +241,11 @@ public class DbViewParser {
 
 	public void parseJoinStatement(String joinText)
 	{
-		if (findFirstMatchIndex(joinText, "(JOIN\\s\\(?\\s?`?\\w+`?\\sON\\(*`?\\w+`?\\.`?\\w+`?\\s?(=)\\s*`?\\w+`?\\.`?\\w+`?\\)*\\s*,?;?)+") != -1)
-		{			
+		
+		//if (findFirstMatchIndex(joinText, "(JOIN\\s\\(?\\s?`?\\w+`?\\sON\\(*`?\\w+`?\\.`?\\w+`?\\s?(=)\\s*`?\\w+`?\\.`?\\w+`?\\)*\\s*,?;?)+") != -1)
+		if (findFirstMatchIndex(joinText, "JOIN") != -1)
+		{
+
 			String[] possibleJoins = joinText.split("JOIN");
 			for (String join : possibleJoins)
 			{
@@ -253,22 +256,26 @@ public class DbViewParser {
 					String restText = join.replace("`","").replace("\\;","").trim();
 					//					//#puts "join:"+restText
 					int tableNamePosition = restText.indexOf("ON");
-					String tableName = restText.substring(0, tableNamePosition).trim();
+					String tableName = restText.substring(0, tableNamePosition).trim().replace(".", ":");
 
 					DBRelation table = product.getRelationsMap().get(tableName);
+					
+					
 					if (table!= null)
 					{
 						newJoin.setTable(table);
 					} else {
 						System.out.println("The table in the JOIN statement could not be found: " + tableName); 
 					}
-					String columns = restText.substring(tableNamePosition+2).trim().replace("\\(", "").replace("\\", "");
+					String columns = restText.substring(tableNamePosition+2).trim().replace("(", "").replace(")", "");
 
 					int equalPosition = columns.indexOf('=');
 
-					String column1Text = columns.substring(0, equalPosition).trim();
-					String column2Text = columns.substring(equalPosition + 1).trim();
+					String column1Text = columns.substring(0, equalPosition).trim().replaceFirst("\\.", ":");
+					String column2Text = columns.substring(equalPosition + 1).trim().replaceFirst("\\.", ":");
 
+					
+					
 					DBAttribute column1 = product.getAttributesMap().get(column1Text);
 					if (column1!=null)
 					{
@@ -320,6 +327,7 @@ public class DbViewParser {
 
 	public DbView parseView(String viewText, String viewName)
 	{
+		viewName = viewName.substring(viewName.indexOf(":") + 1);
 		viewText = viewText.replace("select", "SELECT");
 		viewText = viewText.replace("from", "FROM");
 		viewText = viewText.replace("where","WHERE");
@@ -329,6 +337,8 @@ public class DbViewParser {
 		viewText = viewText.replace("min","MIN");
 		viewText = viewText.replace("max","MAX");
 		viewText = viewText.replace("group by","GROUP BY");
+		viewText = viewText.replace(" on"," ON");
+		
 		
 		new_view = new DbView();
 
