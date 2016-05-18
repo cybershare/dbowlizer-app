@@ -106,7 +106,7 @@ public class Builder {
                 attribute.setFK(true);
                 System.out.println("Foreign key found: " + fullColumnName); 
                // System.out.println();
-                System.out.println("Refrencing table name:   "+column.getReferencedColumn().getParent().getName()+" and the refrence column name is "+ column.getReferencedColumn().getName());//Remove this, Eric is testing
+                System.out.println("Referenced Table:   "+column.getReferencedColumn().getParent().getName()+" and the refrence column name is "+ column.getReferencedColumn().getName());//Remove this, Eric is testing
                //System.out.println();
                 System.out.println("Referenced Column: " + column.getReferencedColumn().getShortName());
                 String referenceColumn = column.getReferencedColumn().getShortName();
