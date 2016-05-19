@@ -78,7 +78,7 @@ public String foreignIRIClassName(DBRelation dbRelaiton){
 			return capitalizeFirstLetter(attribute.getReferencedRelationName());
 		}
 	}
-	return "Testing";
+	return "Error";
 	
 }
 
@@ -97,7 +97,7 @@ public String subjectTemplateString(DBRelation dbrelation){
 			template=template+"_{"+dbAttribute.getColumnName()+"}";
 		}
 	}
-	return template;
+	return template.substring(1);
 }
 
 	public String getBaseIRI(OWLClass owlClass){

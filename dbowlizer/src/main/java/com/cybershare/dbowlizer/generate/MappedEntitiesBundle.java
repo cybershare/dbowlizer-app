@@ -51,8 +51,25 @@ public class MappedEntitiesBundle {
 		return owlObjectPropertyToAttributeName;
 	}
 
+	public void printAll(){
+        for(final OWLClass owlClass : owlClassToRelationNameMap.keySet()){
+        	String owlclass=owlClassToRelationNameMap.get(owlClass);
+        	System.out.println("OwlClass: "+ owlClass.getIRI());
+        	System.out.println("Table: "+ owlclass);
+        }   
+        System.out.println();
+        for(final OWLDataProperty owlDataProperty : owlDataPropertyToAttributeName.keySet()){
+            String owlDataproperty=owlDataPropertyToAttributeName.get(owlDataProperty);
+            System.out.println("OwlDataProperty: "+ owlDataProperty.getIRI());
+            System.out.println("Attribute: "+ owlDataproperty);
+        }   
+        System.out.println();
+        for(final OWLObjectProperty owlObjectProperty : owlObjectPropertyToAttributeName.keySet()){
+            String owlObjectproperty=owlObjectPropertyToAttributeName.get(owlObjectProperty);
+            System.out.println("OwlObjectProperty: "+ owlObjectProperty.getIRI());
+            System.out.println("Attribute: "+ owlObjectproperty);
+        }   
 	
-	
-	
+	}
 
 }
