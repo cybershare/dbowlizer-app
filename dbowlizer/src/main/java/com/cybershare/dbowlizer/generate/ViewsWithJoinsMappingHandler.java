@@ -269,45 +269,57 @@ public class ViewsWithJoinsMappingHandler
                 joinDomainAndRange.put("joinClassRange",joinClassRange);
 
                 NodeSet<OWLNamedIndividual> hasRangeMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasRangeMappingOP);
+                System.out.println("Has Range Mapping Size: " + hasRangeMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasRangeMapping = null;
                 if (hasRangeMappingNodeSet!=null)
                 {
                 	Set<OWLNamedIndividual> hasRangeMappingSet = hasRangeMappingNodeSet.getFlattened();
                 	hasRangeMapping = hasRangeMappingSet.toArray(new OWLNamedIndividual[hasRangeMappingSet.size()]);
                 }
+                
                 NodeSet<OWLNamedIndividual> hasDomainMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasDomainMappingOP);
+                System.out.println("hasDomainMappingNodeSet Size: " + hasDomainMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasDomainMapping = null;
                 if (hasDomainMappingNodeSet != null)
                 {
                 	Set<OWLNamedIndividual> hasDomainMappingSet = hasDomainMappingNodeSet.getFlattened();
                 	hasDomainMapping = hasDomainMappingSet.toArray(new OWLNamedIndividual[hasDomainMappingSet.size()]);
                 }
-                NodeSet<OWLNamedIndividual> hasPropertyMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasObjectPropertyMappingOP);
                 
+                
+                NodeSet<OWLNamedIndividual> hasPropertyMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasObjectPropertyMappingOP);
+                System.out.println("hasPropertyMappingNodeSet Size: " + hasPropertyMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasPropertyMapping = null;
                 if (hasPropertyMappingNodeSet != null)
                 {
                 	Set<OWLNamedIndividual> hasPropertyMappingSet = hasDomainMappingNodeSet.getFlattened();
                 	hasPropertyMapping = hasPropertyMappingSet.toArray(new OWLNamedIndividual[hasPropertyMappingSet.size()]);
                 }
-                NodeSet<OWLNamedIndividual> hasSubClassOfRangeMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasSubClassOfRangeMappingOP);
                 
+                NodeSet<OWLNamedIndividual> hasSubClassOfRangeMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasSubClassOfRangeMappingOP);
+                System.out.println("hasSubClassOfRangeMappingNodeSet Size: " + hasSubClassOfRangeMappingNodeSet.getFlattened().size());
                 OWLNamedIndividualImpl[] hasSubClassOfRangeMapping = null;
                 if  (hasSubClassOfRangeMappingNodeSet != null)
                 {
                 	Set<OWLNamedIndividual> hasSubClassOfRangeMappingSet = hasSubClassOfRangeMappingNodeSet.getFlattened();
                 	hasSubClassOfRangeMapping = hasSubClassOfRangeMappingSet.toArray(new OWLNamedIndividualImpl[hasSubClassOfRangeMappingSet.size()]);
                 }
+                
                 NodeSet<OWLNamedIndividual> hasSubClassOfDomainMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasSubClassOfDomainMappingOP);
+                System.out.println("hasSubClassOfDomainMappingNodeSet Size: " + hasSubClassOfDomainMappingNodeSet.getFlattened().size());
                 OWLNamedIndividualImpl[] hasSubClassOfDomainMapping = null;
                 if  (hasSubClassOfDomainMappingNodeSet != null)
                 {
                 	Set<OWLNamedIndividual> hasSubClassOfDomainMappingSet = hasSubClassOfDomainMappingNodeSet.getFlattened();
                 	hasSubClassOfDomainMapping = hasSubClassOfDomainMappingSet.toArray(new OWLNamedIndividualImpl[hasSubClassOfDomainMappingSet.size()]);
                 }
+                
+                System.out.println("Has Property Mapping: " + hasPropertyMapping + " length: " + hasPropertyMapping.length);
+                
                 if (hasPropertyMapping!=null && hasPropertyMapping.length==1)
                 {
                     OWLNamedIndividual attribute = hasPropertyMapping[0];
+                    System.out.println("This is what's missing:" + attribute.getIRI());
                     //#To come here to the object name
                     String objectName = (view.getIRI().toString().replace(individualURI,""))+"_join_"+joinCounter+"_"+((attribute.getIRI().toString()).replace(individualURI,""));
                     
@@ -582,8 +594,10 @@ public class ViewsWithJoinsMappingHandler
                     if (!joinKey.equals(comparingJoinKey))
                     {
                         OWLClass comparingDomainClassName = comparingJoinValue.get("domain");
+                        if (comparingDomainClassName == null)
+                        	System.out.println("comparingDomainClassName is nulls");
                         //#Checking if they have the same domain
-                        if (joinDomainClassName.getIRI().toString().equals(comparingDomainClassName.getIRI().toString()))
+                        if (comparingDomainClassName != null && joinDomainClassName.getIRI().toString().equals(comparingDomainClassName.getIRI().toString()))
                         {
                             HashSet<OWLClass> intersection = new HashSet<OWLClass>();
                             OWLClass intersection1 = joinValue.get("joinClassDomain");
@@ -607,7 +621,7 @@ public class ViewsWithJoinsMappingHandler
                         
                         OWLClass comparingRangeClassName = comparingJoinValue.get("range");
                         //#Checking if they have the same domain
-                        if (joinDomainClassName.getIRI().toString().equals(comparingRangeClassName.getIRI().toString()))
+                        if (comparingRangeClassName != null && joinDomainClassName.getIRI().toString().equals(comparingRangeClassName.getIRI().toString()))
                         {
                         	HashSet<OWLClass> intersection = new HashSet<OWLClass>();
                         	OWLClass intersection1=joinValue.get("joinClassDomain");
@@ -645,7 +659,7 @@ public class ViewsWithJoinsMappingHandler
                     {
                         OWLClass comparingRangeClassName = comparingJoinValue.get("range");
                         //#Checking if they have the same domain
-                        if (joinRangeClassName.getIRI().toString().equals(comparingRangeClassName.getIRI().toString()))
+                        if (joinRangeClassName != null && joinRangeClassName.getIRI().toString().equals(comparingRangeClassName.getIRI().toString()))
                         {
                             HashSet<OWLClass> intersection = new HashSet<OWLClass>();
                             OWLClass intersection1 = joinValue.get("joinClassRange");
@@ -671,7 +685,7 @@ public class ViewsWithJoinsMappingHandler
 
                         OWLClass comparingDomainClassName = comparingJoinValue.get("domain");
                         //#Checking if they have the same domain
-                        if (joinRangeClassName.getIRI().toString().equals(comparingDomainClassName.getIRI().toString()))
+                        if (comparingDomainClassName != null && joinRangeClassName.getIRI().toString().equals(comparingDomainClassName.getIRI().toString()))
                         {
                             HashSet<OWLClass> intersection = new HashSet<OWLClass>();
                             OWLClass intersection1 = joinValue.get("joinClassRange");

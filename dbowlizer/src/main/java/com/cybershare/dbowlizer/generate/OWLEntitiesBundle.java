@@ -24,6 +24,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyChange;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
@@ -223,14 +224,24 @@ public class OWLEntitiesBundle
 		OWLOntology dbInferencesOntology = ontologyManager.loadOntology(mapInferLogicalIRI);	
 		
 		//Aqui esta el truco
-		//ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
+		ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
 		
 		
 		Configuration conf = new Configuration();
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
 		mappingReasoner = new Reasoner(conf, dbInferencesOntology);
 		
-		//ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
+		//Aqui tambien
+		ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
+
+		File processedOntologyFile = new File(settings.getOutputDirFile().substring(settings.getOutputDirFile().indexOf('/')) + "/AfterReasonerPopulatedOntology.owl");
+		try {
+			OWLOntology processedOntology = ontologyManager.createOntology();
+			ontologyManager.addAxioms(processedOntology, dbInferencesOntology.getAxioms());
+			ontologyManager.saveOntology(processedOntology, IRI.create(processedOntologyFile.toURI()));
+		} catch (OWLOntologyStorageException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void createClassesAndPropertiesURIs() {

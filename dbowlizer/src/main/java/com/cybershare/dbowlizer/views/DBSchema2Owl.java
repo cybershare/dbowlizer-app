@@ -96,9 +96,12 @@ public class DBSchema2Owl {
 		List<DbView> orgViews = new ArrayList<DbView>();
 		for (DBView view : views)
 		{
-			System.out.println("Parsing view: " + view.getDefinition());
+			
 			DbView dbView = dbViewParser.parseView(view.getDefinition(), view.getViewName());
+			
+			
 			orgViews.add(dbView);
+			
 		}
 		
 		for (DbView orgView : orgViews)
@@ -117,8 +120,10 @@ public class DBSchema2Owl {
 		String individualURI = propertiesManager.getString("sourceURI") + modelProduct.getSchemas().get(0).getSchemaName().trim().replace(" ",",")+":";
 		
 		// Creating the instances of the DB table
-		OWLNamedIndividual view = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase()));
-		OWLNamedIndividual query = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_query"));
+		//OWLNamedIndividual view = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase()));
+		OWLNamedIndividual view = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName()));
+		//OWLNamedIndividual query = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_query"));
+		OWLNamedIndividual query = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName()+ "_query"));
 		OWLClassAssertionAxiom instanceAxiom = factory.getOWLClassAssertionAxiom(dbViewClass, view);
 		OWLClassAssertionAxiom instanceAxiom2 = factory.getOWLClassAssertionAxiom(dbQueryClass, query);
 		AddAxiom addAxiom = new AddAxiom(extractedOntology, instanceAxiom);
@@ -138,8 +143,8 @@ public class DBSchema2Owl {
 			for (DBAttributeAlias currentAlias : dbView.getColumn_alias()) {
 				
 				// An instance of the attribute alias is created
-				OWLNamedIndividual aliasName = factory
-						.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_column_alias_" + aliasID));
+				//OWLNamedIndividual aliasName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_column_alias_" + aliasID));
+				OWLNamedIndividual aliasName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName() + "_column_alias_" + aliasID));
 				OWLClassAssertionAxiom attributeAxiom = factory.getOWLClassAssertionAxiom(dbAttributeAliasClass, aliasName);
 				AddAxiom attributeAddAxiom = new AddAxiom(extractedOntology, attributeAxiom);
 				manager.applyChange(attributeAddAxiom);
@@ -152,11 +157,16 @@ public class DBSchema2Owl {
 				OWLNamedIndividual columnName;
 				// The column that is part of the current Alias is added to the
 				// alias
+				String identification = currentAlias.getAttribute().getIdentification();
+				identification = identification.substring(identification.indexOf(":") + 1);
 				if (currentAlias.getAttribute() != null) {
 					if (!currentAlias.getAttribute().getColumnName().equals("all"))
-						columnName = factory.getOWLNamedIndividual(IRI.create(individualURI + currentAlias.getIdentification().toUpperCase()));
+						//columnName = factory.getOWLNamedIndividual(IRI.create(individualURI + currentAlias.getIdentification().toUpperCase()));
+						columnName = factory.getOWLNamedIndividual(IRI.create(individualURI + identification));
 					else
 						columnName = all_columns_individual;
+				
+					
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, aliasName, columnName);
 					attributePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(attributePartAxiom);
@@ -166,8 +176,11 @@ public class DBSchema2Owl {
 				// The alias name is added to the current alias through the
 				// hasAliasName datatype property
 				if (currentAlias.getAttribute() != null) {
-					OWLDataPropertyAssertionAxiom aliasNameAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAliasName,
-							aliasName, currentAlias.getAttribute().getColumnName().toUpperCase());
+				
+					String colStr = currentAlias.getAttribute().getIdentification();
+					colStr = colStr.substring(colStr.indexOf(":") + 1);
+					//OWLDataPropertyAssertionAxiom aliasNameAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAliasName,aliasName, currentAlias.getAttribute().getColumnName().toUpperCase());
+					OWLDataPropertyAssertionAxiom aliasNameAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAliasName,aliasName, colStr);
 					AddAxiom aliasAxiom = new AddAxiom(extractedOntology, aliasNameAxiom);
 					manager.applyChange(aliasAxiom);
 				}
@@ -177,17 +190,20 @@ public class DBSchema2Owl {
 				// lacks the alias_agg
 				if (currentAlias.getAlias_agg() != null)
 				{
-					OWLDataPropertyAssertionAxiom aliasAggAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAggregateFunctionProperty,aliasName,currentAlias.getAlias_agg().toUpperCase());
+					//OWLDataPropertyAssertionAxiom aliasAggAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAggregateFunctionProperty,aliasName,currentAlias.getAlias_agg().toUpperCase());
+					OWLDataPropertyAssertionAxiom aliasAggAxiom = factory.getOWLDataPropertyAssertionAxiom(hasAggregateFunctionProperty,aliasName,currentAlias.getAlias_agg());
 					AddAxiom aliasAxiom = new AddAxiom(extractedOntology,aliasAggAxiom);
 					manager.applyChange(aliasAxiom);
 				}
 				aliasID += 1;
 			}
+
 			// The tables that are part of the query are added
 			if (!dbView.getTables().isEmpty())
 				for (DBRelation table : dbView.getTables()) {
-					OWLNamedIndividual tableName = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + table.getTableName().toUpperCase()));
+					//OWLNamedIndividual tableName = factory.getOWLNamedIndividual(IRI.create(individualURI + table.getTableName().toUpperCase()));
+					OWLNamedIndividual tableName = factory.getOWLNamedIndividual(IRI.create(individualURI + table.getTableName()));
+					
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, query, tableName);
 					attributePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(attributePartAxiom);
@@ -199,33 +215,47 @@ public class DBSchema2Owl {
 				int joinID = 1;
 				for (DbViewJoin join : dbView.getJoins()) {
 					// The Table is added as part of the query
-					OWLNamedIndividual joinedTableName = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_join_" + joinID));
+					//OWLNamedIndividual joinedTableName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_join_" + joinID));
+					OWLNamedIndividual joinedTableName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName() + "_join_" + joinID));
 
 					// The join is made an instance of dbQueryJoinClass
 					OWLClassAssertionAxiom condAxiom = factory.getOWLClassAssertionAxiom(dbQueryJoinClass, joinedTableName);
 					AddAxiom condAddAxiom = new AddAxiom(extractedOntology, condAxiom);
 					manager.applyChange(condAddAxiom);
 
+					
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, query, joinedTableName);
 					attributePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(attributePartAxiom);
 
 					// The Tables that are part of the join are added
 
-					OWLNamedIndividual table1Name = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + join.getTable().getTableName().toUpperCase()));
+					//OWLNamedIndividual table1Name = factory.getOWLNamedIndividual(IRI.create(individualURI + join.getTable().getTableName().toUpperCase()));
+					OWLNamedIndividual table1Name = factory.getOWLNamedIndividual(IRI.create(individualURI + join.getTable().getTableName()));
+					
+
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, joinedTableName, table1Name);
 					AddAxiom tablePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(tablePartAxiom);
 
+					
 					// The columns that are part of the join are added
-					OWLNamedIndividual col1Name = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + join.getColumn1().getColumnName().toUpperCase()));
-					OWLNamedIndividual col2Name = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + join.getColumn2().getColumnName().toUpperCase()));
+					
+					
+					String col1Str = join.getColumn1().getIdentification();
+					col1Str = col1Str.substring(col1Str.indexOf(":") + 1);
+					
+					String col2Str = join.getColumn2().getIdentification();
+					col2Str = col2Str.substring(col2Str.indexOf(":") + 1);
+					//OWLNamedIndividual col1Name = factory.getOWLNamedIndividual(IRI.create(individualURI + join.getColumn1().getColumnName().toUpperCase()));
+					OWLNamedIndividual col1Name = factory.getOWLNamedIndividual(IRI.create(individualURI + col1Str));
+					//OWLNamedIndividual col2Name = factory.getOWLNamedIndividual(IRI.create(individualURI + join.getColumn2().getColumnName().toUpperCase()));
+					OWLNamedIndividual col2Name = factory.getOWLNamedIndividual(IRI.create(individualURI + col2Str));
+					
+					
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, joinedTableName, col1Name);
 					AddAxiom partAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
+					manager.applyChange(partAxiom);
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, joinedTableName, col2Name);
 					partAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(partAxiom);
@@ -246,8 +276,8 @@ public class DBSchema2Owl {
 				OWLNamedIndividual condName;
 				for (DbViewRestriction condition : dbView.getRestrictions()) {
 					// The condition is added as part of the query
-					condName = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_condition_" + condID));
+					//condName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName().toUpperCase() + "_condition_" + condID));
+					condName = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName()+ "_condition_" + condID));
 
 					// The condition is made an instance of dbQueryConditionClass
 					OWLClassAssertionAxiom condAxiom = factory.getOWLClassAssertionAxiom(dbQueryConditionClass, condName);
@@ -258,8 +288,10 @@ public class DBSchema2Owl {
 					manager.applyChange(attributePartAxiom);
 
 					// The column that is part of the condition are added
-					OWLNamedIndividual colName = factory
-							.getOWLNamedIndividual(IRI.create(individualURI + condition.getColumn().getColumnName().toUpperCase()));
+					String colStr = condition.getColumn().getIdentification();
+					colStr = colStr.substring(colStr.indexOf(":") + 1);
+					//OWLNamedIndividual colName = factory.getOWLNamedIndividual(IRI.create(individualURI + condition.getColumn().getColumnName().toUpperCase()));
+					OWLNamedIndividual colName = factory.getOWLNamedIndividual(IRI.create(individualURI + colStr));
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, condName, colName);
 					AddAxiom partAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(partAxiom);
@@ -290,7 +322,10 @@ public class DBSchema2Owl {
 			// The GROUP BY attribute is added
 			if (dbView.getGroup_by_columns().size() > 0)
 				for (DBAttribute column : dbView.getGroup_by_columns()) {
-					OWLNamedIndividual colName = factory.getOWLNamedIndividual(IRI.create(individualURI + column.getColumnName().toUpperCase()));
+					String colStr = column.getIdentification();
+					colStr = colStr.substring(colStr.indexOf(":") + 1);
+					//OWLNamedIndividual colName = factory.getOWLNamedIndividual(IRI.create(individualURI + column.getColumnName().toUpperCase()));
+					OWLNamedIndividual colName = factory.getOWLNamedIndividual(IRI.create(individualURI + colStr));
 					hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasGroupByAttributeProperty, query, colName);
 					attributePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 					manager.applyChange(attributePartAxiom);
@@ -303,7 +338,8 @@ public class DBSchema2Owl {
 				manager.applyChange(addAxiom);
 			}
 			if(dbView.isCopy()){
-				OWLNamedIndividual relationName = factory.getOWLNamedIndividual(IRI.create(individualURI+dbView.getTables().get(0).getTableName().toUpperCase()));
+				//OWLNamedIndividual relationName = factory.getOWLNamedIndividual(IRI.create(individualURI+dbView.getTables().get(0).getTableName().toUpperCase()));
+				OWLNamedIndividual relationName = factory.getOWLNamedIndividual(IRI.create(individualURI+dbView.getTables().get(0).getTableName()));
 				hasPartAxiom = factory.getOWLObjectPropertyAssertionAxiom(hasPartObjectProperty, query, all_columns_individual);
 				attributePartAxiom = new AddAxiom(extractedOntology, hasPartAxiom);
 				manager.applyChange(attributePartAxiom);

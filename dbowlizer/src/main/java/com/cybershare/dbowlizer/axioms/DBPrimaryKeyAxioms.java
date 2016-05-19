@@ -4,8 +4,12 @@ import com.cybershare.dbowlizer.dbmodel.DBAttribute;
 import com.cybershare.dbowlizer.dbmodel.DBPrimaryKey;
 import com.cybershare.dbowlizer.ontology.Individuals;
 import com.cybershare.dbowlizer.ontology.OWLUtils;
+
+import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLObjectExactCardinality;
 
 /**
  * 
@@ -26,6 +30,7 @@ public class DBPrimaryKeyAxioms extends Axioms {
         //Add class type DBPrimaryKey
         this.addTypeAxiom(this.vocabulary_RelationalToModel.getOWLClass_DBPrimaryKey());
         addAttribute();
+        addRestriction();
         
         //Primary key Classification, add corresponding subclass axiom
         if(dbprimarykey.isIndependent_PK())
@@ -51,6 +56,16 @@ public class DBPrimaryKeyAxioms extends Axioms {
             OWLAxiom axiom = bundle.getFactory().getOWLObjectPropertyAssertionAxiom(vocabulary_RelationalToModel.getObjectProperty_hasPart(), individual, attributeIndividual);
             add(axiom);
         }
+    }
+    
+    private void addRestriction(){
+    	int attributeCount = dbprimarykey.getAttributeCount();
+    	//System.out.println("attribute count: " +  attributeCount);
+    	OWLObjectExactCardinality someCardinality = bundle.getFactory().getOWLObjectExactCardinality(attributeCount, vocabulary_RelationalToModel.getObjectProperty_hasPart(), vocabulary_RelationalToModel.getOWLClass_DBAttribute());
+    	//System.out.println("exact cardinality: " +  someCardinality.toString());
+    	OWLIndividual primarykeyIndividual = Individuals.getIndividual(dbprimarykey, bundle);
+    	OWLAxiom axiom = bundle.getFactory().getOWLClassAssertionAxiom((OWLClassExpression)someCardinality, primarykeyIndividual);
+    	add(axiom);
     }
     
 }

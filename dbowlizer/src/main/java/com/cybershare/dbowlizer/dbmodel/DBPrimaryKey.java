@@ -24,7 +24,11 @@ public class DBPrimaryKey extends Element{
     }
     
     public boolean isSet_attributes(){return attributes.size() > 0;}
-
+    
+    public int getAttributeCount(){
+    	return attributes.size();
+    }
+    
     public String getPrimaryKeyName() {
         return primaryKeyName;
     }
