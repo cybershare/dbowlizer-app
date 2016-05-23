@@ -59,7 +59,7 @@ public class R2RMLfactory {
     }
     
     public void owlDataPropertyGenerator(){
-        R2RMLTemplate templates= new R2RMLTemplate();
+    	DataPropertyTemplate templates= new DataPropertyTemplate();
         TriplesMap tripTemp;
         HashMap<OWLDataProperty, String> owlDataPropertyToRelation =generator.getOwlDataPropertyToAttributeName();
         for(final OWLDataProperty owldataProperty : owlDataPropertyToRelation.keySet()){

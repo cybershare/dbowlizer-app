@@ -69,6 +69,7 @@ public class ObjectPropertyTemplate{
         sm.setTemplate(mappingFactory.createTemplate(getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute))));
         TriplesMap trip = mappingFactory.createTriplesMap(lt,sm);
         TriplesMap tripTemp= addObjectPredicate(trip, objProperty,dbAttribute);
+        //System.out.println("twoRelationTemplte "+ getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute)));
         return tripTemp;
     }
     

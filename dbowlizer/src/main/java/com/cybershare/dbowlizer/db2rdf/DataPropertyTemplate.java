@@ -16,11 +16,11 @@ import eu.optique.api.mapping.TermMap.TermMapType;
 import eu.optique.api.mapping.TriplesMap;
 import eu.optique.api.mapping.impl.jena.JenaR2RMLMappingManagerFactory;
 
-public class R2RMLTemplate {
+public class DataPropertyTemplate {
 	private R2RMLMappingManager mappingManager= new JenaR2RMLMappingManagerFactory().getR2RMLMappingManager();
 	private MappingFactory mappingFactory= mappingManager.getMappingFactory();
 
-	public R2RMLTemplate(){		
+	public DataPropertyTemplate(){		
 	}
 	
 	public TriplesMap addDataPropertiesToTriplesMap(TriplesMap trip, OWLDataProperty dataProperty, DBAttribute column){

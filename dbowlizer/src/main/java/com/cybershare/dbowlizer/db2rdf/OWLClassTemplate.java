@@ -62,7 +62,7 @@ public TriplesMap owlClassTemplateForNoOwnPK(OWLClass owlclass, DBRelation dbrel
 	sm.addClass(ResourceFactory.createResource(owlclass.getIRI().toString()));
 	for(final DBAttribute column: dbrelation.getAttributes()){
 		if(column.isPK()){
-			sm.setTemplate(mappingFactory.createTemplate(getBaseIRI(owlclass)+":"+foreignIRIClassName(dbrelation)+"/{"+column.getColumnName()+"}"));
+			sm.setTemplate(mappingFactory.createTemplate(getBaseIRI(owlclass)+"/"+foreignIRIClassName(dbrelation)+"/{"+column.getColumnName()+"}"));
 			}
 		}
 	TriplesMap trip = mappingFactory.createTriplesMap(lt,sm);
@@ -101,10 +101,10 @@ public String subjectTemplateString(DBRelation dbrelation){
 }
 
 	public String getBaseIRI(OWLClass owlClass){
-		String[] base= owlClass.getIRI().toString().split(":");
+		String[] base= owlClass.getIRI().toString().split("\\/");
 		String baseIRI="";
 		for(int i=0;i<base.length-1;i++){
-			baseIRI=baseIRI+":"+base[i];
+			baseIRI=baseIRI+"/"+base[i];
 		}
 		return baseIRI.substring(1);
 	}
