@@ -25,7 +25,7 @@ public class EntityConceptMappingHandler
 {
 	public static void processEntityConceptMappings(OWLEntitiesBundle owlEntitiesBundle, MappedEntitiesBundle mappedEntitiesBundle)
 	{
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		OWLOntologyManager ontologyManager = owlEntitiesBundle.getOntologyManager();
 		OWLDataFactory factory = ontologyManager.getOWLDataFactory();
 		Reasoner mappingReasoner = owlEntitiesBundle.getMappingReasoner();
@@ -53,7 +53,6 @@ public class EntityConceptMappingHandler
 
 				String dbRelationName = iriStr.replace(individualURI, "");
 				
-
 				OWLClass currentOWLCls = factory.getOWLClass(dbRelationName,basePrefix);
 				
 				OWLSubClassOfAxiom subClsAxiom = factory.getOWLSubClassOfAxiom(currentOWLCls,continuantCls);

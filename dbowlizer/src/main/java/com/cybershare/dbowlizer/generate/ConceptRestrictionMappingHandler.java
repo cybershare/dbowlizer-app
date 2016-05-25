@@ -46,7 +46,7 @@ public class ConceptRestrictionMappingHandler
 		OWLOntology db2OWLPrimitiveOntology = owlEntitiesBundle.getDb2OWLPrimitiveOntology();
 		DefaultPrefixManager basePrefix = owlEntitiesBundle.getBasePrefix();
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 
 		OWLClass continuantCls = owlEntitiesBundle.getContinuantCls();
 

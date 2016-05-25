@@ -26,7 +26,7 @@ public class DatatypePropertyMappingHandler
 		DefaultPrefixManager basePrefix = owlEntitiesBundle.getBasePrefix();
 		String individualURI = owlEntitiesBundle.getIndividualURI();
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		
 
 		OWLClass datatypePropertyMapping = factory.getOWLClass(propertiesManager.getString("datatypePropertyMapping"),basePrefix);

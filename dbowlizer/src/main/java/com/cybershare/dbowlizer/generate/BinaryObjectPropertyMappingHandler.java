@@ -25,7 +25,7 @@ public class BinaryObjectPropertyMappingHandler
 		OWLOntology db2OWLPrimitiveOntology = owlEntitiesBundle.getDb2OWLPrimitiveOntology();
 		DefaultPrefixManager basePrefix = owlEntitiesBundle.getBasePrefix();
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		OWLClass binaryObjectPropertyMapping = factory.getOWLClass(propertiesManager.getString("binaryObjectPropertyMapping"),basePrefix);
 		String individualURI = owlEntitiesBundle.getIndividualURI();
 		//#Create the OWL object properties corresponding to these individuals and add them into the output ontology.

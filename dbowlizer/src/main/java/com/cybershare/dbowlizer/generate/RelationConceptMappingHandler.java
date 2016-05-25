@@ -29,7 +29,7 @@ public class RelationConceptMappingHandler
 		Reasoner mappingReasoner = owlEntitiesBundle.getMappingReasoner();
 		OWLOntology db2OWLPrimitiveOntology = owlEntitiesBundle.getDb2OWLPrimitiveOntology();
 		DefaultPrefixManager basePrefix = owlEntitiesBundle.getBasePrefix();
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		
 		OWLClass conceptMappingClass = factory.getOWLClass(propertiesManager.getString("relationConceptMapping"),basePrefix);
 		OWLClass nAryRelationCls = factory.getOWLClass(IRI.create(propertiesManager.getString("nAryRelationCls")));

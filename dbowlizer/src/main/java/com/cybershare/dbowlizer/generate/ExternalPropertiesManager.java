@@ -24,8 +24,7 @@ public class ExternalPropertiesManager {
 		
 		ExternalPropertiesManager manager = new ExternalPropertiesManager(propertiesFile);
 		propertiesFileManagers.put(propertiesFile, manager);
-		return manager;
-								
+		return manager;						
 	}
 	
 	public String getString(String propertyStr)
@@ -40,6 +39,4 @@ public class ExternalPropertiesManager {
 		
 	}
 	
-	
-
 }

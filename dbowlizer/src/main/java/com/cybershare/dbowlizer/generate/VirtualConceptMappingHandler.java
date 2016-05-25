@@ -66,7 +66,7 @@ public class VirtualConceptMappingHandler
 
 	public static void processVirtualConceptMappings(OWLEntitiesBundle owlEntitiesBundle)
 	{
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		ontologyManager = owlEntitiesBundle.getOntologyManager();
 		factory = ontologyManager.getOWLDataFactory();
 		mappingReasoner = owlEntitiesBundle.getMappingReasoner();

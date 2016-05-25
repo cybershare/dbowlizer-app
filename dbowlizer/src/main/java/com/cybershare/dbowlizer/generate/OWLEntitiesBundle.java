@@ -107,7 +107,7 @@ public class OWLEntitiesBundle
         this.settings = settings;
         this.databaseName = product.getSchemas().get(0).getSchemaName();
 		//#In this one we will first process the inferences of the methodology mapping file and then realize the ontology and leave it in memory. It will not call the following line.
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 
 		createOntologyMappingWithMethodology(propertiesManager.getString("inferencesOntology"));
 	}
@@ -120,18 +120,15 @@ public class OWLEntitiesBundle
 			factory = ontologyManager.getOWLDataFactory();
 			//#Required ontology URIs are created.
 			//#The base URI and individual URI can be used as prefixes in OWLAPI ver. 3
-			ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
-			//ExternalPropertiesManager databasePropertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.database.properties");
+			ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 	
 			baseURI = propertiesManager.getString("baseURI") + "/";
 			
 			basePrefix = new DefaultPrefixManager(baseURI);
-			System.out.println(baseURI);
             //TODO: get 0 is ugly
 			String dbSchemaName = product.getSchemas().get(0).getSchemaName();
 			individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",") + ":";
-			System.out.println(individualURI);
-			//individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",")+":";
+			//System.out.println(individualURI);
 			IRI db2OWLMappingPrimitiveLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 	                
                         

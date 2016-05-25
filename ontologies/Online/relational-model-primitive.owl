@@ -30,7 +30,6 @@
 	 xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-model-primitive.owl">
-        <owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
 		<owl:imports rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl"/>
 		<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
         <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
@@ -72,15 +71,7 @@ email: nvillanuevarosales@utep.edu
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://ontology.dumontierlab.com/synonym -->
-
-    <owl:AnnotationProperty rdf:about="http://ontology.dumontierlab.com/synonym"/>
-    
-
-
+   
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
@@ -332,7 +323,6 @@ email: nvillanuevarosales@utep.edu
 
     <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Column</ontology:synonym>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Database attribute</rdfs:label>
     </owl:Class>
     
@@ -764,7 +754,6 @@ email: nvillanuevarosales@utep.edu
 
     <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Database table</ontology:synonym>
         <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A relation is a set of tuples that have the same attributes.</dc:description>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Database relation</rdfs:label>
     </owl:Class>

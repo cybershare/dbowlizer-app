@@ -44,7 +44,7 @@ public class ObjectPropertyRestrictionMappingHandler
 		Reasoner mappingReasoner = owlEntitiesBundle.getMappingReasoner();
 		OWLOntology db2OWLPrimitiveOntology = owlEntitiesBundle.getDb2OWLPrimitiveOntology();
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		String baseURI = owlEntitiesBundle.getBaseURI();
 		
 		OWLClass transitiveObjectPropertyMapping = factory.getOWLClass(IRI.create(baseURI+propertiesManager.getString("transitiveObjectPropertyMapping")));

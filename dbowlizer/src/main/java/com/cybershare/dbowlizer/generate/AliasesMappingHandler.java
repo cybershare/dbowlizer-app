@@ -43,7 +43,7 @@ public class AliasesMappingHandler
 	public static void processAliases(OWLEntitiesBundle owlEntitiesBundle)
 	{
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		ontologyManager = owlEntitiesBundle.getOntologyManager();
 		
 		factory = ontologyManager.getOWLDataFactory();

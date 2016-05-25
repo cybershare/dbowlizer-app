@@ -14,7 +14,6 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:ontology="http://ontology.dumontierlab.com/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:base="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-dbowlizer.owl">
     <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-dbowlizer.owl">
@@ -36,8 +35,8 @@
         <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-03-01</dc:issued>
         <ns0:defaultLanguage>en</ns0:defaultLanguage>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
-michel dumontier
-luis garnica
+		michel dumontier
+		luis garnica
 		</dc:contributor>
         <vann:preferredNamespacePrefix xml:lang="en">dbowl</vann:preferredNamespacePrefix>
     </owl:Ontology>

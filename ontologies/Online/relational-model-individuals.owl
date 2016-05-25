@@ -29,7 +29,6 @@
 	 xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl">
-		<owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
 		<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
         <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
         <terms:modified rdf:datatype="&xsd;date">2016-04-01</terms:modified>

@@ -33,8 +33,8 @@
         <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
         <terms:modified rdf:datatype="&xsd;date">2016-04-01</terms:modified>
         <dc:contributor rdf:datatype="&xsd;string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
-michel dumontier
-luis garnica
+		michel dumontier
+		luis garnica
 		</dc:contributor>
         <dc:rights rdf:datatype="&xsd;string">free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/].</dc:rights>
         <cc:license rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/3.0/</cc:license>

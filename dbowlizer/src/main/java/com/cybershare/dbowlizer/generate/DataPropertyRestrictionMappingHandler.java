@@ -35,7 +35,7 @@ public class DataPropertyRestrictionMappingHandler
 		OWLOntology db2OWLPrimitiveOntology = owlEntitiesBundle.getDb2OWLPrimitiveOntology();
 		DefaultPrefixManager basePrefix = owlEntitiesBundle.getBasePrefix();
 		
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 		
 		OWLClass datatypePropertyMapping = factory.getOWLClass(propertiesManager.getString("datatypePropertyMapping"),basePrefix);
 		HashSet<OWLLiteral> literalSet = new HashSet<OWLLiteral>();
