@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY dbowl "http://ontology.cybershare.utep.edu/resource/dbowl/" >
+	<!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+	<!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY resource "http://ontology.cybershare.utep.edu/resource/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns0 "http://protege.stanford.edu/plugins/owl/protege#" >
+]>
+
+
+<rdf:RDF xmlns="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-primitive.owl#"
+     xml:base="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-primitive.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:resource="http://ontology.cybershare.utep.edu/resource/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dbowl="&resource;dbowl/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	 xmlns:vann="http://purl.org/vocab/vann/"
+	 xmlns:ns0="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns:cc="http://creativecommons.org/ns#"
+	 xmlns:terms="http://purl.org/dc/terms/"
+	 >
+    <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-primitive.owl">
+ 		<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+        <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
+        <terms:modified rdf:datatype="&xsd;date">2016-04-01</terms:modified>
+        <dc:contributor rdf:datatype="&xsd;string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
+michel dumontier
+luis garnica
+		</dc:contributor>
+        <dc:rights rdf:datatype="&xsd;string">free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/].</dc:rights>
+        <cc:license rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/3.0/</cc:license>
+        <dc:creator rdf:datatype="&xsd;anyURI">http://cybershare.utep.edu</dc:creator>
+        <vann:preferredNamespaceUri rdf:datatype="&xsd;string">http://ontology.cybershare.utep.edu/dbowl/</vann:preferredNamespaceUri>
+        <dc:description xml:lang="en">
+		Primitive ontology for database to Semantic Web mapping which subsumes classes that
+		represent mappings to explicit OWL constructs, such as OWL class, object property, data
+		property, etc. Classes in this ontology are populated by individuals representing components of the database schema being mapped.
+		</dc:description>
+        <ns0:defaultLanguage>en</ns0:defaultLanguage>
+        <dc:title xml:lang="en">Relational to Ontology Mapping Primitive</dc:title>
+        <dc:creator xml:lang="en">iLink @ UTEP</dc:creator>
+        <dc:creator xml:lang="en">Natalia Villanueva-Rosales</dc:creator>
+        <vann:preferredNamespacePrefix xml:lang="en">dbowl</vann:preferredNamespacePrefix>
+        <terms:identifier>relational-to-ontology-mapping-primitive.owl</terms:identifier>
+        <owl:versionIRI rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-primitive.owl"/>
+        <rdfs:isDefinedBy rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-primitive.owl"/>   
+
+    </owl:Ontology>
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/equivalentClassMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/equivalentClassMapping">
+        <rdfs:label rdf:datatype="&xsd;string">equivalent class mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/exactly1CardinalityRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/exactly1CardinalityRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">exactly one restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/existsSomeRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/existsSomeRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">exists some restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasDomainMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasDomainMapping">
+        <rdfs:label rdf:datatype="&xsd;string">has domain mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasGroupingAttributeMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasGroupingAttributeMapping">
+        <rdfs:subPropertyOf rdf:resource="&resource;dbowl/isCollectionOfMapping"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasInversePropertyMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasInversePropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">has inverse property mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasPartMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasPartMapping">
+        <rdfs:label rdf:datatype="&xsd;string">has part mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasPropertyMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasPropertyMapping"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasRangeMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasRangeMapping">
+        <rdfs:label rdf:datatype="&xsd;string">has range mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasSubClassOfDomainMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasSubClassOfDomainMapping"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasSubClassOfRangeMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasSubClassOfRangeMapping"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasTypeMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/hasTypeMapping">
+        <rdfs:label rdf:datatype="&xsd;string">has type mapping</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/isCollectionOfMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/isCollectionOfMapping"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/isSubClassOfDomainOfMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/isSubClassOfDomainOfMapping">
+        <owl:inverseOf rdf:resource="&resource;dbowl/hasSubClassOfDomainMapping"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/isSubClassOfRangeOfMapping -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/isSubClassOfRangeOfMapping">
+        <owl:inverseOf rdf:resource="&resource;dbowl/hasSubClassOfRangeMapping"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/max0CardinalityRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/max0CardinalityRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">max 0 restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/max1CardinalityRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/max1CardinalityRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">max 1 restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/min0CardinalityRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/min0CardinalityRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">min 0 restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/min1CardinalityRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/min1CardinalityRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">min 1 restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/onlyFromPropertyRestriction -->
+
+    <owl:ObjectProperty rdf:about="&resource;dbowl/onlyFromPropertyRestriction">
+        <rdfs:label rdf:datatype="&xsd;string">only from restriction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasAggregateFunctionMapping -->
+
+    <owl:DatatypeProperty rdf:about="&resource;dbowl/hasAggregateFunctionMapping"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/AggregationRelationMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/AggregationRelationMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Aggregation Relation Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to the parthood (i.e. hasPart) relation between to cclasses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/BinaryObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/BinaryObjectPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Binary Object Property mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to a set of two inverse object properties in RDF/OWL.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/ConceptMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/ConceptMapping">
+        <rdfs:label rdf:datatype="&xsd;string">A mapping from an entity or relation from a relational database to a concept/class in RDF/OWL.</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Concept Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DB2SWMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/DB2SWMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Database to Semantic Web mapping</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from an relational model to a Semantic Web ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DatatypePropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/DatatypePropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Datatype property mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to a datatype property in RDF/OWL.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/EnnumerationPropertyRangeMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/EnnumerationPropertyRangeMapping">
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/PropertyRangeMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/EntityConceptMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/EntityConceptMapping">
+        <rdfs:label rdf:datatype="&xsd;string">A mapping from an entity or relation from a relational database to a concept/class in RDF/OWL that will represent an entity.</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Entity Concept Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ConceptMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/FunctionalDatatypePropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/FunctionalDatatypePropertyMapping">
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DatatypePropertyMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/FunctionalObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/FunctionalObjectPropertyMapping">
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to an object property asserted as functional.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Functional Object Property Mapping.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/InverseFunctionalObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/InverseFunctionalObjectPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Inverse Functional Object Property Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to an object property asserted as inverse functional.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/ObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/ObjectPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Object Property Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to an object property in RDF/OWL.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/PropertyDomainMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/PropertyDomainMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Property Domain Mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element as the domain of an object property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/PropertyRangeMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/PropertyRangeMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Property Range Mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element as the range of an object property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/RelationConceptMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/RelationConceptMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Relation Concept Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ConceptMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from an entity or relation from a relational database to a concept/class in RDF/OWL that will represent a relationship.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/SpecificRelationMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/SpecificRelationMapping">
+        <rdfs:label rdf:datatype="&xsd;string">A mapping from a relational database element to the subclass (i.e. is-a) relation between to classes.</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Specific Relation Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/SymmetricObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/SymmetricObjectPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Symmetric Object Property Mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to an object property asserted as symmetric.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/TransitiveObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/TransitiveObjectPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Transitive Object Property Mapping.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to an object property asserted as transitive.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/UnaryObjectPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/UnaryObjectPropertyMapping">
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/ObjectPropertyMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A mapping from a relational database element to one object property, i.e. an inverse object property will not be created.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Unary Object Property Mapping</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/VirtualCollectionMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/VirtualCollectionMapping">
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/VirtualMapping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/VirtualConceptMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/VirtualConceptMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Virtual concept mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/VirtualMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A virtual concept mapping will map a database query description into a concept that is defined by the constraints defined in the query.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/VirtualMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/VirtualMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Dabatase virtual concept mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/DB2SWMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A virtual mapping will create concepts that will not be populated from the database. Instead, it will contain the restrictions that will define the membership for that concept. They can be used to map restrictions described in views, queries, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/VirtualPropertyMapping -->
+
+    <owl:Class rdf:about="&resource;dbowl/VirtualPropertyMapping">
+        <rdfs:label rdf:datatype="&xsd;string">Virtual property mapping</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&resource;dbowl/VirtualMapping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A virtual property mapping will map a view to an object property restricted by a condition or a projection. This is used to map views that contain relations that were mapped as binary object properties and not as concepts.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1799) http://owlapi.sourceforge.net -->
+

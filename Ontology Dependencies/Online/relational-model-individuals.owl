@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+	<!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY resource "http://ontology.cybershare.utep.edu/resource/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns0 "http://protege.stanford.edu/plugins/owl/protege#" >
+]>
+
+<rdf:RDF xmlns="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl#"
+     xml:base="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+	 xmlns:ns0="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dbowl="http://ontology.cybershare.utep.edu/resource/dbowl/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ontology="http://ontology.dumontierlab.com/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns:vann="http://purl.org/vocab/vann/"
+	 xmlns:cc="http://creativecommons.org/ns#"
+	 xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl">
+		<owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
+		<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+        <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
+        <terms:modified rdf:datatype="&xsd;date">2016-04-01</terms:modified>
+        <dc:contributor rdf:datatype="&xsd;string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
+luis garnica
+michel dumontier
+		</dc:contributor>
+        <dc:rights rdf:datatype="&xsd;string">free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/].</dc:rights>
+        <cc:license rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/3.0/</cc:license>
+        <dc:creator rdf:datatype="&xsd;anyURI">http://cybershare.utep.edu</dc:creator>
+        <vann:preferredNamespaceUri rdf:datatype="&xsd;string">http://ontology.cybershare.utep.edu/dbowl/</vann:preferredNamespaceUri>
+        <dc:description xml:lang="en">
+		Ontology that contains the domain dependent individuals to instantiate a relational model using the  relational-model ontology.
+website: http://ilink.cybershare.utep.edu/ilinkProjects/project/DBOWLizerProject
+email: nvillanuevarosales@utep.edu
+</dc:description>
+        <ns0:defaultLanguage>en</ns0:defaultLanguage>
+        <dc:title xml:lang="en">Relational Model Individuals Ontology</dc:title>
+        <dc:creator xml:lang="en">iLink @ UTEP</dc:creator>
+        <dc:creator xml:lang="en">Natalia Villanueva-Rosales</dc:creator>
+        <vann:preferredNamespacePrefix xml:lang="en">dbowl</vann:preferredNamespacePrefix>
+        <terms:identifier>relational-model-individuals.owl</terms:identifier>
+        <owl:versionIRI rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl"/>
+        <rdfs:isDefinedBy rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl"/>
+		
+      
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeRestriction -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeRestriction"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyPropagation -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyPropagation"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_cascade -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_cascade">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyPropagation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_date -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_date">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_double -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_double">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_float -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_float">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_integer -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_integer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_not_null -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_not_null">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeRestriction"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_string -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_string">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeDomain"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_unique -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_unique">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttributeRestriction"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+

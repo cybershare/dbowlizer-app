@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+	<!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY resource "http://ontology.cybershare.utep.edu/resource/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns0 "http://protege.stanford.edu/plugins/owl/protege#" >
+]>
+
+<rdf:RDF xmlns="http://ontology.cybershare.utep.edu/dbowl/relational-model-complex.owl#"
+     xml:base="http://ontology.cybershare.utep.edu/dbowl/relational-model-complex.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dbowl="http://ontology.cybershare.utep.edu/resource/dbowl/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	 xmlns:vann="http://purl.org/vocab/vann/"
+	 xmlns:ns0="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns:cc="http://creativecommons.org/ns#"
+	 xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-model-complex.owl">
+	    <owl:imports rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-primitive.owl"/>
+        <owl:imports rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-individuals.owl"/>
+		<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+        <dc:issued rdf:datatype="&xsd;date">2016-03-01</dc:issued>
+        <terms:modified rdf:datatype="&xsd;date">2016-04-01</terms:modified>
+        <dc:contributor rdf:datatype="&xsd;string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
+michel dumontier
+luis garnica
+		</dc:contributor>
+        <dc:rights rdf:datatype="&xsd;string">free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/].</dc:rights>
+        <cc:license rdf:datatype="&xsd;anyURI">http://creativecommons.org/licenses/by/3.0/</cc:license>
+        <dc:creator rdf:datatype="&xsd;anyURI">http://cybershare.utep.edu</dc:creator>
+        <vann:preferredNamespaceUri rdf:datatype="&xsd;string">http://ontology.cybershare.utep.edu/dbowl/</vann:preferredNamespaceUri>
+        <dc:description xml:lang="en">The relational model ontology provides classes to describe components of the relational model. This ontology is populated using the DBOWLizer tool with elements of a relational database.
+website: http://dbowlizer.cybershare.utep.edu/
+email: nvillanuevarosales@utep.edu
+</dc:description>
+        <ns0:defaultLanguage>en</ns0:defaultLanguage>
+        <dc:title xml:lang="en">Relational Model Complex Ontology</dc:title>
+        <dc:creator xml:lang="en">iLink @ UTEP</dc:creator>
+        <dc:creator xml:lang="en">Natalia Villanueva-Rosales</dc:creator>
+        <vann:preferredNamespacePrefix xml:lang="en">dbowl</vann:preferredNamespacePrefix>
+        <terms:identifier>relational-model-complex.owl</terms:identifier>
+        <owl:versionIRI rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-complex.owl"/>
+        <rdfs:isDefinedBy rdf:resource="http://ontology.cybershare.utep.edu/dbowl/relational-model-complex.owl"/>
+		
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasAttributeRestriction -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/hasAttributeRestriction"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/referencesRelation -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/referencesRelation">
+        <rdfs:comment>Try to add the chain dl:references o dl:isPartOf -&gt; referencesRelation .since Pellet does not support it but FACT++ does not support rules.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute">
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBKey"/>
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBBinaryDependentRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBBinaryDependentRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBBinaryDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBKeyAttribute"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKey">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/references"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBCandidateKey"/>
+                            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKey"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBIndependentPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBIndependentPrimaryKey">
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryForeignKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBKey">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonKeyAttribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNAryDependentRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNAryDependentRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBMultipleDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNonForeignKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonForeignKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonKeyAttribute"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBKeyAttribute"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNonKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonKeyAttribute"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryForeignKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryForeignKey">
+        <owl:disjointWith rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryForeignKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryForeignKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryForeignKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute"/>
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryKeyAttribute"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonPrimaryKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNonKeyAttribute"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKeyAttribute"/>
+                            </owl:Class>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBNotNullAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBNotNullAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasAttributeRestriction"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_not_null"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyBinaryDependentRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyBinaryDependentRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyBinaryDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyNAryDependentRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyNAryDependentRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyMultipleDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyUnaryRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallyUnaryRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPartiallySingleDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryForeignKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryForeignKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryForeignKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryForeignKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute"/>
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKeyAttribute"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKey -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKey"/>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/isPartOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryNonForeignKeyAttribute -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryNonForeignKeyAttribute">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBPrimaryKeyAttribute"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBForeignKeyAttribute"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation -->
+
+    <owl:Class rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBAttribute"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBSchema -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBSchema">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBView"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBStrongEntityRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBStrongEntityRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBIndependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/DBUnaryRelationshipRelation -->
+
+    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBUnaryRelationshipRelation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBRelation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.cybershare.utep.edu/resource/dbowl/DBSingleDependentPrimaryKey"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_not_null -->
+
+    <owl:Thing rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/dbowl_not_null">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
