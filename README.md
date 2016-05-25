@@ -25,6 +25,12 @@ Contributors:
 Michel Dumontier
 Georgia Almodovar
 
+## Future Work
+1. Improve parsing mechanism for extracted view queries.
+2. Code Documentation (JavaDoc Release).
+3. Interfacing Web Service with open external database connections E.G. GoDaddy.
+4. Extending to PostgreSQL and Oracle database managers.
+
 
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
