@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 import org.apache.jena.rdf.model.Model;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataProperty;
@@ -57,7 +59,7 @@ public class R2RMLfactory {
     }
     
     public void owlDataPropertyGenerator(){
-        R2RMLTemplate templates= new R2RMLTemplate();
+    	DataPropertyTemplate templates= new DataPropertyTemplate();
         TriplesMap tripTemp;
         HashMap<OWLDataProperty, String> owlDataPropertyToRelation =generator.getOwlDataPropertyToAttributeName();
         for(final OWLDataProperty owldataProperty : owlDataPropertyToRelation.keySet()){
@@ -135,7 +137,6 @@ public class R2RMLfactory {
         Model out = mappingManager.exportMappings(coll,Model.class);
         FileOutputStream fos =new FileOutputStream (new File(settings.getOutputDir() + "TriplesMap_"+nameOfTriplesMap+".ttl"));
         settings.addMappingName("TriplesMap_"+nameOfTriplesMap+".ttl");
-        //System.out.println(settings.getOutputDir() + "TriplesMap_"+nameOfTriplesMap+".ttl");
         out.write(fos, "TURTLE" );
     }
     

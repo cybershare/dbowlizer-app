@@ -86,7 +86,5 @@ public class OutputOntologyGenerator
 		
 		return mappedEntitiesBundle; 
 	}
-
-
-
+	
 }

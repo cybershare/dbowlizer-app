@@ -69,6 +69,7 @@ public class ObjectPropertyTemplate{
         sm.setTemplate(mappingFactory.createTemplate(getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute))));
         TriplesMap trip = mappingFactory.createTriplesMap(lt,sm);
         TriplesMap tripTemp= addObjectPredicate(trip, objProperty,dbAttribute);
+        //System.out.println("twoRelationTemplte "+ getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute)));
         return tripTemp;
     }
     
@@ -78,7 +79,7 @@ public class ObjectPropertyTemplate{
         for(DBAttribute atribute: dbrelation.getAttributes()){
             if(!(atribute.getColumnName().equalsIgnoreCase(attribute))){
                 //TODO comment this out once they send the owlclasses in capitalize.
-                oppositeColumnIRI=":"+atribute.getReferencedRelationName()+"/{"+atribute.getColumnName()+"}";
+                oppositeColumnIRI="/"+atribute.getReferencedRelationName()+"/{"+atribute.getColumnName()+"}";
                 //oppositeColumnIRI=":"+capitalizeFirstLetter(atribute.getReferencedRelationName())+"/{"+atribute.getColumnName()+"}";
             }
         }
@@ -114,10 +115,10 @@ public class ObjectPropertyTemplate{
     }
     
     public String getBaseIRI(OWLObjectProperty objectProperty){
-        String[] base= objectProperty.getIRI().toString().split(":");
+        String[] base= objectProperty.getIRI().toString().split("\\/");
         String baseIRI="";
         for(int i=0;i<base.length-1;i++){
-            baseIRI=baseIRI+":"+base[i];
+            baseIRI=baseIRI+"/"+base[i];
         }
         return baseIRI.substring(1);
     }

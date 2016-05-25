@@ -90,6 +90,7 @@ public class Main {
         
         OutputOntologyGenerator oPOG = new OutputOntologyGenerator(bundle, product, settings);
         MappedEntitiesBundle mappedEntitiesBundle = oPOG.createMappingOutputOntology();
+        //mappedEntitiesBundle.printAll();
         
         R2RMLfactory r2rmlFactory= new R2RMLfactory(product,mappedEntitiesBundle, settings);
         r2rmlFactory.startProduction();
