@@ -14,7 +14,7 @@ public class ExternalPropertiesManager {
 	{
 		resource = Config.loadResource(propertiesFile);
 		readStrings = new HashMap<String, String>();
-		
+
 	}
 	
 	public static ExternalPropertiesManager getInstance(String propertiesFile)

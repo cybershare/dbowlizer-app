@@ -14,7 +14,6 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:ontology="http://ontology.dumontierlab.com/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:base="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-dbowlizer.owl">
     <owl:Ontology rdf:about="http://ontology.cybershare.utep.edu/dbowl/relational-to-ontology-mapping-dbowlizer.owl">
@@ -26,8 +25,8 @@
 		</dc:description>
         <dc:creator xml:lang="en">iLink @ UTEP</dc:creator>
         <terms:identifier>relational-to-ontology-mapping-dbowlizer.owl</terms:identifier>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-04-01</terms:modified>
         <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string">free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/].</dc:rights>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-04-01</terms:modified>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://cybershare.utep.edu</dc:creator>
         <dc:title xml:lang="en">Relational to Ontology Mapping DBOwlizer</dc:title>
         <dc:creator xml:lang="en">Natalia Villanueva-Rosales</dc:creator>
@@ -36,8 +35,8 @@
         <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-03-01</dc:issued>
         <ns0:defaultLanguage>en</ns0:defaultLanguage>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):
-michel dumontier
-luis garnica
+		michel dumontier
+		luis garnica
 		</dc:contributor>
         <vann:preferredNamespacePrefix xml:lang="en">dbowl</vann:preferredNamespacePrefix>
     </owl:Ontology>
@@ -290,23 +289,6 @@ luis garnica
     <!-- http://ontology.cybershare.utep.edu/resource/dbowl/subClassOfMapping -->
 
     <owl:ObjectProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/subClassOfMapping"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ontology.cybershare.utep.edu/resource/dbowl/hasValue -->
-
-    <owl:DatatypeProperty rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/hasValue"/>
     
 
 
@@ -1393,6 +1375,7 @@ dl:DBNonPrimaryForeignKeyAttribute
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBEquivalentView"/>
+                    <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBJoinSelectionView"/>
                     <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBProjectionSelectionView"/>
                     <rdf:Description rdf:about="http://ontology.cybershare.utep.edu/resource/dbowl/DBProjectionView"/>
                     <owl:Class>

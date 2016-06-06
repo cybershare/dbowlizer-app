@@ -2,6 +2,7 @@ package com.cybershare.dbowlizer.views;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.IRI;
@@ -10,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDifferentIndividualsAxiom;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLNegativeObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectComplementOf;
@@ -90,6 +92,8 @@ public class DBSchema2Owl {
 	
 	public void parseViewsAndCreateAxioms()
 	{
+		
+		
 		List<DBView> views = this.modelProduct.getSchemas().get(0).getViews();
 		DbViewParser dbViewParser = new DbViewParser(modelProduct);
 		
@@ -126,6 +130,8 @@ public class DBSchema2Owl {
 		OWLNamedIndividual query = factory.getOWLNamedIndividual(IRI.create(individualURI + dbView.getName()+ "_query"));
 		OWLClassAssertionAxiom instanceAxiom = factory.getOWLClassAssertionAxiom(dbViewClass, view);
 		OWLClassAssertionAxiom instanceAxiom2 = factory.getOWLClassAssertionAxiom(dbQueryClass, query);
+		
+		
 		AddAxiom addAxiom = new AddAxiom(extractedOntology, instanceAxiom);
 		manager.applyChange(addAxiom);
 		AddAxiom addAxiom2 = new AddAxiom(extractedOntology, instanceAxiom2);
@@ -349,6 +355,13 @@ public class DBSchema2Owl {
 				attributePartAxiom = new AddAxiom(extractedOntology, notHasPartAxiom);
 				manager.applyChange(attributePartAxiom);
 			}
+			
+			//a lo cholo
+			Set<OWLNamedIndividual> individuals = extractedOntology.getIndividualsInSignature();
+			OWLDifferentIndividualsAxiom differentIndividualAxiom = factory.getOWLDifferentIndividualsAxiom(individuals);
+			AddAxiom addAxiomDifferent = new AddAxiom(extractedOntology, differentIndividualAxiom);
+			manager.applyChange(addAxiomDifferent);
+
 		}
 	}
 }

@@ -107,9 +107,12 @@ public class OWLEntitiesBundle
         this.settings = settings;
         this.databaseName = product.getSchemas().get(0).getSchemaName();
 		//#In this one we will first process the inferences of the methodology mapping file and then realize the ontology and leave it in memory. It will not call the following line.
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
+        ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 
-		createOntologyMappingWithMethodology(propertiesManager.getString("inferencesOntology"));
+        String filePath = new File("").getAbsolutePath();
+		createOntologyMappingWithMethodology(filePath + propertiesManager.getString("inferencesOntology"));
+	
+	
 	}
 
 	private void createOntologyMappingWithMethodology(String ontologyStr)  
@@ -154,7 +157,8 @@ public class OWLEntitiesBundle
 			db2OWLComplexOntology = ontologyManager.createOntology(db2OWLMappingComplexLogicalURI);
 			
 			//Adding the PROV-O base stuff
-			String filePath = propertiesManager.getString("baseMappingOntology");
+		    String filePathAbsolute = new File("").getAbsolutePath();
+			String filePath = filePathAbsolute + propertiesManager.getString("baseMappingOntology");
 			File baseOntologyFile = new File(filePath);
 			OWLOntology baseOntology = ontologyManager.loadOntologyFromOntologyDocument(baseOntologyFile);
 			List<OWLOntologyChange> changes = ontologyManager.addAxioms(db2OWLPrimitiveOntology, baseOntology.getAxioms());

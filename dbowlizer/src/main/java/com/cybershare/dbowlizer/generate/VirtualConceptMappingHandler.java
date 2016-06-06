@@ -214,7 +214,7 @@ public class VirtualConceptMappingHandler
 				if (eqClassNodeSet != null)
 				{
 					Set<OWLNamedIndividual> eqClassIndividuals = eqClassNodeSet.getFlattened();
-					System.out.println("set size: "+eqClassIndividuals.size());
+					//System.out.println("set size: "+eqClassIndividuals.size());
 					if (eqClassIndividuals.size()>0)
 					{
 						for (OWLNamedIndividual eqClassObj : eqClassIndividuals)
