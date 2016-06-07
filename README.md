@@ -24,6 +24,8 @@ As Webservice Endpoint:
 + Uncomment the webservice setting parameters and provide an absolute path as required.
 + Make sure to copy the local input ontologies to a directory with r/w access.
 + Change your outputURL according to your webserver settings pointing to the physical output path.
++ Generate WAR file with MAVEN.
++ Import WAR into Tomcat 8.
 
 
 DBOwlizer Webservice Endpoint:
@@ -45,16 +47,16 @@ specify the database connection to MySQL databases with open external access.
 
 
 ## Credits
-Project PI: Natalia Villanueva Rosales
-Implementation Lead: Luis Garnica
-Lead Developer: Diego Aguirre
-Assistant Developer: Erick Garcia
-Assistant Developer: Eric Camacho
++ Project PI: Natalia Villanueva Rosales
++ Implementation Lead: Luis Garnica
++ Lead Developer: Diego Aguirre
++ Assistant Developer: Erick Garcia
++ Assistant Developer: Eric Camacho
 
 
 Contributors:
-Michel Dumontier
-Georgia Almodovar
++ Michel Dumontier
++ Georgia Almodovar
 
 
 ## Future Work
@@ -70,4 +72,4 @@ This work is licensed under a Creative Commons Attribution 4.0 International Lic
 
 
 ## Project Website
- >> http://dbowlizer.cybershare.utep.edu
++ http://dbowlizer.cybershare.utep.edu
