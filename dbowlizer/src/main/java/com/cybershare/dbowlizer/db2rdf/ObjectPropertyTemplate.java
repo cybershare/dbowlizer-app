@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.db2rdf;
 
 import java.util.HashMap;
@@ -34,7 +58,6 @@ public class ObjectPropertyTemplate{
         this.schemaName=product.getSchemas().get(0).getSchemaName()+":";
     }
     
-    
     public TriplesMap addObjectPredicate(TriplesMap trip, OWLObjectProperty objProperty,String dbRelationNAttribute){
         TriplesMap tripTemp=trip;
         DBRelation table =product.getRelation(schemaName+tableName(dbRelationNAttribute));
@@ -51,6 +74,7 @@ public class ObjectPropertyTemplate{
         PredicateObjectMap pom = mappingFactory.createPredicateObjectMap(predicate,object);
         return pom;
     }
+    
     public String getReferenceTableName(DBRelation table, String columnName){
         for(DBAttribute attribute: table.getAttributes()){
             if(attribute.getColumnName().equalsIgnoreCase(columnName)){
@@ -58,35 +82,27 @@ public class ObjectPropertyTemplate{
             }
         }
         return "";
-        
     }
     
     public TriplesMap twoRelationTemplate(OWLObjectProperty objProperty, String dbAttribute){
         DBRelation table =product.getRelation(schemaName+tableName(dbAttribute));
         LogicalTable lt= mappingFactory.createSQLBaseTableOrView(table.getTableName());
         SubjectMap sm = mappingFactory.createSubjectMap(mappingFactory.createTemplate());
-        //TODO comment this out once they send the owlclasses in capitalize.
         sm.setTemplate(mappingFactory.createTemplate(getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute))));
         TriplesMap trip = mappingFactory.createTriplesMap(lt,sm);
         TriplesMap tripTemp= addObjectPredicate(trip, objProperty,dbAttribute);
-        //System.out.println("twoRelationTemplte "+ getBaseIRI(objProperty)+getOppositeColumn(table, columnName(dbAttribute)));
         return tripTemp;
     }
-    
     
     public String getOppositeColumn(DBRelation dbrelation, String attribute){
         String oppositeColumnIRI=null;
         for(DBAttribute atribute: dbrelation.getAttributes()){
             if(!(atribute.getColumnName().equalsIgnoreCase(attribute))){
-                //TODO comment this out once they send the owlclasses in capitalize.
                 oppositeColumnIRI="/"+atribute.getReferencedRelationName()+"/{"+atribute.getColumnName()+"}";
-                //oppositeColumnIRI=":"+capitalizeFirstLetter(atribute.getReferencedRelationName())+"/{"+atribute.getColumnName()+"}";
             }
         }
         return oppositeColumnIRI;
     }
-    
-    
     
     public String getForeignOWLClassIRI(String referenceTableName){
         for(final OWLClass owlClass : owlClassToRelationNameMap.keySet()){
@@ -97,6 +113,7 @@ public class ObjectPropertyTemplate{
         }
         return "";
     }
+    
     public String columnName(String dbAttribute){
         String[] base= dbAttribute.split("\\.");
         return base[base.length-1];

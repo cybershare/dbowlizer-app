@@ -1,8 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
 
 package com.cybershare.dbowlizer.build;
 
@@ -25,20 +43,12 @@ import schemacrawler.schema.Column;
 import schemacrawler.schema.Schema;
 import schemacrawler.schema.Table;
 
-/**
- * 
- * @author Luis Garnica <lagarnicachavira at miners.utep.edu>
- */
 public class Builder {
     
     private ModelProduct product;
     
     public Builder(ModelProduct product){
         this.product = product;
-    }
-    
-    private void reset(){
-        // attribute = null;
     }
     
     public void buildAttributeDomains(){
@@ -73,18 +83,21 @@ public class Builder {
 
     public void buildRelation(Table table){ 
         String fullRelationName = table.getSchema() + ":" + table.getName();
-        DBSchema dbschema = product.getSchema(table.getSchema().getFullName()); //get current schema
-        DBRelation relation = product.getRelation(fullRelationName); //Eric C did this change to test. fullRelationName was change to table.getName()
+        //get current schema
+        DBSchema dbschema = product.getSchema(table.getSchema().getFullName()); 
+        DBRelation relation = product.getRelation(fullRelationName); 
         relation.setRelationName(fullRelationName);
-        dbschema.addRelation(relation); //add relation to the schema model
+        //add relation to the schema model
+        dbschema.addRelation(relation); 
         for (final Column column: table.getColumns()){ 
             String c = remNoneAlphaNum(column.getName());
             String fullColumnName = table.getSchema() + ":" + table.getName() + "." + c;
             DBAttribute attribute = product.getAttribute(fullColumnName);
-            attribute.setDatatype(column.getColumnDataType().toString()); //datatype
+            attribute.setDatatype(column.getColumnDataType().toString()); 
             System.out.println(attribute.getDatatype());
-            attribute.setDefaultvalue(column.getDefaultValue()); //default attribute value
-            attribute.setNN(!column.isNullable()); //is not null?
+            attribute.setDefaultvalue(column.getDefaultValue()); 
+            attribute.setNN(!column.isNullable()); 
+            
             //set attribute restrictions
             if(attribute.isNN())
                 attribute.addRestriction(product.getAttributeRestriction("dbowl_not_null"));
@@ -105,14 +118,11 @@ public class Builder {
             if(column.isPartOfForeignKey()){
                 attribute.setFK(true);
                 System.out.println("Foreign key found: " + fullColumnName); 
-               // System.out.println();
-                System.out.println("Referenced Table:   "+column.getReferencedColumn().getParent().getName()+" and the refrence column name is "+ column.getReferencedColumn().getName());//Remove this, Eric is testing
-               //System.out.println();
+                System.out.println("Referenced Table:   "+column.getReferencedColumn().getParent().getName()+" and the refrence column name is "+ column.getReferencedColumn().getName());
                 System.out.println("Referenced Column: " + column.getReferencedColumn().getShortName());
                 String referenceColumn = column.getReferencedColumn().getShortName();
                 attribute.setReferencedRelationName(column.getReferencedColumn().getParent().getName());
                 String fk = table.getSchema() + ":" + table.getName() + ".fk_" + column.getShortName() +".foreign_key";
-                
                 String referencePrimaryKey = column.getReferencedColumn().getParent().toString();
                 referencePrimaryKey = referencePrimaryKey.replaceAll("\\.", ":");
                 referencePrimaryKey = referencePrimaryKey + ".primary_key";
@@ -124,14 +134,17 @@ public class Builder {
                 
                 relation.addForeignKeys(foreignkey);
             }
+            
             if(column.isNullable()){
                 attribute.setNN(false);
                 System.out.println("Found nullable attribute: " + fullColumnName);
             }
+            
             if(column.isPartOfUniqueIndex()){
                 attribute.setUN(true);
                 System.out.println("Found unique attribute: " + fullColumnName);
             }
+            
             if(attribute.isCandidateKey()){
                 DBCandidateKey candidatekey = product.getCandidateKey(fullColumnName + "index.candidate_key");
                 candidatekey.setKeyAttribute(attribute);
@@ -144,17 +157,12 @@ public class Builder {
         DBView view = product.getView(fullViewName);
         view.setViewName(fullViewName);
         view.setDefinition(query);
-        DBSchema dbschema = product.getSchema(table.getSchema().getFullName()); //get current schema
-        dbschema.addView(view); //add view to the schema model
-    }
-    
-    public void assemble(){
-        this.reset();
+        DBSchema dbschema = product.getSchema(table.getSchema().getFullName());
+        dbschema.addView(view); 
     }
 
 	public ModelProduct getProduct() {
 		return product;
 	}
-    
     
 }

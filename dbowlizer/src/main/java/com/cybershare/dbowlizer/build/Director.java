@@ -1,8 +1,26 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
 
 package com.cybershare.dbowlizer.build;
 
@@ -29,10 +47,6 @@ import schemacrawler.schemacrawler.SchemaCrawlerOptions;
 import schemacrawler.schemacrawler.SchemaInfoLevel;
 import schemacrawler.utility.SchemaCrawlerUtility;
 
-/**
- *
- * @author Luis Garnica <lagarnicachavira at miners.utep.edu>
- */
 public class Director {
     
     private Builder builder;
@@ -42,26 +56,20 @@ public class Director {
     }
     
     
-    /* Will start Database object from schemacrawler and send it
-    to the buildSchema Model */
-    
     public void construct(Connection dbSource, DriverSelector selector){
         // Create the options
         final SchemaCrawlerOptions options = new SchemaCrawlerOptions();
         //Hashmap to store Key=tableName, Value=Query for our views
         HashMap<String, String> queries = new HashMap<String, String>();
-        // Set what details are required in the schema - this affects the
-        // time taken to crawl the schema
         options.setSchemaInfoLevel(SchemaInfoLevel.detailed());
 
         options.setRoutineInclusionRule(new ExcludeAll());
 
-        // for postgres and mysql use lower case
+        //for postgres and mysql use lower case
         options.setSchemaInclusionRule(new RegularExpressionInclusionRule(selector.getSchema()));
 
         //Bundled Options
         InformationSchemaViews schemaViews = selector.mapSchemaInformation();
-        //VIEW_DEFINITION FROM INFORMATION_SCHEMA.VIEWS ORDER BY TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME");
 
         options.setInformationSchemaViews(schemaViews);
 
@@ -89,7 +97,6 @@ public class Director {
                 }
             }
             catch (SQLException ex){
-                // handle any errors
                 System.out.println("SQLException: " + ex.getMessage());
                 System.out.println("SQLState: "     + ex.getSQLState());
                 System.out.println("VendorError: "  + ex.getErrorCode());
@@ -114,7 +121,6 @@ public class Director {
         }
     }
     
-    /* build the schema datasets */
     private void buildSchemaModel(Database database, HashMap<String, String> queries){
         builder.buildAttributeDomains();
         builder.buildAttributeRestrictions();
@@ -122,6 +128,7 @@ public class Director {
             System.out.println();
             System.out.println("S--> " + schema);
             builder.buildSchema(schema);
+            // Relations (Tables)
             for (final Table table: database.getTables(schema)){
                 if (!(table instanceof View)){
                     System.out.println();
@@ -129,7 +136,7 @@ public class Director {
                     builder.buildRelation(table);
                 }
             }
-            // View Tables
+            // Views
             for (final Table table: database.getTables(schema)){
                 if (table instanceof View){
                     table.getName();

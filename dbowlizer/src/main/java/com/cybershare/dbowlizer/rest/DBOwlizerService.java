@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.rest;
 
 import java.io.File;
@@ -39,7 +63,6 @@ public class DBOwlizerService
         try {
 			Runtime.getRuntime().exec("chmod 777 " + "/var/www/vhosts/dbowlizer-output/"+ uuid.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
@@ -61,7 +84,6 @@ public class DBOwlizerService
 			settings.setPassword(dbsettings.get("password").toString());
 		}
         
-		
         //Call to dbowlizer with the settings as input
         Service.service(settings);
         
@@ -69,7 +91,6 @@ public class DBOwlizerService
         try {
 			Runtime.getRuntime().exec("chmod 777 -R " + "/var/www/vhosts/dbowlizer-output/"+ uuid.toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
@@ -88,8 +109,6 @@ public class DBOwlizerService
         }
         
         System.out.println(jsonOutput.toJSONString());
-        
-        
         String result = jsonOutput.toString();
         result = result.replaceAll("\\\\", "");
         return Response.status(200).entity(result).build();

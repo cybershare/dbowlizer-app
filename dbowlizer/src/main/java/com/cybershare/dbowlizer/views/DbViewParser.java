@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.views;
 
 import java.util.ArrayList;
@@ -23,8 +47,6 @@ public class DbViewParser {
 	public void parseViewName(String tableNameString)
 	{
 		new_view.setName(tableNameString.trim().replace( "`", "").replace( "'", "").replace( "\"", ""));
-		
-		
 		//#puts "\n=== VIEW " + new_view.name+" ==="
 	}
 
@@ -47,10 +69,7 @@ public class DbViewParser {
 		Matcher matcher = pattern.matcher(text);
 		// Check all occurrences
 		while (matcher.find()) {
-
-
 			return text.substring(matcher.start(), matcher.end());
-
 		}
 
 		return null;
@@ -61,10 +80,7 @@ public class DbViewParser {
 		Matcher matcher = pattern.matcher(text);
 		// Check all occurrences
 		while (matcher.find()) {
-
-
 			return text.substring(matcher.end());
-
 		}
 
 		return null;
@@ -90,11 +106,8 @@ public class DbViewParser {
 					String columnName = getCompleteMatchedText(att, "\\w+\\.\\w+.\\w+");
 					columnName = columnName.substring(0, columnName.indexOf(".")) + ":" + columnName.substring(columnName.indexOf(".") + 1);
 					
-					
 					//String columnAlias=("//#{$'}").trim().replace("AS","").trim();
 					String columnAlias=getTextAfterMatch(att, "\\w+\\.\\w+.\\w+").trim().replace("AS","").trim();
-					
-					
 					
 					DBAttributeAlias newAlias = new DBAttributeAlias(columnAlias, new_view, product);
 
@@ -151,14 +164,12 @@ public class DbViewParser {
 
 					}	
 
-					new_view.getColumn_alias().add(aggAlias);
-					//					
-				}
-				//				
+					new_view.getColumn_alias().add(aggAlias);				
+				}		
 			}
 		}
 	}
-	//	  
+  
 	public void parseFromStatement(String fromText)
 	{
 		fromText = fromText.trim();

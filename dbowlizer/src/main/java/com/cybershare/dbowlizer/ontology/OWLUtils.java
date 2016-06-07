@@ -1,8 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
 
 package com.cybershare.dbowlizer.ontology;
 
@@ -28,25 +46,18 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 
-/**
- *
- * @author Luis
- */
 public class OWLUtils {
     
 
    private Settings settings;
-    
    private OWLOntology ontology; 
    private OWLDataFactory factory;
    private OWLOntologyManager manager;
    private String baseIRI;
    private String importsOntology;
-   
    private File file;
    
-   
-    public OWLUtils(Settings settings) {
+   public OWLUtils(Settings settings) {
         this.settings = settings;    
               
         this.file = new File(settings.getOntologyFile()); 
@@ -73,16 +84,11 @@ public class OWLUtils {
     //Add a list of axioms into the ontology
     public void addAxioms(List<OWLAxiom> axioms){
         AddAxiom addAxiomChange;
-	for(OWLAxiom anAxiom : axioms){
-            addAxiomChange = new AddAxiom(ontology, anAxiom);
-	    manager.applyChange(addAxiomChange);
-	}
-     }
-   
-   
-   /*
-        name: dbschema.name + "-relational-model-individuals.owl"
-   */
+		for(OWLAxiom anAxiom : axioms){
+	            addAxiomChange = new AddAxiom(ontology, anAxiom);
+		    manager.applyChange(addAxiomChange);
+		}
+   }
    
    public void createNewOntology(String name){
    
@@ -165,5 +171,4 @@ public class OWLUtils {
         return this.manager;
     }
     
- 
 }

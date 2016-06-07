@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.generate;
 
 import java.util.Set;
@@ -83,14 +107,10 @@ public class ConceptRestrictionMappingHandler
 
 	private static void processMappings(Set<OWLNamedIndividual> conceptIndividuals, Reasoner mappingReasoner, OWLOntologyManager ontologyManager, OWLOntology db2OWLPrimitiveOntology, OWLOntology db2OWLComplexOntology, OWLDataFactory factory, OWLClass continuantCls, DefaultPrefixManager basePrefix, OWLObjectProperty min1Restriction, OWLObjectProperty max1Restriction, OWLObjectProperty exactly1Restriction, OWLObjectProperty existsSomeRestriction, OWLObjectProperty hasRangeMapping, OWLObjectProperty onlyFromRestriction, OWLObjectProperty subClassOfRestriction)
 	{
-		//VN:#To do: check that the min, max, and the rest of the restrictions check that the object is a property or class as required.
-
-
 		//#Min1 object property restriction.
 		for (OWLNamedIndividual currentIndividual : conceptIndividuals)
 		{
 			String iriStr = currentIndividual.getIRI().toString();
-			//TODO: Make sure this will not cause problems in the future
 			
 			String currentIndividualName = iriStr.replace(individualURI, "");
 			OWLClass owlClass = factory.getOWLClass(currentIndividualName,basePrefix);
@@ -157,7 +177,6 @@ public class ConceptRestrictionMappingHandler
 					iriStr = max1Obj.getIRI().toString();
 					String objectName = iriStr.replace(individualURI, "");
 
-					//#Checar que esta sea una object property, sino una data property y sino es ninguna de las 2, tal vez crearla.
 					String propertyType = getPropertyInPrimitive(objectName, db2OWLComplexOntology, factory, ontologyManager);
 					//#Check that the property is not a class.
 					OWLClass possibleClass = factory.getOWLClass(objectName,basePrefix);
@@ -282,7 +301,6 @@ public class ConceptRestrictionMappingHandler
 
 							//#Get reference to the object prop
 							OWLObjectProperty objectProp = factory.getOWLObjectProperty(getPropertyName(objectName),basePrefix);
-							//VN:# TO DO: Check that everything is working fine here, I added these lines to add the rante instead of thing in the restriction.
 							NodeSet<OWLNamedIndividual> rangeAxiomsSet = mappingReasoner.getObjectPropertyValues(someObj,hasRangeMapping);
 
 							Set<OWLNamedIndividual> rangeAxioms = rangeAxiomsSet.getFlattened(); 
@@ -429,7 +447,6 @@ public class ConceptRestrictionMappingHandler
 								//#Get reference to the data prop
 								OWLDataProperty dataProp = factory.getOWLDataProperty(getPropertyName(objectName),basePrefix);
 
-								//VN:#This will not be necessary since the range of the data property takes care of the all values from.
 								OWLDataAllValuesFrom onlyCardinality = factory.getOWLDataAllValuesFrom(dataProp,factory.getTopDatatype());
 								OWLSubClassOfAxiom restrictionAxiom = factory.getOWLSubClassOfAxiom(owlClass,onlyCardinality);
 
@@ -511,9 +528,8 @@ public class ConceptRestrictionMappingHandler
 		{
 			if (db2OWLPrimitiveOntology.containsDataPropertyInSignature(IRI.create(objectPropName)))
 			{
-				//TODO: Ask VN que pedo. The following line is not commented out in the original code
+				//TODO: The following line is not commented out in the original code
 				//OWLDataProperty dataProp = factory.getOWLDataProperty(getPropertyName(propertyName),basePrefix);
-
 				property = "dataProperty";
 			}
 			else
@@ -534,13 +550,8 @@ public class ConceptRestrictionMappingHandler
 				property = "dataProperty";
 			}
 		}
-
-
 		return property;
 
 	}
-
-
-
 
 }

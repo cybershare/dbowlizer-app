@@ -1,3 +1,26 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
 package com.cybershare.dbowlizer.db2rdf;
 
 import java.io.File;
@@ -40,31 +63,20 @@ public class R2rmlMapping{
 	private ObjectMap om;
 	
 	public R2rmlMapping(){	
-		
-	mm= new JenaR2RMLMappingManagerFactory().getR2RMLMappingManager();
-	mf= mm.getMappingFactory();
-	sm=mf.createSubjectMap(mf.createTemplate());
-	pm= mf.createPredicateMap(TermMapType.CONSTANT_VALUED,"");
-	om=mf.createObjectMap(TermMapType.COLUMN_VALUED, "");	
+		mm= new JenaR2RMLMappingManagerFactory().getR2RMLMappingManager();
+		mf= mm.getMappingFactory();
+		sm=mf.createSubjectMap(mf.createTemplate());
+		pm= mf.createPredicateMap(TermMapType.CONSTANT_VALUED,"");
+		om=mf.createObjectMap(TermMapType.COLUMN_VALUED, "");	
 	}
 	
-	
-	
-	
-	
 	public void startMapping(){
-		
-		
 	}
 	
 	public void generateOutSource(Table table){
 		LogicalTable lt = mf.createSQLBaseTableOrView(table.getName());
 		SubjectMap sm = mf.createSubjectMap(mf.createTemplate());
 		TriplesMap trip = mf.createTriplesMap(lt, sm);
-		
-		
-		
-		
 	}
 	
 	public void generateManager(Table table){
@@ -99,23 +111,11 @@ public class R2rmlMapping{
 		try {
 			this.saveTriple(trip);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}	
 	
 	
-//<#TriplesMap3>
-//rr:logicalTable [ rr:tableName "EMP2DEPT" ];
-//rr:subjectMap [ rr:template "http://data.example.com/employee={EMPNO}/department={DEPTNO}" ];
-//rr:predicateObjectMap [
- //   rr:predicate ex:employee;
- //   rr:objectMap [ rr:template "http://data.example.com/employee/{EMPNO}" ];
-//];
-//rr:predicateObjectMap [
-//    rr:predicate ex:department;
-//    rr:objectMap [ rr:template "http://data.example.com/department/{DEPTNO}" ];
-//].
 public TriplesMap generateM2M(OWLClass class1, Column column1, OWLClass class2, Column column2){
 	String str = class1.getIRI().toString();
 	LogicalTable lt = mf.createSQLBaseTableOrView(column1.getParent().getName());
@@ -141,11 +141,9 @@ public TriplesMap generateM2M(OWLClass class1, Column column1, OWLClass class2, 
 public TriplesMap generateClassDataTypeProperties(OWLClass class1, DBRelation relation){
 	LogicalTable lt=mf.createSQLBaseTableOrView(relation.getRelationName());
 	SubjectMap sm=mf.createSubjectMap(mf.createTemplate());
-	
 	sm.setTemplate(mf.createTemplate(class1.getIRI().toString()+"={"+relation.getPrimaryKey().getPrimaryKeyName()+"}"));
-	//for(final DBAttribute dbattribute: relation.getAttributes()){	}
 	TriplesMap trip= mf.createTriplesMap(lt,sm); 
-return trip; 	
+	return trip; 	
 }
 
 
@@ -226,8 +224,7 @@ public void saveTriple(TriplesMap trip) throws Exception{
 }
 
 
-
-	public String capitalizeFirstLetter(String original) {
+public String capitalizeFirstLetter(String original) {
 		if (original == null || original.length() == 0) {
 			return original;
 		}

@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.generate;
 
 import java.io.File;
@@ -40,7 +64,7 @@ public class OWLEntitiesBundle
 	
 	private OWLDataFactory factory;
 	
-	private Reasoner mappingReasoner;;
+	private Reasoner mappingReasoner;
 	
 	private String baseURI;
 	private String individualURI;
@@ -132,7 +156,7 @@ public class OWLEntitiesBundle
 			baseURI = propertiesManager.getString("baseURI") + "/";
 			
 			basePrefix = new DefaultPrefixManager(baseURI);
-            //TODO: get 0 is ugly
+            //TODO: other way to get the schema name
 			String dbSchemaName = product.getSchemas().get(0).getSchemaName();
 			individualURI = propertiesManager.getString("sourceURI") + dbSchemaName.trim().replace(" ",",") + ":";
 			//System.out.println(individualURI);
@@ -190,8 +214,6 @@ public class OWLEntitiesBundle
 				}
 			}
 			
-			
-			
 			//#Saving ontology in physical location
 			ontologyManager.saveOntology(db2OWLPrimitiveOntology);
 			//#Complex ontology will import primitive ontology.
@@ -213,21 +235,28 @@ public class OWLEntitiesBundle
 	}
 
 	private void readMethodologyMappingInstances() throws OWLOntologyCreationException {
-		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.original.properties");
+		ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 
 		//#This method will be changed when the inferences ontology is already in memory. It is not necessary.
 		IRI mappingOntologyWebURI = IRI.create(propertiesManager.getString("mappingOntologyWebURI"));
 		//#Testing the reading of the ontology plus inferences
 
 		//#This step can be replaced with the actual reading of the ontology methodology, the db individuals and using OWL and SWRL reasoners.
-		String filePath = propertiesManager.getString("mappingOntologyFile");
-		//#Testing the reading of the ontology and realizing it.
 		
+		String filePath = "";
+        if ( propertiesManager.getString("service").equals("off")){
+        	String filePathAbsolute = new File("").getAbsolutePath();
+        	filePath = filePathAbsolute + propertiesManager.getString("mappingOntologyFile");
+        }
+        else{
+        	filePath = propertiesManager.getString("mappingOntologyFile");
+        }
+        
+		//#Testing the reading of the ontology and realizing it.
 		File mapInferOntologyFile = new File(filePath);
 		File mapInferOntologyJavaFile= new File(mapInferOntologyFile.getPath());
 		IRI dbInferencesPhysicalURI = IRI.create(mapInferOntologyJavaFile);
 		
-		//#Code to load an ontology from a file	#localInferOntology=ontologyManager.loadOntologyFromOntologyDocument(mapInferOntologyJavaFile)
 		SimpleIRIMapper inferencesMapper = new SimpleIRIMapper(mappingOntologyWebURI,dbInferencesPhysicalURI);
 
 		ontologyManager.addIRIMapper(inferencesMapper);
@@ -235,7 +264,6 @@ public class OWLEntitiesBundle
  
 		OWLOntology dbInferencesOntology = ontologyManager.loadOntology(mapInferLogicalIRI);	
 		
-		//Aqui esta el truco
 		ontologyManager.addAxioms(dbInferencesOntology, relationalModelOntology.getAxioms());
 		
 		
@@ -243,7 +271,6 @@ public class OWLEntitiesBundle
 		conf.ignoreUnsupportedDatatypes=true; //by default is set to 'false'
 		mappingReasoner = new Reasoner(conf, dbInferencesOntology);
 		
-		//Aqui tambien
 		ReasonerManager.addAxiomsThroughReasoner(ontologyManager, dbInferencesOntology); 
 
 		File processedOntologyFile = new File(settings.getOutputDirFile().substring(settings.getOutputDirFile().indexOf('/')) + "/AfterReasonerPopulatedOntology.owl");

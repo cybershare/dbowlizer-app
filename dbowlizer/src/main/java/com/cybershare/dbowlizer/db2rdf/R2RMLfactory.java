@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.db2rdf;
 
 import java.io.File;
@@ -48,7 +72,6 @@ public class R2RMLfactory {
         saveAllTriplesMap();
     }
     
-    
     public void owlClassGenerator(){
         HashMap<OWLClass, String> owlClassToRelationNameMap =generator.getOwlClassToRelationNameMap();
         for(final OWLClass owlClass : owlClassToRelationNameMap.keySet()){
@@ -95,7 +118,6 @@ public class R2RMLfactory {
         tripsArray.add(new TriplesNode(trip, dbTable.getTableName()));
     }
     
-    //TODO need to do the correct TriplesMap for WorksFor and subproject
     public void owlObjectProperties(){
         ObjectPropertyTemplate opt=new ObjectPropertyTemplate(product,generator.getOwlClassToRelationNameMap());
         TriplesMap tripTemp;
@@ -125,7 +147,6 @@ public class R2RMLfactory {
             try {
                 saveTriplesMapInFile(tripsArray.get(i).getTriplesMap(),tripsArray.get(i).getNameOfTriplesMap());
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

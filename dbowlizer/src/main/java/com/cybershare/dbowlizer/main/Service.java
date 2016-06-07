@@ -1,3 +1,26 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
 
 package com.cybershare.dbowlizer.main;
 
@@ -30,51 +53,11 @@ import com.cybershare.dbowlizer.utils.DriverSelector;
 import com.cybershare.dbowlizer.utils.Settings;
 import com.cybershare.dbowlizer.views.DBSchema2Owl;
 
-/**
- *
- * @author Luis Garnica <lagarnicachavira at miners.utep.edu>
- */
+
 public class Service {
 
-    /**
-     * @param args the command line arguments
-     */
-	
-	public static void main(String[] args){
-		
-	    //Instantiate JSON Parser
-        JSONParser parser = new JSONParser();
-        Object obj = null;
-		String path = "C:/Users/Luis/Documents/Git Projects/dbowlizer-app/dbowlizer/src/main/java/com/cybershare/dbowlizer/json";
-		try {
-			obj = parser.parse(new FileReader(path +  "/test.json"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		JSONObject jsonInput =  (JSONObject)obj;
-		JSONObject dbsettings = (JSONObject)jsonInput.get("dbsettings");
-		if (dbsettings != null){
-			String driver = dbsettings.get("driver").toString();
-			String host = dbsettings.get("host").toString();
-			String port = dbsettings.get("port").toString();
-			String dbname = dbsettings.get("dbname").toString();
-			String user = dbsettings.get("user").toString();
-			String password = dbsettings.get("password").toString();
-		}
-
-	}
-    
     public static void service(Settings settings) {
         
-        	
     	/* Database Connector */
         DriverSelector selector = new DriverSelector(settings.getDriver());
         selector.setDataSource(settings.getHost(), settings.getPort(), settings.getDbname(), null);
@@ -122,7 +105,7 @@ public class Service {
         DBSchema2Owl dbSchema2Owl = new DBSchema2Owl(product, bundle);
         dbSchema2Owl.parseViewsAndCreateAxioms();
         
-        //dump resulting ontology
+        //dump relational-model ontology
         bundle.saveOntology();
         
         OutputOntologyGenerator oPOG = new OutputOntologyGenerator(bundle, product, settings);

@@ -1,3 +1,27 @@
+/*******************************************************************************
+ * ========================================================================
+ * DBOWLizer
+ * http://dbowlizer.cybershare.utep.edu
+ * Copyright (c) 2016, CyberShare Center of Excellence <cybershare@utep.edu>.
+ * All rights reserved.
+ * ------------------------------------------------------------------------
+ *   
+ *     This file is part of DBOWLizer
+ *
+ *     DBOWLizer is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     DBOWLizer is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with DBOWLizer.  If not, see <http://www.gnu.org/licenses/>.
+ *******************************************************************************/
+
 package com.cybershare.dbowlizer.generate;
 
 import java.util.ArrayList;
@@ -125,7 +149,6 @@ public class ViewsWithJoinsMappingHandler
         
 
 		//##Processing join views, only the join information is sent.
-
         NodeSet<OWLNamedIndividual> queryNodeSet = mappingReasoner.getInstances(dbQueryClass,false);
         for (OWLNamedIndividual joinView : joinViews)
         {
@@ -140,7 +163,6 @@ public class ViewsWithJoinsMappingHandler
         }
         
         //##Processing join projection views, information about join and aliases is sent.
-
         NodeSet<OWLNamedIndividual> joinProjectionViewsNodeSet = mappingReasoner.getInstances(dbJoinProjectionViewClass,false);
         Set<OWLNamedIndividual> joinProjectionViews = new HashSet<OWLNamedIndividual>();
 		if (joinProjectionViewsNodeSet != null)
@@ -167,7 +189,6 @@ public class ViewsWithJoinsMappingHandler
 		}
 
         //##Processing join selection views new!
-
         NodeSet<OWLNamedIndividual> joinSelectionViewsNodeSet = mappingReasoner.getInstances(dbJoinSelectionViewClass,false);
         Set<OWLNamedIndividual> joinSelectionViews = new HashSet<OWLNamedIndividual>();
 		if (joinSelectionViewsNodeSet != null)
@@ -490,7 +511,7 @@ public class ViewsWithJoinsMappingHandler
                         {
                         
 //                        individualsMapper.retrieveDbRecordsForJoin(currentOWLObjectProp,(hasPartAttribute[0].getIRI().toString()).replace(individualURI,""),(hasPartAttribute[1].getIRI().toString()).replace(individualURI,""),domainClassName,rangeClassName);
-//                            #puts "Processing the instances of the join "+currentOWLObjectProp.getIRI().toString()+ " with attributes "+(hasPartAttribute[0].getIRI().toString()).replace(individualURI,"")+" and "+(hasPartAttribute[1].getIRI().toString()).replace(individualURI,"")
+//                        #puts "Processing the instances of the join "+currentOWLObjectProp.getIRI().toString()+ " with attributes "+(hasPartAttribute[0].getIRI().toString()).replace(individualURI,"")+" and "+(hasPartAttribute[1].getIRI().toString()).replace(individualURI,"")
                         }
                         
                         //#Adding the restriction of aliases (if any) to joinClassDomain/joinClassDomain
