@@ -47,7 +47,7 @@ public class DBOwlizerService
         Settings settings = new Settings("/schema2owl.config.properties");
         settings.setOutputDir(settings.getOutputDir() + uuid.toString() + "/");
         settings.setOutputDirFile(settings.getOutputDirFile() + uuid.toString() + "/");
-        settings.setOntologyFile(settings.getOutputDir() + "relational-to-ontology-mapping-dbwolizer.owl");
+        settings.setOntologyFile(settings.getOutputDir() + "relational-to-ontology-mapping-output.owl");
         settings.setUuid(uuid.toString());
         
       //Parse input Json settings

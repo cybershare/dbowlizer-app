@@ -269,7 +269,7 @@ public class ViewsWithJoinsMappingHandler
                 joinDomainAndRange.put("joinClassRange",joinClassRange);
 
                 NodeSet<OWLNamedIndividual> hasRangeMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasRangeMappingOP);
-                System.out.println("Has Range Mapping Size: " + hasRangeMappingNodeSet.getFlattened().size());
+                //System.out.println("Has Range Mapping Size: " + hasRangeMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasRangeMapping = null;
                 if (hasRangeMappingNodeSet!=null)
                 {
@@ -278,7 +278,7 @@ public class ViewsWithJoinsMappingHandler
                 }
                 
                 NodeSet<OWLNamedIndividual> hasDomainMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasDomainMappingOP);
-                System.out.println("hasDomainMappingNodeSet Size: " + hasDomainMappingNodeSet.getFlattened().size());
+                //System.out.println("hasDomainMappingNodeSet Size: " + hasDomainMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasDomainMapping = null;
                 if (hasDomainMappingNodeSet != null)
                 {
@@ -288,7 +288,7 @@ public class ViewsWithJoinsMappingHandler
                 
                 
                 NodeSet<OWLNamedIndividual> hasPropertyMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasObjectPropertyMappingOP);
-                System.out.println("hasPropertyMappingNodeSet Size: " + hasPropertyMappingNodeSet.getFlattened().size());
+                //System.out.println("hasPropertyMappingNodeSet Size: " + hasPropertyMappingNodeSet.getFlattened().size());
                 OWLNamedIndividual[] hasPropertyMapping = null;
                 if (hasPropertyMappingNodeSet != null)
                 {
@@ -297,7 +297,7 @@ public class ViewsWithJoinsMappingHandler
                 }
                 
                 NodeSet<OWLNamedIndividual> hasSubClassOfRangeMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasSubClassOfRangeMappingOP);
-                System.out.println("hasSubClassOfRangeMappingNodeSet Size: " + hasSubClassOfRangeMappingNodeSet.getFlattened().size());
+                //System.out.println("hasSubClassOfRangeMappingNodeSet Size: " + hasSubClassOfRangeMappingNodeSet.getFlattened().size());
                 OWLNamedIndividualImpl[] hasSubClassOfRangeMapping = null;
                 if  (hasSubClassOfRangeMappingNodeSet != null)
                 {
@@ -306,7 +306,7 @@ public class ViewsWithJoinsMappingHandler
                 }
                 
                 NodeSet<OWLNamedIndividual> hasSubClassOfDomainMappingNodeSet = mappingReasoner.getObjectPropertyValues(join,hasSubClassOfDomainMappingOP);
-                System.out.println("hasSubClassOfDomainMappingNodeSet Size: " + hasSubClassOfDomainMappingNodeSet.getFlattened().size());
+                //System.out.println("hasSubClassOfDomainMappingNodeSet Size: " + hasSubClassOfDomainMappingNodeSet.getFlattened().size());
                 OWLNamedIndividualImpl[] hasSubClassOfDomainMapping = null;
                 if  (hasSubClassOfDomainMappingNodeSet != null)
                 {
@@ -314,12 +314,12 @@ public class ViewsWithJoinsMappingHandler
                 	hasSubClassOfDomainMapping = hasSubClassOfDomainMappingSet.toArray(new OWLNamedIndividualImpl[hasSubClassOfDomainMappingSet.size()]);
                 }
                 
-                System.out.println("Has Property Mapping: " + hasPropertyMapping + " length: " + hasPropertyMapping.length);
+                //System.out.println("Has Property Mapping: " + hasPropertyMapping + " length: " + hasPropertyMapping.length);
                 
                 if (hasPropertyMapping!=null && hasPropertyMapping.length==1)
                 {
                     OWLNamedIndividual attribute = hasPropertyMapping[0];
-                    System.out.println("This is what's missing:" + attribute.getIRI());
+                    //System.out.println("This is what's missing:" + attribute.getIRI());
                     //#To come here to the object name
                     String objectName = (view.getIRI().toString().replace(individualURI,""))+"_join_"+joinCounter+"_"+((attribute.getIRI().toString()).replace(individualURI,""));
                     

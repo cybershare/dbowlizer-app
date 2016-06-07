@@ -60,7 +60,7 @@ public class Settings {
       //Output file settings
       this.outputDir= resource.getStringValue("outputDir", null);
       this.outputDirFile= resource.getStringValue("outputDirFile", null);
-      this.ontologyFile = resource.getStringValue("OntologyFile", null);
+      this.ontologyFile = resource.getStringValue("outputDir", null) + "relational-to-ontology-mapping-output.owl";
       this.outputURL = resource.getStringValue("outputURL", null);
       
     }

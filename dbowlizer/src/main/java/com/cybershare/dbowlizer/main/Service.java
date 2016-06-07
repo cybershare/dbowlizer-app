@@ -28,6 +28,7 @@ import com.cybershare.dbowlizer.ontology.OWLUtils;
 import com.cybershare.dbowlizer.ontology.OWLVisitor;
 import com.cybershare.dbowlizer.utils.DriverSelector;
 import com.cybershare.dbowlizer.utils.Settings;
+import com.cybershare.dbowlizer.views.DBSchema2Owl;
 
 /**
  *
@@ -73,7 +74,8 @@ public class Service {
     
     public static void service(Settings settings) {
         
-        /* Database Connector */
+        	
+    	/* Database Connector */
         DriverSelector selector = new DriverSelector(settings.getDriver());
         selector.setDataSource(settings.getHost(), settings.getPort(), settings.getDbname(), null);
         final Connection connection = selector.getConnection(settings.getUser(), settings.getPassword());
@@ -86,7 +88,6 @@ public class Service {
         
         //setup the builder director
         Director director = new Director(builder);
-        
         
         //get the data source and pass to the director
         director.construct(connection, selector);
@@ -114,9 +115,12 @@ public class Service {
         for(DBCandidateKey candidatekey: product.getCandidateKeys())
             visitor.visit(candidatekey);
         
-        for(DBView view : product.getViews())
-            visitor.visit(view);
+        //TODO: Refactor view parsing to use the builder pattern
+        //for(DBView view : product.getViews())
+            //visitor.visit(view);
         
+        DBSchema2Owl dbSchema2Owl = new DBSchema2Owl(product, bundle);
+        dbSchema2Owl.parseViewsAndCreateAxioms();
         
         //dump resulting ontology
         bundle.saveOntology();

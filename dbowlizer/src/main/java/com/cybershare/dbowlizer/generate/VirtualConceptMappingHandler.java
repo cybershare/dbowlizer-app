@@ -104,8 +104,7 @@ public class VirtualConceptMappingHandler
 		dbAttributeAliasClass = owlEntitiesBundle.getDbAttributeAliasClass();
 				
 		OWLClass virtualConceptMappingClass = factory.getOWLClass(propertiesManager.getString("virtualConceptMapping"),basePrefix);
-        System.out.println("virtual concept mapping class: "+ virtualConceptMappingClass.getIRI());
-		
+        //System.out.println("virtual concept mapping class: "+ virtualConceptMappingClass.getIRI());
 		
 		//#Querying the reasoner to retrieve all instances of the class, direct.
 		NodeSet<OWLNamedIndividual> conceptIndividualsNodeSet = mappingReasoner.getInstances(virtualConceptMappingClass,false);

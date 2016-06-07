@@ -220,7 +220,6 @@ public class DbViewParser {
 					else
 					{
 						System.out.println("Warning: Column not found in WHERE statement: " + columnText);
-						
 					}
 				}
 				String remainingText = getTextAfterMatch(restText, "\\w+.\\w+.\\w+").trim();

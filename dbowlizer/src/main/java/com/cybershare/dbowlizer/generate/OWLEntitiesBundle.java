@@ -109,9 +109,13 @@ public class OWLEntitiesBundle
 		//#In this one we will first process the inferences of the methodology mapping file and then realize the ontology and leave it in memory. It will not call the following line.
         ExternalPropertiesManager propertiesManager = ExternalPropertiesManager.getInstance("/schema2owl.config.properties");
 
-        String filePath = new File("").getAbsolutePath();
-		createOntologyMappingWithMethodology(filePath + propertiesManager.getString("inferencesOntology"));
-	
+        if ( propertiesManager.getString("service").equals("off")){
+        	String filePath = new File("").getAbsolutePath();
+        	createOntologyMappingWithMethodology(filePath + propertiesManager.getString("inferencesOntology"));
+		}
+        else{
+        	createOntologyMappingWithMethodology(propertiesManager.getString("inferencesOntology"));
+        }
 	
 	}
 
@@ -136,19 +140,19 @@ public class OWLEntitiesBundle
 	                
                         
 			db2OWLMappingPrimitivePhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
-	                settings.addOntologyName(dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
+	        settings.addOntologyName(dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-primitive.owl");
 			SimpleIRIMapper outputPrimitiveMapper = new SimpleIRIMapper(db2OWLMappingPrimitiveLogicalURI,db2OWLMappingPrimitivePhysicalURI);
 	
 			ontologyManager.addIRIMapper(outputPrimitiveMapper);	
 			IRI db2OWLMappingComplexLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
 			db2OWLMappingComplexPhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
 			settings.addOntologyName(dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-complex.owl");
-                        SimpleIRIMapper outputComplexMapper = new SimpleIRIMapper(db2OWLMappingComplexLogicalURI,db2OWLMappingComplexPhysicalURI);
+            SimpleIRIMapper outputComplexMapper = new SimpleIRIMapper(db2OWLMappingComplexLogicalURI,db2OWLMappingComplexPhysicalURI);
 			ontologyManager.addIRIMapper(outputComplexMapper);
 	
 			IRI db2OWLMappedIndividualsLogicalURI = IRI.create(propertiesManager.getString("sourceURI")+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-individuals.owl");
 			IRI db2OWLMappedIndividualsPhysicalURI = IRI.create(settings.getOutputDirFile()+dbSchemaName+("-mapped-by-")+propertiesManager.getString("methodology")+"-individuals.owl");
-                        SimpleIRIMapper outputIndividualsMapper = new SimpleIRIMapper(db2OWLMappedIndividualsLogicalURI,db2OWLMappedIndividualsPhysicalURI);
+            SimpleIRIMapper outputIndividualsMapper = new SimpleIRIMapper(db2OWLMappedIndividualsLogicalURI,db2OWLMappedIndividualsPhysicalURI);
 			ontologyManager.addIRIMapper(outputIndividualsMapper);
 	
 			//# Interacting with OWL API to create the new ontology from the 	dbSchema received
@@ -156,9 +160,16 @@ public class OWLEntitiesBundle
 			db2OWLPrimitiveOntology = ontologyManager.createOntology(db2OWLMappingPrimitiveLogicalURI);
 			db2OWLComplexOntology = ontologyManager.createOntology(db2OWLMappingComplexLogicalURI);
 			
-			//Adding the PROV-O base stuff
-		    String filePathAbsolute = new File("").getAbsolutePath();
-			String filePath = filePathAbsolute + propertiesManager.getString("baseMappingOntology");
+			//Adding the PROV-O base ontology
+			String filePath= "";
+			if ( propertiesManager.getString("service").equals("off")){
+				String filePathAbsolute = new File("").getAbsolutePath();
+				filePath = filePathAbsolute + propertiesManager.getString("baseMappingOntology");
+			}
+			else{
+				filePath = propertiesManager.getString("baseMappingOntology");
+			}
+			
 			File baseOntologyFile = new File(filePath);
 			OWLOntology baseOntology = ontologyManager.loadOntologyFromOntologyDocument(baseOntologyFile);
 			List<OWLOntologyChange> changes = ontologyManager.addAxioms(db2OWLPrimitiveOntology, baseOntology.getAxioms());
