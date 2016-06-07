@@ -8,20 +8,32 @@ Requirements:
 + Java JDK 1.8 or above.  
 + Tomcat 8 or above. (If setting up as webservice)
 
-Configuration:
-
-
-
-
 
 ## Usage
 As Standalone Application:
++ Import Maven project into Eclipse.
++ Open the schema2owl.config.properties file located on src/main/resources.
++ Change the output path under the #Output Settings comment, make sure to have r/w permissions on the desired path.
++ Change the Default Database Settings to your own MySQL configuration.
++ Build the project with Maven.
++ Run as Java Application (Main class located on the com.cybershare.dbowlizer.main package).
+
+
+As Webservice Endpoint:
++ Change the service parameter at schema2owl.config.properties to "on".
++ Uncomment the webservice setting parameters and provide an absolute path as required.
++ Make sure to copy the local input ontologies to a directory with r/w access.
++ Change your outputURL according to your webserver settings pointing to the physical output path.
 
 
 DBOwlizer Webservice Endpoint:
+Our service endpoint can be accesed at http://visko.cybershare.utep.edu/dbowlizer-endpoint/
+The endpoint is currently configured to use our test case database (employees). We will soon enable the webservice to
+specify the database connection to MySQL databases with open external access.
 
 
 ## Testing
++ Our current test inputs and outputs can be consulted at our project website. 
 
 
 ## Contributing
@@ -39,20 +51,23 @@ Lead Developer: Diego Aguirre
 Assistant Developer: Erick Garcia
 Assistant Developer: Eric Camacho
 
+
 Contributors:
 Michel Dumontier
 Georgia Almodovar
 
+
 ## Future Work
 1. Improve parsing mechanism for extracted view queries.
-2. Code Documentation (JavaDoc Release).
-3. Interfacing Web Service with open external database connections E.G. GoDaddy.
-4. Extending to PostgreSQL and Oracle database managers.
+2. Interfacing Web Service with open external database connections E.G. GoDaddy.
+3. Extending to PostgreSQL and Oracle database managers.
+4. Code refactoring to improve maintainability and code readability.
+5. Code Documentation (JavaDoc Release).
 
 
 ## License
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 
+
 ## Project Website
  >> http://dbowlizer.cybershare.utep.edu
-
