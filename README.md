@@ -73,3 +73,5 @@ This work used resources from Cyber-ShARE Center of Excellence, which is support
 
 ## Project Website
 + http://dbowlizer.cybershare.utep.edu
+
+[![DOI](https://zenodo.org/badge/22285/cybershare/dbowlizer-app.svg)](https://zenodo.org/badge/latestdoi/22285/cybershare/dbowlizer-app)
