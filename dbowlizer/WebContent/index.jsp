@@ -6,6 +6,7 @@
 <body>
 <p>You have accessed the <a href="//dbowlizer.cybershare.utep.edu">DBOwlizer Project</a> demo endpoint service.</p>
 <p>This demo webservice is deployed into Tomcat 8 and uses a sample database (employees) loaded on MySQL 5.6</p>
+<p style="color:red"><b>Note: Running the database test case requires about 2 minutes to process, thank you for your patience.</b></p>	
 	<form id="dbowl" name="dbowl" method="post" action="./rest/">
 		<textarea readonly="readonly" name="dbowlspec" id="dbowlspec" cols="100" rows="25">
 {
@@ -22,5 +23,10 @@
 		<br>
 		<input type="submit" name="button" id="button" value="Run DBOwlizer" />
 	</form>
+	
+	<div id="results">
+	
+	</div>
+	
 </body>
 </html>
