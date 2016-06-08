@@ -6,7 +6,7 @@
 <body>
 <p>You have accessed the <a href="//dbowlizer.cybershare.utep.edu">DBOwlizer Project</a> demo endpoint service.</p>
 <p>This demo webservice is deployed into Tomcat 8 and uses a sample database (employees) loaded on MySQL 5.6</p>
-	<form id="dbowl" name="dbowl" method="post" action="./rest/">
+	<form id="dbowl" name="dbowl" onsubmit="false">
 		<textarea readonly="readonly" name="dbowlspec" id="dbowlspec" cols="100" rows="25">
 {
   "dbsettings": {
@@ -20,7 +20,11 @@
 }
 		</textarea>
 		<br>
-		<input type="submit" name="button" id="button" value="Run DBOwlizer" />
+		<input type="button" name="button" id="button" value="Run DBOwlizer" onclick="resultLinks();"/>
+    <div id="result">
+    </div>
+    <script type="text/javascript" src="dbowlizerCall.js"></script>
+    <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
 	</form>
 </body>
 </html>

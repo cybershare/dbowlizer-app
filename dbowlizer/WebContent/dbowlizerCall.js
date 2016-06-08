@@ -1,0 +1,14 @@
+		function resultLinks(){
+
+			var jsonObj = $.parseJSON('{"Mapping-Link-9":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Dependent.ttl","Mapping-Link-8":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Employee.ttl","Mapping-Link-10":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Outsourceproject.ttl","Mapping-Link-5":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Outsourceworkers.ttl","Mapping-Link-13":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Subproject.subproject.ttl","Mapping-Link-4":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Job.ttl","Mapping-Link-7":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_City.ttl","Mapping-Link-11":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Temporalassignment.ttl","Mapping-Link-6":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Project.ttl","Mapping-Link-12":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Subproject.project.ttl","Ontology-Link-1":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/employees-mapped-by-dbowlizer-primitive.owl","Ontology-Link-2":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/employees-mapped-by-dbowlizer-complex.owl","Ontology-Link-0":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/relational-to-ontology-mapping-dbwolizer.owl","Mapping-Link-1":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Department.ttl","Mapping-Link-0":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Users.ttl","Mapping-Link-3":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Projectjobemployee.ttl","Mapping-Link-2":"http://visko.cybershare.utep.edu/dbowlizer-output/2f2ce733-45b6-42f5-ba0e-944d09a0101c/TriplesMap_Contract.ttl"}');
+			var html = '<table border="1">';
+			$.each(jsonObj, function(key, value){
+				
+				html += '<tr>';
+				html += '<td>' + '<a href='+value+'>'+value+'</a>' + '</td>';
+				html += '</tr>';
+			});
+			html += '</table>';
+
+			$('#result').html(html);
+		};
