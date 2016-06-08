@@ -36,10 +36,6 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.util.InferredAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
-import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
-import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
-
-
 public class ReasonerManager {
 
 	public static void addAxiomsThroughReasoner(OWLOntologyManager manager, OWLOntology ontology)
