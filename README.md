@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/22285/cybershare/dbowlizer-app.svg)](https://zenodo.org/badge/latestdoi/22285/cybershare/dbowlizer-app)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
 # DBOwlizer Project
 DBOwlizer is a tool that automatically generates ontologies from relational databases. DBOWLizer allows a user to: i) automatically represent the database schema of a relational database using the relational-model-ontology, ii) represent heuristics to map relational database elements to ontology terms using the relational-to-ontology-mapping ontology, iii) generate an OWL ontology based on the structure of a relational database schema (including views) and said heuristics, and iv) generate R2RML mappings from the relational database schema to the extracted ontology.
